@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "956439741642",
+    "firebase_url": "https://deadline-67bf2.firebaseio.com",
+    "project_id": "deadline-67bf2",
+    "storage_bucket": "deadline-67bf2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956439741642:android:441043f530006f3b",
+        "android_client_info": {
+          "package_name": "com.example.leon.deadline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956439741642-2pign3tiluf3g5bm25003hd2r1r9fdhl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.leon.deadline",
+            "certificate_hash": "def59fe87f5d84b8405a4e773c2b56df1a61e5a2"
+          }
+        },
+        {
+          "client_id": "956439741642-ge9e6cstqfrpjbolgpkj2bjd7o3eqj6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaY1zbaD4PJUZKnI6Bqa9MYzdlTNXnmFE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "956439741642-ge9e6cstqfrpjbolgpkj2bjd7o3eqj6f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
