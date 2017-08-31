@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Deadline</string>
     <string name="auth_failed">Authentication failed</string>
+    <string name="auth_succ">Authentication successful</string>
 </resources>

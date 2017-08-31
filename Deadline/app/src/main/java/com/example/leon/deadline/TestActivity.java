@@ -124,6 +124,10 @@ public class TestActivity extends AppCompatActivity{
                         {
                             Toast.makeText(TestActivity.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
                         }
+                        else
+                        {
+                            Toast.makeText(TestActivity.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
 
@@ -142,6 +146,10 @@ public class TestActivity extends AppCompatActivity{
                 {
                     Log.w(TestActivity.class.getSimpleName(),"signInWithEmail:failed", task.getException());
                     Toast.makeText(TestActivity.this, R.string.auth_failed,Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(TestActivity.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
                 }
 
                 user = FirebaseAuth.getInstance().getCurrentUser();
