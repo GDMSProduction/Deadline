@@ -35,13 +35,6 @@
             android:label="@string/title_activity_splash_screen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".UserSettings"
-            android:label="@string/title_activity_user_settings"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" />
-        <activity
             android:name=".MemberActivity"
             android:label="@string/title_activity_member"
             android:theme="@style/AppTheme.NoActionBar" />
