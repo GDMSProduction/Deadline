@@ -32,7 +32,7 @@
         android:layout_marginBottom="29dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/finalizeCreate"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
@@ -60,7 +60,7 @@
         android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/finalizeCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="81dp"
