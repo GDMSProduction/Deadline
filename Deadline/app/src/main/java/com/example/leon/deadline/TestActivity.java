@@ -1,5 +1,6 @@
 package com.example.leon.deadline;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,7 @@ public class TestActivity extends AppCompatActivity{
     private Button create;
     private Button signIn;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -65,13 +67,15 @@ public class TestActivity extends AppCompatActivity{
                                       @Override
                                       public void onClick(View v)
                                       {
-                                          eEmail = (EditText) findViewById(R.id.email);
+                                          /*eEmail = (EditText) findViewById(R.id.email);
                                           ePass = (EditText) findViewById(R.id.password);
 
                                           email = eEmail.getText().toString();
                                           pass = ePass.getText().toString();
 
-                                          createAccount(email,pass);
+                                          createAccount(email,pass);*/
+                                          Intent intent = new Intent(TestActivity.this, CreateAccount.class);
+                                          startActivity(intent);
                                       }
                                   }
         );
@@ -82,13 +86,15 @@ public class TestActivity extends AppCompatActivity{
                                       @Override
                                       public void onClick(View v)
                                       {
-                                          eEmail = (EditText) findViewById(R.id.email);
+                                          /*eEmail = (EditText) findViewById(R.id.email);
                                           ePass = (EditText) findViewById(R.id.password);
 
                                           email = eEmail.getText().toString();
                                           pass = ePass.getText().toString();
 
-                                          signIn(email,pass);
+                                          signIn(email,pass);*/
+                                          Intent intent = new Intent(TestActivity.this, HomeScreen.class);
+                                          startActivity(intent);
                                       }
                                   }
         );

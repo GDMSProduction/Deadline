@@ -9,13 +9,70 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestActivity"
-            android:label = "@string/app_name">
+        <activity
+            android:name=".TestActivity"
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".HomeScreen"
+            android:label="@string/title_activity_home_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateAccount"
+            android:label="@string/title_activity_create_account"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ProjectCreationScreen"
+            android:label="@string/title_activity_project_creation_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/title_activity_splash_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserSettings"
+            android:label="@string/title_activity_user_settings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".MemberActivity"
+            android:label="@string/title_activity_member"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Projects"
+            android:label="@string/title_activity_projects"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Tasks"
+            android:label="@string/title_activity_tasks"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateTask"
+            android:label="@string/title_activity_create_task"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditProject"
+            android:label="@string/title_activity_edit_project"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateEditRoles"
+            android:label="@string/title_activity_create_edit_roles"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Deadlines"
+            android:label="@string/title_activity_deadlines"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateCompany"
+            android:label="@string/title_activity_create_company"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
