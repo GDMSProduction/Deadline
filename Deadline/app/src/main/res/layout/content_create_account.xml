@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_create_account">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/password1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
@@ -41,7 +41,7 @@
         android:layout_marginEnd="8dp" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/email1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -49,7 +49,7 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/password1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.888"
         android:layout_marginLeft="8dp"
@@ -82,7 +82,7 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintBottom_toTopOf="@+id/email1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.781"
         android:layout_marginLeft="8dp"
