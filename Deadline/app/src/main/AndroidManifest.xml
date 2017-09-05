@@ -69,10 +69,6 @@
             android:name=".Deadlines"
             android:label="@string/title_activity_deadlines"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".CreateCompany"
-            android:label="@string/title_activity_create_company"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
