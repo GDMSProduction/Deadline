@@ -6,9 +6,6 @@
     <string name="title_activity_create_account">Create Account</string>
     <string name="title_activity_project_creation_screen">Create New Project</string>
     <string name="title_activity_splash_screen">Splash Screen</string>
-    <string name="title_activity_user_settings">Settings</string>
-    <string name="title_activity_settings">Settings</string>
-
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
@@ -87,5 +84,4 @@
     <string name="title_activity_edit_project">Edit Project</string>
     <string name="title_activity_create_edit_roles">Create/Edit Roles</string>
     <string name="title_activity_deadlines">Deadlines</string>
-    <string name="title_activity_create_company">Create Company</string>
 </resources>
