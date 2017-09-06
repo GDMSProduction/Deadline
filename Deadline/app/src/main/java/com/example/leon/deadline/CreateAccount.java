@@ -28,6 +28,8 @@ public class CreateAccount extends AppCompatActivity {
 
     private EditText ePass;
     private EditText eEmail;
+    private EditText eName;
+    private EditText eConf;
 
     private String pass;
     private String email;
@@ -67,17 +69,38 @@ public class CreateAccount extends AppCompatActivity {
                                       {
                                           eEmail = (EditText) findViewById(R.id.email1);
                                           ePass = (EditText) findViewById(R.id.password1);
+                                          eName = (EditText) findViewById(R.id.accName);
+                                          eConf = (EditText) findViewById(R.id.passConf);
 
-                                          email = eEmail.getText().toString();
-                                          pass = ePass.getText().toString();
-                                          /*TODO
-                                          * check if any fields are blank
-                                          * check if password and confirmation password are the same
-                                          * */
-                                          createAccount(email,pass);
+                                          if(!eName.getText().toString().equals("")
+                                                  &&!eEmail.getText().toString().equals("")
+                                                  && !ePass.getText().toString().equals("")
+                                                  && !eConf.getText().toString().equals(""))
+                                          {
+                                              if(ePass.getText().toString().equals(eConf.getText().toString()))
+                                              {
+                                                  email = eEmail.getText().toString();
+                                                  pass = ePass.getText().toString();
+                                                  /*TODO
+                                                  * check if any fields are blank
+                                                  * check if password and confirmation password are the same
+                                                  * */
+                                                  createAccount(email,pass);
 
-                                          Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
-                                          startActivity(intent);
+                                                  Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
+                                                  startActivity(intent);
+                                              }
+                                              else
+                                              {
+                                                  Toast.makeText(CreateAccount.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                                              }
+
+                                          }
+                                          else
+                                          {
+                                              Toast.makeText(CreateAccount.this,"Please fill out the entire document",Toast.LENGTH_SHORT).show();
+                                          }
+
                                       }
                                   }
         );

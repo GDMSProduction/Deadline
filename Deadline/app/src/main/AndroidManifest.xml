@@ -11,26 +11,31 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".TestActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait">
 
         </activity>
         <activity
             android:name=".HomeScreen"
             android:label="@string/title_activity_home_screen"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".CreateAccount"
             android:label="@string/title_activity_create_account"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ProjectCreationScreen"
             android:label="@string/title_activity_project_creation_screen"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait"/>
 
         <activity
             android:name=".SplashScreen"
             android:label="@string/title_activity_splash_screen"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,31 +46,38 @@
         <activity
             android:name=".MemberActivity"
             android:label="@string/title_activity_member"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".Projects"
             android:label="@string/title_activity_projects"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait"/>
         <activity
             android:name=".Tasks"
             android:label="@string/title_activity_tasks"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".CreateTask"
             android:label="@string/title_activity_create_task"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".EditProject"
             android:label="@string/title_activity_edit_project"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".CreateEditRoles"
             android:label="@string/title_activity_create_edit_roles"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait"/>
         <activity
             android:name=".Deadlines"
             android:label="@string/title_activity_deadlines"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="sensorPortrait" />
     </application>
 
 </manifest>
