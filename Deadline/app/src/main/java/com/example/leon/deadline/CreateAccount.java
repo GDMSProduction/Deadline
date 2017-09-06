@@ -72,7 +72,7 @@ public class CreateAccount extends AppCompatActivity {
                                           pass = ePass.getText().toString();
                                           /*TODO
                                           * check if any fields are blank
-                                          * check if password and confimation password are the same
+                                          * check if password and confirmation password are the same
                                           * */
                                           createAccount(email,pass);
 
