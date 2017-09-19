@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class TestActivity extends AppCompatActivity{
+public class Login extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -38,7 +37,7 @@ public class TestActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener()
@@ -49,11 +48,11 @@ public class TestActivity extends AppCompatActivity{
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if(user != null)
                 {
-                    Log.d(TestActivity.class.getSimpleName(), "onAuthStateChanged:signed_in" + user.getUid());
+                    Log.d(Login.class.getSimpleName(), "onAuthStateChanged:signed_in" + user.getUid());
                 }
                 else
                 {
-                    Log.d(TestActivity.class.getSimpleName(), "onAuthStateChanged:signed_out");
+                    Log.d(Login.class.getSimpleName(), "onAuthStateChanged:signed_out");
                 }
             }
 
@@ -74,7 +73,7 @@ public class TestActivity extends AppCompatActivity{
                                           pass = ePass.getText().toString();
 
                                           createAccount(email,pass);*/
-                                          Intent intent = new Intent(TestActivity.this, CreateAccount.class);
+                                          Intent intent = new Intent(Login.this, CreateAccount.class);
                                           startActivity(intent);
                                       }
                                   }
@@ -93,7 +92,7 @@ public class TestActivity extends AppCompatActivity{
                                           pass = ePass.getText().toString();
 
                                           signIn(email,pass);*/
-                                          Intent intent = new Intent(TestActivity.this, HomeScreen.class);
+                                          Intent intent = new Intent(Login.this, HomeScreen.class);
                                           startActivity(intent);
                                       }
                                   }
@@ -124,15 +123,15 @@ public class TestActivity extends AppCompatActivity{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task)
                     {
-                        Log.d(TestActivity.class.getSimpleName(), "createUserWithEmail:onComplete:" + task.isSuccessful());
+                        Log.d(Login.class.getSimpleName(), "createUserWithEmail:onComplete:" + task.isSuccessful());
 
                         if(!task.isSuccessful())
                         {
-                            Toast.makeText(TestActivity.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
                         }
                         else
                         {
-                            Toast.makeText(TestActivity.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -146,16 +145,16 @@ public class TestActivity extends AppCompatActivity{
             @Override
             public void onComplete(@NonNull Task<AuthResult> task)
             {
-                Log.d(TestActivity.class.getSimpleName(), "signInWithEmail:onComplete:" + task.isSuccessful());
+                Log.d(Login.class.getSimpleName(), "signInWithEmail:onComplete:" + task.isSuccessful());
 
                 if(!task.isSuccessful())
                 {
-                    Log.w(TestActivity.class.getSimpleName(),"signInWithEmail:failed", task.getException());
-                    Toast.makeText(TestActivity.this, R.string.auth_failed,Toast.LENGTH_SHORT).show();
+                    Log.w(Login.class.getSimpleName(),"signInWithEmail:failed", task.getException());
+                    Toast.makeText(Login.this, R.string.auth_failed,Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Toast.makeText(TestActivity.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
                 }
 
                 user = FirebaseAuth.getInstance().getCurrentUser();

@@ -3,11 +3,8 @@ package com.example.leon.deadline;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -25,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(SplashScreen.this,TestActivity.class);
+                Intent intent = new Intent(SplashScreen.this,Login.class);
                 SplashScreen.this.startActivity(intent);
                 SplashScreen.this.finish();
             }
