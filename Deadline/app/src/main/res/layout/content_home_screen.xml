@@ -8,4 +8,18 @@
     tools:context="com.example.leon.deadline.HomeScreen"
     tools:showIn="@layout/activity_home_screen">
 
+    <TextView
+        android:id="@+id/empty_Prompt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="67dp"
+        android:text="If no projects appear here, you are not in any active projects. Press the plus sign to create one."
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 </android.support.constraint.ConstraintLayout>
