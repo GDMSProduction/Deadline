@@ -18,7 +18,7 @@
             android:baselineAligned="false">
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/Home_Button"
                 android:layout_width="28sp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/fab_margin"
@@ -26,7 +26,7 @@
                 android:backgroundTint="@color/common_google_signin_btn_text_dark_default" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/Current_Activity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
@@ -37,7 +37,7 @@
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/Options_Button"
                 android:layout_width="28sp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/fab_margin"

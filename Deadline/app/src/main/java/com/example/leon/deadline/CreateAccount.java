@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class CreateAccount extends AppCompatActivity {
 
     private Button create1;
+    private Button Butt_Home;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser user;
@@ -60,6 +61,15 @@ public class CreateAccount extends AppCompatActivity {
 
 
         };
+
+        Butt_Home = (Button) findViewById(R.id.Home_Button);
+        Butt_Home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
 
         create1 = (Button) findViewById(R.id.finalizeCreate);
         create1.setOnClickListener(new View.OnClickListener()
