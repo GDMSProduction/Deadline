@@ -14,12 +14,16 @@ public class CUser implements Serializable{
 
     private String m_szName;
     private String m_szEmail;
-    private String m_szPassword;
     private String m_szPhone;
     private String m_szBio;
 
     private List<CProject> m_ProjectList = new ArrayList<>();
 
+    public CUser(String _name, String _email)
+    {
+        m_szName = _name;
+        m_szEmail = _email;
+    }
 
     // Name Get + Set
     public String getName() {return m_szName;}
@@ -28,10 +32,6 @@ public class CUser implements Serializable{
     // Email Get + Set
     public String getEmail() {return m_szEmail;}
     public void setEmail(String szEmail) {m_szEmail = szEmail;}
-
-    // Password Get + Set
-    public String getPassword() {return m_szPassword;}
-    public void setPassword(String szPassword) {m_szPassword = szPassword;}
 
     // Phone Get + Set
     public String getPhone() {return m_szPhone;}
