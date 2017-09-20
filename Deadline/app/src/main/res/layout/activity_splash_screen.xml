@@ -16,25 +16,4 @@
     <include layout="@layout/content_splash_screen"
         android:id="@+id/include4" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:weightSum="1"
-        android:baselineAligned="false"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="331dp"
-            android:layout_height="118dp"
-            android:layout_marginBottom="225dp"
-            android:layout_marginLeft="125dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="225dp"
-            android:text="DeadLine"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:textSize="75sp" />
-    </LinearLayout>
-
 </android.support.design.widget.CoordinatorLayout>
