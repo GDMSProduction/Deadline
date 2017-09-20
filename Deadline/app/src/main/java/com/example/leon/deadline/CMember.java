@@ -8,5 +8,8 @@ import java.io.Serializable;
 
 public class CMember extends CUser implements Serializable {
 
-
+    public CMember(String name, String email )
+    {
+        super(name, email);
+    }
 }

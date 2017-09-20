@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -31,6 +33,7 @@ public class CreateAccount extends AppCompatActivity {
     private EditText eName;
     private EditText eConf;
 
+    private String name;
     private String pass;
     private String email;
     @Override
@@ -81,11 +84,12 @@ public class CreateAccount extends AppCompatActivity {
                                               {
                                                   email = eEmail.getText().toString();
                                                   pass = ePass.getText().toString();
+                                                  name = eName.getText().toString();
                                                   /*TODO
                                                   * check if any fields are blank
                                                   * check if password and confirmation password are the same
                                                   * */
-                                                  createAccount(email,pass);
+                                                  createAccount(name,email,pass);
 
                                                   Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
                                                   startActivity(intent);
@@ -123,7 +127,7 @@ public class CreateAccount extends AppCompatActivity {
         }
     }
 
-    public void createAccount(String email, String pass)
+    public void createAccount(String name, String email, String pass)
     {
         mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
         {
@@ -142,7 +146,14 @@ public class CreateAccount extends AppCompatActivity {
                 }
             }
         });
+        CUser temp = new CUser(name, email);
 
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
+        String key = ref.push().getKey();
+        ref.child(name).setValue(temp);
+        //ref.setValue(temp);
     };
+
+
 
 }
