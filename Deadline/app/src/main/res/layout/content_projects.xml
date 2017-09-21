@@ -8,6 +8,21 @@
     tools:context="com.example.leon.deadline.Projects"
     tools:showIn="@layout/activity_projects">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="67dp"
+        android:text="If no tasks appear here, you are not in any active tasks. Press the button to create one."
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/TaskCreate11"
         android:layout_width="wrap_content"

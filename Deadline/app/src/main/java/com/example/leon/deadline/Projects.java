@@ -12,6 +12,8 @@ import android.widget.Button;
 public class Projects extends AppCompatActivity {
 
     public FloatingActionButton createTask123;
+    private Button Butt_Home;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,14 @@ public class Projects extends AppCompatActivity {
             }
         });
 
+        Butt_Home = (Button) findViewById(R.id.Home_Button);
+        Butt_Home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Projects.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
