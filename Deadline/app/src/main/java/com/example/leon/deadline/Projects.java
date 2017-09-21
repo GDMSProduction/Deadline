@@ -42,4 +42,11 @@ public class Projects extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(Projects.this, HomeScreen.class);
+        startActivity(intent);
+    }
+
 }

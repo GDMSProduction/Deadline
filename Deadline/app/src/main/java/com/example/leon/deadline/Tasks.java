@@ -9,6 +9,8 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 
+import com.google.android.gms.tasks.Task;
+
 public class Tasks extends AppCompatActivity {
 
     private Button Butt_Home;
@@ -28,6 +30,13 @@ public class Tasks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(Tasks.this, Projects.class);
+        startActivity(intent);
     }
 
 }
