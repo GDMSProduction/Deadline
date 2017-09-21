@@ -21,7 +21,7 @@ public class CreateTask extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        taskCreateButton = (Button) findViewById(R.id.finalizeTask);
+        taskCreateButton = (Button) findViewById(R.id.taskCreate);
         taskCreateButton.setOnClickListener(new View.OnClickListener()
         {
 
