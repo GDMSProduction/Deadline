@@ -14,6 +14,8 @@ public class HomeScreen extends AppCompatActivity {
 
     private CUser tempUser;
 
+    private String tempHoldName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +23,16 @@ public class HomeScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tempUser = (CUser) getIntent().getSerializableExtra("TempUser");
+        try {
+            tempUser = new CUser((CUser) getIntent().getSerializableExtra("TempUser"));
+            tempHoldName = tempUser.getName();
+        } catch (Exception e) {
+            //e.printStackTrace();
+        }
+
 
         TextView text = (TextView) findViewById(R.id.TempUserInfo);
-        text.setText("Welcome, " + tempUser.getName());
+        text.setText("Welcome, " + tempHoldName);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newProject);
         fab.setOnClickListener(new View.OnClickListener() {

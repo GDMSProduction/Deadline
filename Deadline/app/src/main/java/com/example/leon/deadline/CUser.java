@@ -17,6 +17,13 @@ public class CUser implements Serializable{
     private String m_szPhone;
     private String m_szBio;
 
+    public CUser(CUser tempUser) {
+        m_szName = tempUser.getName();
+        m_szEmail = tempUser.getEmail();
+        m_szPhone = tempUser.getPhone();
+        m_szBio = tempUser.getBio();
+    }
+
     private List<CProject> m_ProjectList = new ArrayList<>();
 
     public CUser(String _name, String _email)
