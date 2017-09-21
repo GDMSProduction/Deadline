@@ -8,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class HomeScreen extends AppCompatActivity {
+
+    private CUser tempUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +20,11 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        tempUser = (CUser) getIntent().getSerializableExtra("TempUser");
+
+        TextView text = (TextView) findViewById(R.id.TempUserInfo);
+        text.setText("Welcome, " + tempUser.getName());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newProject);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -28,6 +36,8 @@ public class HomeScreen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     @Override

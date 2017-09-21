@@ -36,6 +36,9 @@ public class CreateAccount extends AppCompatActivity {
     private String name;
     private String pass;
     private String email;
+
+    private CUser tempUser = new CUser("name", "email");
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -91,7 +94,11 @@ public class CreateAccount extends AppCompatActivity {
                                                   * */
                                                   createAccount(name,email,pass);
 
+                                                  tempUser.setName(name);
+                                                  tempUser.setEmail((email));
+
                                                   Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
+                                                  intent.putExtra("TempUser", tempUser);
                                                   startActivity(intent);
                                               }
                                               else
