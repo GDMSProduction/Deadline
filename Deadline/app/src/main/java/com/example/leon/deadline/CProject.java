@@ -17,7 +17,6 @@ public class CProject implements Serializable {
     private List<CUser> m_MemberList = new ArrayList<>();
     private List<CTask> m_TaskList = new ArrayList<>();
 
-
     public String           GetName()           {return m_szName;}
     public Date             GetDeadline()       {return m_Deadline;}
     public boolean          isPrivate()         {return m_bPrivate;}
@@ -25,4 +24,55 @@ public class CProject implements Serializable {
     public int              GetTaskListSize()   {return m_TaskList.size();}
     public CTask            GetTask(int nTask)  {return m_TaskList.get(nTask);}
 
+    public CProject() {
+
+    }
+
+    public String getM_szName() {
+        return m_szName;
+    }
+
+    public void setM_szName(String m_szName) {
+        this.m_szName = m_szName;
+    }
+
+    public String getM_szSummary() {
+        return m_szSummary;
+    }
+
+    public void setM_szSummary(String m_szSummary) {
+        this.m_szSummary = m_szSummary;
+    }
+
+    public Date getM_Deadline() {
+        return m_Deadline;
+    }
+
+    public void setM_Deadline(Date m_Deadline) {
+        this.m_Deadline = m_Deadline;
+    }
+
+    public boolean isM_bPrivate() {
+        return m_bPrivate;
+    }
+
+    public void setM_bPrivate(boolean m_bPrivate) {
+        this.m_bPrivate = m_bPrivate;
+    }
+
+    public List<CUser> getM_MemberList() {
+        return m_MemberList;
+    }
+
+    public void setM_MemberList(List<CUser> m_MemberList) {
+        this.m_MemberList = m_MemberList;
+    }
+
+    public List<CTask> getM_TaskList() {
+        return m_TaskList;
+    }
+
+    public void setM_TaskList(List<CTask> m_TaskList) {
+        this.m_TaskList = m_TaskList;
+    }
 }

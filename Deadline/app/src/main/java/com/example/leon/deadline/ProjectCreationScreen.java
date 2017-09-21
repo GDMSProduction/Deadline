@@ -14,6 +14,7 @@ public class ProjectCreationScreen extends AppCompatActivity {
 
     private Button projCreateButton;
     private Button Butt_Home;
+    private CProject tempProject = new CProject();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class ProjectCreationScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
+                intent.putExtra("TempProj", tempProject);
                 startActivity(intent);
             }
         });

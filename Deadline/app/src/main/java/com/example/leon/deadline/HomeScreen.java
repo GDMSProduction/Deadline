@@ -13,7 +13,6 @@ import android.widget.TextView;
 public class HomeScreen extends AppCompatActivity {
 
     private CUser tempUser;
-
     private String tempHoldName;
 
     @Override
@@ -29,7 +28,6 @@ public class HomeScreen extends AppCompatActivity {
         } catch (Exception e) {
             //e.printStackTrace();
         }
-
 
         TextView text = (TextView) findViewById(R.id.TempUserInfo);
         text.setText("Welcome, " + tempHoldName);
