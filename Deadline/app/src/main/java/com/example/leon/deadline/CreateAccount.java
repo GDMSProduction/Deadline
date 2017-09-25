@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -54,7 +55,7 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
             {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
+                /*FirebaseUser*/ user = firebaseAuth.getCurrentUser();
                 if(user != null)
                 {
                     Log.d(CreateAccount.class.getSimpleName(), "onAuthStateChanged:signed_in" + user.getUid());
@@ -65,8 +66,9 @@ public class CreateAccount extends AppCompatActivity {
                 }
             }
 
-
         };
+
+        /*TODO*/user = mAuth.getCurrentUser();
 
         create1 = (Button) findViewById(R.id.finalizeCreate);
         create1.setOnClickListener(new View.OnClickListener()
