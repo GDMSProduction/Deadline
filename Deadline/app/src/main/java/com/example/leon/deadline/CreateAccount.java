@@ -14,10 +14,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -53,7 +55,7 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
             {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
+                /*FirebaseUser*/ user = firebaseAuth.getCurrentUser();
                 if(user != null)
                 {
                     Log.d(CreateAccount.class.getSimpleName(), "onAuthStateChanged:signed_in" + user.getUid());
@@ -64,8 +66,9 @@ public class CreateAccount extends AppCompatActivity {
                 }
             }
 
-
         };
+
+        /*TODO*/user = mAuth.getCurrentUser();
 
         create1 = (Button) findViewById(R.id.finalizeCreate);
         create1.setOnClickListener(new View.OnClickListener()
@@ -88,18 +91,20 @@ public class CreateAccount extends AppCompatActivity {
                                                   email = eEmail.getText().toString();
                                                   pass = ePass.getText().toString();
                                                   name = eName.getText().toString();
-                                                  /*TODO
+                                                  /*TODO 1
                                                   * check if any fields are blank
                                                   * check if password and confirmation password are the same
                                                   * */
-                                                  createAccount(name,email,pass);
+                                                  createAccount(name, email, pass);
+
 
                                                   tempUser.setName(name);
                                                   tempUser.setEmail((email));
 
-                                                  Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
-                                                  intent.putExtra("TempUser", tempUser);
-                                                  startActivity(intent);
+                                                  //Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
+                                                  //intent.putExtra("TempUser", tempUser);
+                                                  //startActivity(intent);
+
                                               }
                                               else
                                               {
@@ -134,31 +139,39 @@ public class CreateAccount extends AppCompatActivity {
         }
     }
 
-    public void createAccount(String name, String email, String pass)
+    /*TODO 2 - BUG 1:
+    Button must be clicked a second time after a successful result. For some
+    reason the onCompleteListener gets called after the if check instead of before.
+    FIXED: moved the user creation code and the intent switching into the else statement.
+    */
+    public void createAccount(final String name, final String email, String pass)
     {
-        mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
-        {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task)
-            {
-                Log.d(CreateAccount.class.getSimpleName(), "createUserWithEmail:onComplete:" + task.isSuccessful());
 
-                if(!task.isSuccessful())
-                {
-                    Toast.makeText(CreateAccount.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(CreateAccount.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        CUser temp = new CUser(name, email);
+         mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+             @Override
+             public void onComplete(@NonNull Task<AuthResult> task) {
+                 Log.d(CreateAccount.class.getSimpleName(), "createUserWithEmail:onComplete:" + task.isSuccessful());
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
-        String key = ref.push().getKey();
-        ref.child(name).setValue(temp);
-        //ref.setValue(temp);
+                 if (!task.isSuccessful()) {
+                     Toast.makeText(CreateAccount.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
+                 } else {
+                     Toast.makeText(CreateAccount.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
+
+                     CUser temp = new CUser(name, email);
+                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
+                     String key = ref.push().getKey();
+                     ref.child(name).setValue(temp);
+                     //ref.setValue(temp);
+
+                     Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
+                     startActivity(intent);
+                 }
+             }
+         });
+
+
+
+
     };
 
 

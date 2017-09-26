@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private FirebaseUser user;
+    //private FirebaseUser user;
 
     private EditText ePass;
     private EditText eEmail;
@@ -58,13 +58,7 @@ public class Login extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
                                       @Override
                                       public void onClick(View v) {
-                                          /*eEmail = (EditText) findViewById(R.id.email);
-                                          ePass = (EditText) findViewById(R.id.password);
 
-                                          email = eEmail.getText().toString();
-                                          pass = ePass.getText().toString();
-
-                                          createAccount(email,pass);*/
                                           Intent intent = new Intent(Login.this, CreateAccount.class);
                                           startActivity(intent);
                                       }
@@ -76,10 +70,25 @@ public class Login extends AppCompatActivity {
                                       @Override
                                       public void onClick(View v) {
                                           eEmail = (EditText) findViewById(R.id.email);
+                                      public void onClick(View v)
+                                      {
+                                          eEmail = (EditText) findViewById(R.id.email);
                                           ePass = (EditText) findViewById(R.id.password);
 
-                                          email = eEmail.getText().toString();
-                                          pass = ePass.getText().toString();
+                                          if(!eEmail.getText().toString().equals("")
+                                                  && !ePass.getText().toString().equals(""))
+                                          {
+                                              email = eEmail.getText().toString();
+                                              pass = ePass.getText().toString();
+
+                                              signIn(email,pass);
+                                          }
+                                          else
+                                          {
+                                              Toast.makeText(Login.this, "Please fill out both fields", Toast.LENGTH_SHORT).show();
+                                          }
+
+
 
                                           //signIn(email,pass);
                                           Intent intent = new Intent(Login.this, HomeScreen.class);
@@ -133,8 +142,21 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(Login.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(Login.this, HomeScreen.class);
+                    //intent.putExtra("TempUser", user.getDisplayName());
+                    startActivity(intent);
                 }
 
+                //user = FirebaseAuth.getInstance().getCurrentUser();
+                //if(user != null)
+                //{
+                //    String name = user.getDisplayName();
+                //    String email = user.getEmail();
+                //    Uri photoUrl = user.getPhotoUrl();
+//
+                //    String uid = user.getUid();
+                //}
                 user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null) {
                     String name = user.getDisplayName();
