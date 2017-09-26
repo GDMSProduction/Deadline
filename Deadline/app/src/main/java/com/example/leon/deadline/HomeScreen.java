@@ -13,7 +13,8 @@ import android.widget.TextView;
 public class HomeScreen extends AppCompatActivity {
 
     private CUser tempUser;
-    private String tempHoldName;
+    private static String tempHoldName;
+    private static String tempHoldEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,18 @@ public class HomeScreen extends AppCompatActivity {
         } catch (Exception e) {
             //e.printStackTrace();
         }
+        try {
+            if (null != getIntent().getStringExtra("TempEmail"))
+                tempHoldEmail = getIntent().getStringExtra("TempEmail");
+        } catch (Exception e) {
+            //e.printStackTrace();
+        }
 
         TextView text = (TextView) findViewById(R.id.TempUserInfo);
         text.setText("Welcome, " + tempHoldName);
+        if (null == tempHoldName) {
+            text.setText("Welcome, " + tempHoldEmail);
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newProject);
         fab.setOnClickListener(new View.OnClickListener() {
