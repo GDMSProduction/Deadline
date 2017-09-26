@@ -63,12 +63,12 @@ public class HomeScreen extends AppCompatActivity {
         }
 
         //TODO - fix displaying of name
-        String test = "Welcome, " + user.getEmail();
-        TextView text = (TextView) findViewById(R.id.TempUserInfo);
-        text.setText(test);
-        if (null == tempHoldName) {
-            text.setText("Welcome, " + tempHoldEmail);
-        }
+        //String test = "Welcome, " + user.getEmail();
+        //TextView text = (TextView) findViewById(R.id.TempUserInfo);
+        //text.setText(test);
+        //if (null == tempHoldName) {
+        //    text.setText("Welcome, " + tempHoldEmail);
+        //}
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newProject);
         fab.setOnClickListener(new View.OnClickListener() {

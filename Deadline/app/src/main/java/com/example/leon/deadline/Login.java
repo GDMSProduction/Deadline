@@ -70,9 +70,6 @@ public class Login extends AppCompatActivity {
                                       @Override
                                       public void onClick(View v) {
                                           eEmail = (EditText) findViewById(R.id.email);
-                                      public void onClick(View v)
-                                      {
-                                          eEmail = (EditText) findViewById(R.id.email);
                                           ePass = (EditText) findViewById(R.id.password);
 
                                           if(!eEmail.getText().toString().equals("")
@@ -157,14 +154,6 @@ public class Login extends AppCompatActivity {
 //
                 //    String uid = user.getUid();
                 //}
-                user = FirebaseAuth.getInstance().getCurrentUser();
-                if (user != null) {
-                    String name = user.getDisplayName();
-                    String email = user.getEmail();
-                    Uri photoUrl = user.getPhotoUrl();
-
-                    String uid = user.getUid();
-                }
             }
         });
     }
