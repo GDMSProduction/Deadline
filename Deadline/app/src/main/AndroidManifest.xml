@@ -24,7 +24,7 @@
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ProjectCreationScreen"
+            android:name=".CreateProject"
             android:label="@string/title_activity_project_creation_screen"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -65,13 +65,8 @@
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CreateEditRoles"
+            android:name=".CreateRoles"
             android:label="@string/title_activity_create_edit_roles"
-            android:screenOrientation="sensorPortrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Deadlines"
-            android:label="@string/title_activity_deadlines"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
