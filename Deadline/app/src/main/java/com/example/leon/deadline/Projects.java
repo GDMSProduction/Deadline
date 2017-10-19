@@ -8,27 +8,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class Projects extends AppCompatActivity {
 
     public FloatingActionButton createTask123;
     private Button Butt_Home;
-    private static String tempHoldProjName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects);
+<<<<<<< HEAD
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> b8fa916634ac663204313142166276ba5faac0c8
 
         if (null != getIntent().getStringExtra("TempProjName"))
             tempHoldProjName = getIntent().getStringExtra("TempProjName");
         ((TextView) findViewById(R.id.Current_Activity)).setText(tempHoldProjName);
+>>>>>>> parent of b8fa916... Organization and renaming
 
         createTask123 = (FloatingActionButton) findViewById(R.id.TaskCreate11);
-        createTask123.setOnClickListener(new View.OnClickListener() {
+        createTask123.setOnClickListener(new View.OnClickListener()
+        {
 
             @Override
             public void onClick(View v) {
@@ -48,7 +53,8 @@ public class Projects extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         Intent intent = new Intent(Projects.this, HomeScreen.class);
         startActivity(intent);
     }

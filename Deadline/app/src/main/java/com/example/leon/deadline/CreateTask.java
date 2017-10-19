@@ -8,20 +8,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class CreateTask extends AppCompatActivity {
 
     private Button taskCreateButton;
     private Button Butt_Home;
-    private String tempTaskName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_task);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         taskCreateButton = (Button) findViewById(R.id.taskCreate);
         taskCreateButton.setOnClickListener(new View.OnClickListener()
@@ -29,9 +25,7 @@ public class CreateTask extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                tempTaskName = ((EditText) findViewById(R.id.taskName)).getText().toString();
                 Intent intent = new Intent(CreateTask.this, Tasks.class);
-                intent.putExtra("TempTaskName", tempTaskName);
                 startActivity(intent);
             }
         });

@@ -46,8 +46,6 @@ public class CreateAccount extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener()
@@ -97,7 +95,6 @@ public class CreateAccount extends AppCompatActivity {
                                                   * */
                                                   createAccount(name, email, pass);
 
-
                                                   tempUser.setName(name);
                                                   tempUser.setEmail((email));
 
@@ -144,7 +141,7 @@ public class CreateAccount extends AppCompatActivity {
     reason the onCompleteListener gets called after the if check instead of before.
     FIXED: moved the user creation code and the intent switching into the else statement.
     */
-    public void createAccount(final String name, final String email, String pass)
+    public void createAccount(final String name, final String email,final String pass)
     {
 
          mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -163,17 +160,16 @@ public class CreateAccount extends AppCompatActivity {
                      ref.child(name).setValue(temp);
                      //ref.setValue(temp);
 
+                     UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
+                     user.updateProfile(profileUpdates);
+
+
                      Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
+                     intent.putExtra("email",email);
+                     intent.putExtra("pass",pass);
                      startActivity(intent);
                  }
              }
          });
-
-
-
-
     };
-
-
-
 }

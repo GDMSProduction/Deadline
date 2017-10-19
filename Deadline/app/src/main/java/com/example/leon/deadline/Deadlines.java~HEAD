@@ -16,8 +16,13 @@ public class Deadlines extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
 <<<<<<< HEAD:Deadline/app/src/main/java/com/example/leon/deadline/EditJob.java:Deadline/app/src/main/java/com/example/leon/deadline/EditJob.java
         setContentView(R.layout.activity_edit_job);
+=======
+<<<<<<< HEAD:Deadline/app/src/main/java/com/example/leon/deadline/EditTask.java:Deadline/app/src/main/java/com/example/leon/deadline/EditTask.java
+        setContentView(R.layout.activity_edit_task);
+>>>>>>> 7acf32bc9716c996de80ea9c370b11a60dcccf7f
 =======
         setContentView(R.layout.activity_deadlines);
 >>>>>>> parent of b8fa916... Organization and renaming:Deadline/app/src/main/java/com/example/leon/deadline/Deadlines.java:Deadline/app/src/main/java/com/example/leon/deadline/Deadlines.java

@@ -84,4 +84,6 @@
     <string name="title_activity_edit_project">Edit Project</string>
     <string name="title_activity_create_edit_roles">Create/Edit Roles</string>
     <string name="title_activity_deadlines">Deadlines</string>
+    <string name="title_activity_edit_task">EditTask</string>
+    <string name="title_activity_edit_job">EditJob</string>
 </resources>
