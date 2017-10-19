@@ -19,10 +19,13 @@ public class Tasks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
+<<<<<<< HEAD
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> b8fa916634ac663204313142166276ba5faac0c8
 
         tempHoldTaskName = getIntent().getStringExtra("TempTaskName");
         ((TextView) findViewById(R.id.Current_Activity)).setText(tempHoldTaskName);

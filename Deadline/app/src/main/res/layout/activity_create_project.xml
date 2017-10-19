@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.leon.deadline.CreateEditRoles">
+    tools:context="com.example.leon.deadline.CreateProject">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -26,12 +26,12 @@
                 android:backgroundTint="@color/common_google_signin_btn_text_dark_default" />
 
             <TextView
-                android:id="@+id/Create_Edit_Roles"
+                android:id="@+id/Current_Activity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
                 android:layout_weight="1"
-                android:text="Create/Edit Roles"
+                android:text="Create Project"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="24sp" />
@@ -48,6 +48,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_create_edit_roles" />
+    <include layout="@layout/content_project_creation_screen" />
 
 </android.support.design.widget.CoordinatorLayout>

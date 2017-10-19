@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.leon.deadline.ProjectCreationScreen">
+    tools:context="com.example.leon.deadline.CreateRoles">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
                 android:layout_weight="1"
-                android:text="Create Project"
+                android:text="Create Roles"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="24sp" />
@@ -48,6 +48,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_project_creation_screen" />
+    <include layout="@layout/content_create_edit_roles" />
 
 </android.support.design.widget.CoordinatorLayout>

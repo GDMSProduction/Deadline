@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.leon.deadline.CreateAccount">
+    tools:context="com.example.leon.deadline.EditJob">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,20 +17,37 @@
             android:layout_weight="1"
             android:baselineAligned="false">
 
+            <Button
+                android:id="@+id/Home_Button"
+                android:layout_width="28sp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/fab_margin"
+                android:background="@drawable/ic_home_black_24dp"
+                android:backgroundTint="@color/common_google_signin_btn_text_dark_default" />
+
             <TextView
                 android:id="@+id/Current_Activity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
                 android:layout_weight="1"
-                android:text="Create Account"
+                android:text="Edit Job"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="24sp" />
 
+            <Button
+                android:id="@+id/Options_Button"
+                android:layout_width="28sp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/fab_margin"
+                android:background="@drawable/ic_dehaze_black_24dp"
+                android:backgroundTint="@color/common_google_signin_btn_text_dark_default" />
+
         </LinearLayout>
+
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_create_account" />
+    <include layout="@layout/content_edit_job" />
 
 </android.support.design.widget.CoordinatorLayout>
