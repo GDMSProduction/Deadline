@@ -18,18 +18,8 @@ public class Projects extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects);
-<<<<<<< HEAD
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b8fa916634ac663204313142166276ba5faac0c8
-
-        if (null != getIntent().getStringExtra("TempProjName"))
-            tempHoldProjName = getIntent().getStringExtra("TempProjName");
-        ((TextView) findViewById(R.id.Current_Activity)).setText(tempHoldProjName);
->>>>>>> parent of b8fa916... Organization and renaming
 
         createTask123 = (FloatingActionButton) findViewById(R.id.TaskCreate11);
         createTask123.setOnClickListener(new View.OnClickListener()

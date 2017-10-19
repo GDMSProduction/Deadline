@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.leon.deadline.EditJob"
-    tools:showIn="@layout/activity_edit_job">
+    tools:context="com.example.leon.deadline.Deadlines"
+    tools:showIn="@layout/activity_deadlines">
 
 </android.support.constraint.ConstraintLayout>

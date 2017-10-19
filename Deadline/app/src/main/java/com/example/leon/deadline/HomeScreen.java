@@ -4,19 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-<<<<<<< HEAD
 import android.widget.Button;
 import android.widget.TextView;
-<<<<<<< HEAD
 import android.widget.Toast;
-=======
->>>>>>> parent of b8fa916... Organization and renaming
-=======
->>>>>>> b8fa916634ac663204313142166276ba5faac0c8
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,6 +39,8 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -95,27 +92,9 @@ public class HomeScreen extends AppCompatActivity {
             e.printStackTrace();
         }
         //TODO - fix displaying of name
-<<<<<<< HEAD
-<<<<<<< HEAD
-        String test = "Welcome, " + user.getEmail();
-        TextView text = (TextView) findViewById(R.id.TempUserInfo);
-        text.setText(test);
-        if (null == tempHoldName) {
-            text.setText("Welcome, " + tempHoldEmail);
-        }
-=======
-        //String test = "Welcome, " + user.getEmail();
-        //TextView text = (TextView) findViewById(R.id.TempUserInfo);
-        //text.setText(test);
-        //if (null == tempHoldName) {
-        //    text.setText("Welcome, " + tempHoldEmail);
-        //}
->>>>>>> parent of b8fa916... Organization and renaming
-=======
         String test = "Welcome, " + user.getDisplayName();
         TextView text = (TextView) findViewById(R.id.TempUserInfo);
         text.setText(test);
->>>>>>> 7acf32bc9716c996de80ea9c370b11a60dcccf7f
 
         mDataBase = FirebaseDatabase.getInstance().getReference("user").child(user.getDisplayName()).child("projectListSize");
 
@@ -139,27 +118,7 @@ public class HomeScreen extends AppCompatActivity {
             TextView emptyText = (TextView) findViewById(R.id.empty_Prompt);
             emptyText.setText(blah);
         }
-=======
-        //String test = "Welcome, " + user.getEmail();
-        //TextView text = (TextView) findViewById(R.id.TempUserInfo);
-        //text.setText(test);
-        //if (null == tempHoldName) {
-        //    text.setText("Welcome, " + tempHoldEmail);
-        //}
->>>>>>> 4d0b31668fb6a10f1501babe54214725ab4f47a8
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        //TODO - fix displaying of name
-        //String test = "Welcome, " + user.getEmail();
-        //TextView text = (TextView) findViewById(R.id.TempUserInfo);
-        //text.setText(test);
-        //if (null == tempHoldName) {
-        //    text.setText("Welcome, " + tempHoldEmail);
-        //}
-
->>>>>>> parent of b8fa916... Organization and renaming
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newProject);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,13 +131,8 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> parent of b8fa916... Organization and renaming
-=======
->>>>>>> b8fa916634ac663204313142166276ba5faac0c8
     }
 
     @Override

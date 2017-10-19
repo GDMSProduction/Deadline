@@ -18,6 +18,8 @@ public class CreateTask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_task);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         taskCreateButton = (Button) findViewById(R.id.taskCreate);
         taskCreateButton.setOnClickListener(new View.OnClickListener()

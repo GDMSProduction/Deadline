@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.leon.deadline.CreateRoles"
-    tools:showIn="@layout/activity_create_roles">
+    tools:context="com.example.leon.deadline.CreateEditRoles"
+    tools:showIn="@layout/activity_create_edit_roles">
 
 </android.support.constraint.ConstraintLayout>

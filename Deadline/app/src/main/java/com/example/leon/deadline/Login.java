@@ -77,10 +77,8 @@ public class Login extends AppCompatActivity{
         signIn.setOnClickListener(new View.OnClickListener()
                                   {
                                       @Override
-<<<<<<< HEAD
                                       public void onClick(View v)
                                       {
-                                      public void onClick(View v) {
                                           eEmail = (EditText) findViewById(R.id.email);
                                           ePass = (EditText) findViewById(R.id.password);
 
@@ -152,16 +150,6 @@ public class Login extends AppCompatActivity{
                         startActivity(intent);
                     }
                 }
-
-                //user = FirebaseAuth.getInstance().getCurrentUser();
-                //if(user != null)
-                //{
-                //    String name = user.getDisplayName();
-                //    String email = user.getEmail();
-                //    Uri photoUrl = user.getPhotoUrl();
-//
-                //    String uid = user.getUid();
-                //}
             }
         });
     }

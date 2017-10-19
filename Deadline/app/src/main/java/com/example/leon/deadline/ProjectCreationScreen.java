@@ -2,20 +2,15 @@ package com.example.leon.deadline;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-<<<<<<< HEAD:Deadline/app/src/main/java/com/example/leon/deadline/ProjectCreationScreen.java
 import android.content.Intent;
-<<<<<<< HEAD:Deadline/app/src/main/java/com/example/leon/deadline/ProjectCreationScreen.java
-=======
-=======
->>>>>>> b8fa916634ac663204313142166276ba5faac0c8:Deadline/app/src/main/java/com/example/leon/deadline/CreateProject.java
-import android.widget.EditText;
->>>>>>> parent of b8fa916... Organization and renaming:Deadline/app/src/main/java/com/example/leon/deadline/ProjectCreationScreen.java
 
-public class CreateProject extends AppCompatActivity {
+public class ProjectCreationScreen extends AppCompatActivity {
 
     private Button projCreateButton;
     private Button Butt_Home;
@@ -24,7 +19,9 @@ public class CreateProject extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_project);
+        setContentView(R.layout.activity_project_creation_screen);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         projCreateButton = (Button) findViewById(R.id.projCreate);
         projCreateButton.setOnClickListener(new View.OnClickListener()
@@ -32,14 +29,8 @@ public class CreateProject extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD:Deadline/app/src/main/java/com/example/leon/deadline/ProjectCreationScreen.java
                 Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
                 intent.putExtra("TempProj", tempProject);
-=======
-                tempProjName = ((EditText) findViewById(R.id.projName)).getText().toString();
-                Intent intent = new Intent(CreateProject.this, Projects.class);
-                intent.putExtra("TempProjName", tempProjName);
->>>>>>> parent of b8fa916... Organization and renaming:Deadline/app/src/main/java/com/example/leon/deadline/ProjectCreationScreen.java
                 startActivity(intent);
             }
         });
@@ -48,7 +39,7 @@ public class CreateProject extends AppCompatActivity {
         Butt_Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateProject.this, HomeScreen.class);
+                Intent intent = new Intent(ProjectCreationScreen.this, HomeScreen.class);
                 startActivity(intent);
             }
         });
