@@ -17,11 +17,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    //private FirebaseUser user;
+    private FirebaseUser user;
 
     private EditText ePass;
     private EditText eEmail;
@@ -32,20 +32,26 @@ public class Login extends AppCompatActivity {
     private Button create;
     private Button signIn;
 
-
+    
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        mAuthListener = new FirebaseAuth.AuthStateListener()
+        {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+            {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
+                if(user != null)
+                {
                     Log.d(Login.class.getSimpleName(), "onAuthStateChanged:signed_in" + user.getUid());
-                } else {
+                }
+                else
+                {
                     Log.d(Login.class.getSimpleName(), "onAuthStateChanged:signed_out");
                 }
             }
@@ -55,9 +61,11 @@ public class Login extends AppCompatActivity {
 
 
         create = (Button) findViewById(R.id.create_acc);
-        create.setOnClickListener(new View.OnClickListener() {
+        create.setOnClickListener(new View.OnClickListener()
+                                  {
                                       @Override
-                                      public void onClick(View v) {
+                                      public void onClick(View v)
+                                      {
 
                                           Intent intent = new Intent(Login.this, CreateAccount.class);
                                           startActivity(intent);
@@ -66,10 +74,9 @@ public class Login extends AppCompatActivity {
         );
 
         signIn = (Button) findViewById(R.id.sign_in);
-        signIn.setOnClickListener(new View.OnClickListener() {
+        signIn.setOnClickListener(new View.OnClickListener()
+                                  {
                                       @Override
-                                      public void onClick(View v) {
-                                          eEmail = (EditText) findViewById(R.id.email);
                                       public void onClick(View v)
                                       {
                                           eEmail = (EditText) findViewById(R.id.email);
@@ -90,80 +97,58 @@ public class Login extends AppCompatActivity {
 
 
 
-                                          //signIn(email,pass);
-                                          Intent intent = new Intent(Login.this, HomeScreen.class);
-                                          intent.putExtra("TempEmail", email);
-                                          startActivity(intent);
                                       }
                                   }
         );
     }
 
     @Override
-    public void onStart() {
+    public void onStart()
+    {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
-    public void onStop() {
+    public void onStop()
+    {
         super.onStop();
-        if (mAuthListener != null) {
+        if(mAuthListener != null)
+        {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
 
-    public void createAccount(String email, String pass) {
-        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+    public void signIn(String email, String pass)
+    {
+
+        mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
+        {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                Log.d(Login.class.getSimpleName(), "createUserWithEmail:onComplete:" + task.isSuccessful());
-
-                if (!task.isSuccessful()) {
-                    Toast.makeText(Login.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(Login.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-    }
-
-    ;
-
-    public void signIn(String email, String pass) {
-        mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(@NonNull Task<AuthResult> task)
+            {
                 Log.d(Login.class.getSimpleName(), "signInWithEmail:onComplete:" + task.isSuccessful());
 
-                if (!task.isSuccessful()) {
-                    Log.w(Login.class.getSimpleName(), "signInWithEmail:failed", task.getException());
-                    Toast.makeText(Login.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(Login.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(Login.this, HomeScreen.class);
-                    //intent.putExtra("TempUser", user.getDisplayName());
-                    startActivity(intent);
+                if(!task.isSuccessful())
+                {
+                    Log.w(Login.class.getSimpleName(),"signInWithEmail:failed", task.getException());
+                    Toast.makeText(Login.this, R.string.auth_failed,Toast.LENGTH_SHORT).show();
                 }
-
-                //user = FirebaseAuth.getInstance().getCurrentUser();
-                //if(user != null)
-                //{
-                //    String name = user.getDisplayName();
-                //    String email = user.getEmail();
-                //    Uri photoUrl = user.getPhotoUrl();
-//
-                //    String uid = user.getUid();
-                //}
-                user = FirebaseAuth.getInstance().getCurrentUser();
-                if (user != null) {
-                    String name = user.getDisplayName();
-                    String email = user.getEmail();
-                    Uri photoUrl = user.getPhotoUrl();
-
-                    String uid = user.getUid();
+                else
+                {
+                    //Toast.makeText(Login.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
+                    user = mAuth.getCurrentUser();
+                    if(!user.isEmailVerified())
+                    {
+                        mAuth.signOut();
+                        Toast.makeText(Login.this,"Please Verify your email", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Intent intent = new Intent(Login.this, HomeScreen.class);
+                        //intent.putExtra("TempUser", user.getDisplayName());
+                        startActivity(intent);
+                    }
                 }
             }
         });

@@ -11,19 +11,28 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HomeScreen extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser user;
+    private DatabaseReference mDataBase;
+    int projectSize;
 
     private CUser tempUser;
-    private static String tempHoldName;
-    private static String tempHoldEmail;
+    private String tempHoldName;
 
 
     @Override
@@ -47,6 +56,27 @@ public class HomeScreen extends AppCompatActivity {
             }
         };
         user = mAuth.getCurrentUser();
+
+        if(user.getDisplayName() == null)
+        {
+            mAuth.signInWithEmailAndPassword(getIntent().getStringExtra("email"),getIntent().getStringExtra("pass"));
+            user = mAuth.getCurrentUser();
+        }
+        if(!user.isEmailVerified())
+        {
+            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>()
+            {
+                @Override
+                public void onComplete(@NonNull Task<Void> task)
+                {
+                    if(task.isSuccessful())
+                    {
+                        Log.d(CreateAccount.class.getSimpleName(),"Verification Email sent");
+                    }
+                }
+            });
+        }
+
 /*
         try {
             tempUser = new CUser((CUser) getIntent().getSerializableExtra("TempUser"));
@@ -55,19 +85,38 @@ public class HomeScreen extends AppCompatActivity {
             //e.printStackTrace();
         }
 */
-        try {
-            if (null != getIntent().getStringExtra("TempEmail"))
-                tempHoldEmail = getIntent().getStringExtra("TempEmail");
-        } catch (Exception e) {
-            //e.printStackTrace();
+        try{
+            Thread.sleep(1000);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
         }
-
         //TODO - fix displaying of name
-        String test = "Welcome, " + user.getEmail();
+        String test = "Welcome, " + user.getDisplayName();
         TextView text = (TextView) findViewById(R.id.TempUserInfo);
         text.setText(test);
-        if (null == tempHoldName) {
-            text.setText("Welcome, " + tempHoldEmail);
+
+        mDataBase = FirebaseDatabase.getInstance().getReference("user").child(user.getDisplayName()).child("projectListSize");
+
+        mDataBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null)
+                 projectSize = dataSnapshot.getValue(int.class);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+        if(projectSize == 0)
+        {
+            String blah = "You SUCK GET GOOD N00B";
+            TextView emptyText = (TextView) findViewById(R.id.empty_Prompt);
+            emptyText.setText(blah);
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newProject);
@@ -80,6 +129,8 @@ public class HomeScreen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
 
     }
