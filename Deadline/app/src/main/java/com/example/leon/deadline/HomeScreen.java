@@ -95,6 +95,7 @@ public class HomeScreen extends AppCompatActivity {
             e.printStackTrace();
         }
         //TODO - fix displaying of name
+<<<<<<< HEAD
         String test = "Welcome, " + user.getDisplayName();
         TextView text = (TextView) findViewById(R.id.TempUserInfo);
         text.setText(test);
@@ -121,6 +122,14 @@ public class HomeScreen extends AppCompatActivity {
             TextView emptyText = (TextView) findViewById(R.id.empty_Prompt);
             emptyText.setText(blah);
         }
+=======
+        //String test = "Welcome, " + user.getEmail();
+        //TextView text = (TextView) findViewById(R.id.TempUserInfo);
+        //text.setText(test);
+        //if (null == tempHoldName) {
+        //    text.setText("Welcome, " + tempHoldEmail);
+        //}
+>>>>>>> 4d0b31668fb6a10f1501babe54214725ab4f47a8
 
 <<<<<<< HEAD
 =======

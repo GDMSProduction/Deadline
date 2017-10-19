@@ -77,8 +77,12 @@ public class Login extends AppCompatActivity{
         signIn.setOnClickListener(new View.OnClickListener()
                                   {
                                       @Override
+<<<<<<< HEAD
                                       public void onClick(View v)
                                       {
+=======
+                                      public void onClick(View v) {
+>>>>>>> 4d0b31668fb6a10f1501babe54214725ab4f47a8
                                           eEmail = (EditText) findViewById(R.id.email);
                                           ePass = (EditText) findViewById(R.id.password);
 
@@ -134,6 +138,7 @@ public class Login extends AppCompatActivity{
                     Log.w(Login.class.getSimpleName(),"signInWithEmail:failed", task.getException());
                     Toast.makeText(Login.this, R.string.auth_failed,Toast.LENGTH_SHORT).show();
                 }
+<<<<<<< HEAD
                 else
                 {
                     //Toast.makeText(Login.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
@@ -150,6 +155,18 @@ public class Login extends AppCompatActivity{
                         startActivity(intent);
                     }
                 }
+=======
+
+                //user = FirebaseAuth.getInstance().getCurrentUser();
+                //if(user != null)
+                //{
+                //    String name = user.getDisplayName();
+                //    String email = user.getEmail();
+                //    Uri photoUrl = user.getPhotoUrl();
+//
+                //    String uid = user.getUid();
+                //}
+>>>>>>> 4d0b31668fb6a10f1501babe54214725ab4f47a8
             }
         });
     }
