@@ -11,7 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+<<<<<<< HEAD
 import android.widget.Toast;
+=======
+>>>>>>> parent of b8fa916... Organization and renaming
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -119,6 +122,17 @@ public class HomeScreen extends AppCompatActivity {
             emptyText.setText(blah);
         }
 
+<<<<<<< HEAD
+=======
+        //TODO - fix displaying of name
+        //String test = "Welcome, " + user.getEmail();
+        //TextView text = (TextView) findViewById(R.id.TempUserInfo);
+        //text.setText(test);
+        //if (null == tempHoldName) {
+        //    text.setText("Welcome, " + tempHoldEmail);
+        //}
+
+>>>>>>> parent of b8fa916... Organization and renaming
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newProject);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,8 +145,11 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of b8fa916... Organization and renaming
     }
 
     @Override

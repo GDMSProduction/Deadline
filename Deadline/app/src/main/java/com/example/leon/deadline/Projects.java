@@ -20,6 +20,13 @@ public class Projects extends AppCompatActivity {
         setContentView(R.layout.activity_projects);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+<<<<<<< HEAD
+=======
+
+        if (null != getIntent().getStringExtra("TempProjName"))
+            tempHoldProjName = getIntent().getStringExtra("TempProjName");
+        ((TextView) findViewById(R.id.Current_Activity)).setText(tempHoldProjName);
+>>>>>>> parent of b8fa916... Organization and renaming
 
         createTask123 = (FloatingActionButton) findViewById(R.id.TaskCreate11);
         createTask123.setOnClickListener(new View.OnClickListener()

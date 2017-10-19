@@ -9,6 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+<<<<<<< HEAD:Deadline/app/src/main/java/com/example/leon/deadline/ProjectCreationScreen.java
+=======
+import android.widget.EditText;
+>>>>>>> parent of b8fa916... Organization and renaming:Deadline/app/src/main/java/com/example/leon/deadline/ProjectCreationScreen.java
 
 public class ProjectCreationScreen extends AppCompatActivity {
 
@@ -29,8 +33,14 @@ public class ProjectCreationScreen extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD:Deadline/app/src/main/java/com/example/leon/deadline/ProjectCreationScreen.java
                 Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
                 intent.putExtra("TempProj", tempProject);
+=======
+                tempProjName = ((EditText) findViewById(R.id.projName)).getText().toString();
+                Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
+                intent.putExtra("TempProjName", tempProjName);
+>>>>>>> parent of b8fa916... Organization and renaming:Deadline/app/src/main/java/com/example/leon/deadline/ProjectCreationScreen.java
                 startActivity(intent);
             }
         });

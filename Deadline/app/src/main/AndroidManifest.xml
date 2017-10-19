@@ -71,8 +71,22 @@
         <activity
             android:name=".CreateEditRoles"
             android:label="@string/title_activity_create_edit_roles"
+<<<<<<< HEAD
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="sensorPortrait"/>
+=======
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Deadlines"
+            android:label="@string/title_activity_deadlines"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditTask"
+            android:label="@string/title_activity_edit_task"
+            android:theme="@style/AppTheme.NoActionBar" />
+>>>>>>> parent of b8fa916... Organization and renaming
         <activity
             android:name=".Deadlines"
             android:label="@string/title_activity_deadlines"
