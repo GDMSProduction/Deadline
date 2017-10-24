@@ -13,6 +13,7 @@ import java.util.List;
 public class CUser implements Serializable{
 
     private String m_szName;
+    private String m_szUsername;
     private String m_szEmail;
     private String m_szPhone;
     private String m_szBio;
@@ -26,10 +27,11 @@ public class CUser implements Serializable{
 
     private List<CProject> m_ProjectList = new ArrayList<>();
 
-    public CUser(String _name, String _email)
+    public CUser(String _name, String _email/* *add to userstuff* ,String _username*/)
     {
         m_szName = _name;
         m_szEmail = _email;
+        //m_szUsername = _username;
     }
 
     // Name Get + Set

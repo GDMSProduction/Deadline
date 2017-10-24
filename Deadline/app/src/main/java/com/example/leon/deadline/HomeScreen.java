@@ -114,7 +114,7 @@ public class HomeScreen extends AppCompatActivity {
 
         if(projectSize == 0)
         {
-            String blah = "You SUCK GET GOOD N00B";
+            String blah = "You do not have any opening projects! Please click the plus sign to create a new project";
             TextView emptyText = (TextView) findViewById(R.id.empty_Prompt);
             emptyText.setText(blah);
         }
