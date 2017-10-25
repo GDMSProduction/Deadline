@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout-v21/notification_template_custom_big.xml"
+    }
+]

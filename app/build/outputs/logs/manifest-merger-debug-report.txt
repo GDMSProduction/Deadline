@@ -1,0 +1,362 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:2:1-83:12
+	package
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:3:5-40
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+application
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:5:5-81:19
+MERGED from [com.android.support:preference-v7:25.3.1] /Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Leon/.android/build-cache/fcc8f16b9da8751e6ed541b7c3b6ef7b9a779e7a/output/AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-auth:10.0.1] /Users/Leon/.android/build-cache/e185b1ca7a2130a7752a122367a652b0b6b4889c/output/AndroidManifest.xml:19:5-20:19
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /Users/Leon/.android/build-cache/a28cbbb5fa4867b6f808638c11ff4b79c0f0f539/output/AndroidManifest.xml:18:5-20:19
+MERGED from [com.android.support:design:25.3.1] /Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Leon/.android/build-cache/5a96f200f3cea0aac20ca1b9b3cffa034412759b/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Leon/.android/build-cache/b4725947afba0e59c904a7e8849c334043f6ed54/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] /Users/Leon/.android/build-cache/0cee31b4c22228670ad6847d83f0c1511324c72d/output/AndroidManifest.xml:26:5-20
+MERGED from [com.google.firebase:firebase-core:10.0.1] /Users/Leon/.android/build-cache/d06555f4eb4ab259396c6d3f24057ad6d6d486ad/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:24:5-33:19
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /Users/Leon/.android/build-cache/b1aa8ad6cd20078e73efd84572abda788f8369c8/output/AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:28:5-50:19
+MERGED from [com.google.firebase:firebase-common:10.0.1] /Users/Leon/.android/build-cache/42bb24b520390311655823e9ddf132c0f1a24748/output/AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /Users/Leon/.android/build-cache/37dd7f5c3ba7308bef772a93396ca49879de5cf2/output/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] /Users/Leon/.android/build-cache/7d2eeb6b3d4afc17a22637f3946599b9c6f0dd9b/output/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Leon/.android/build-cache/0d5562debd7014d30386477c122fc10204513fad/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Leon/.android/build-cache/f0a573ca3c53f0b50e0521a3d7b985437b622685/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Leon/.android/build-cache/30ce9b74d2ef4457fa7af7eb0e2d3ccc625eeb55/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Leon/.android/build-cache/bddf3d0caa4eb7be39c5c0449d62895a4509f46c/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Leon/.android/build-cache/2e2c22a3e3ad08cb5376fcac116e3c0184afafa4/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Leon/.android/build-cache/9c7fd5590f1b88e4b057dadaa8799bf735e9511b/output/AndroidManifest.xml:29:5-20
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:10:9-35
+	android:roundIcon
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:9:9-54
+	android:allowBackup
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.example.leon.deadline.Login
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:12:9-17:20
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:15:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:14:13-45
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:13:13-34
+activity#com.example.leon.deadline.HomeScreen
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:18:9-22:58
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:22:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:20:13-63
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:21:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:19:13-39
+activity#com.example.leon.deadline.CreateAccount
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:23:9-27:58
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:27:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:25:13-66
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:26:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:24:13-42
+activity#com.example.leon.deadline.ProjectCreationScreen
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:28:9-32:57
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:32:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:30:13-75
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:31:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:29:13-50
+activity#com.example.leon.deadline.SplashScreen
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:34:9-44:24
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:38:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:36:13-37
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:37:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:35:13-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:39:13-43:29
+action#android.intent.action.MAIN
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:40:17-69
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:40:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:42:17-77
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:42:27-74
+activity#com.example.leon.deadline.MemberActivity
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:46:9-50:58
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:50:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:48:13-58
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:49:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:47:13-43
+activity#com.example.leon.deadline.Projects
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:51:9-55:57
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:55:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:53:13-60
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:54:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:52:13-37
+activity#com.example.leon.deadline.Tasks
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:56:9-60:58
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:60:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:58:13-57
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:59:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:57:13-34
+activity#com.example.leon.deadline.CreateTask
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:61:9-65:58
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:65:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:63:13-63
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:64:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:62:13-39
+activity#com.example.leon.deadline.EditProject
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:66:9-70:58
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:70:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:68:13-64
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:69:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:67:13-40
+activity#com.example.leon.deadline.CreateEditRoles
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:71:9-75:57
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:75:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:73:13-69
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:74:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:72:13-44
+activity#com.example.leon.deadline.Deadlines
+ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:76:9-80:58
+	android:screenOrientation
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:80:13-55
+	android:label
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:78:13-61
+	android:theme
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:79:13-56
+	android:name
+		ADDED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml:77:13-38
+uses-sdk
+INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:preference-v7:25.3.1] /Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Leon/.android/build-cache/fcc8f16b9da8751e6ed541b7c3b6ef7b9a779e7a/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-auth:10.0.1] /Users/Leon/.android/build-cache/e185b1ca7a2130a7752a122367a652b0b6b4889c/output/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /Users/Leon/.android/build-cache/a28cbbb5fa4867b6f808638c11ff4b79c0f0f539/output/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-database:10.0.1] /Users/Leon/.android/build-cache/ae847a445c7cb70e3b3fa5db4e9cf4923ada9103/output/AndroidManifest.xml:3:5-42
+MERGED from [com.google.firebase:firebase-database-connection:10.0.1] /Users/Leon/.android/build-cache/54adbf546bcf94ccbbc8c9919b4c0400acd46a8c/output/AndroidManifest.xml:3:5-42
+MERGED from [com.android.support:design:25.3.1] /Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Leon/.android/build-cache/5a96f200f3cea0aac20ca1b9b3cffa034412759b/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Leon/.android/build-cache/b4725947afba0e59c904a7e8849c334043f6ed54/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Leon/.android/build-cache/9bea14e1e837f5e2e42a7ad51d38305d7a9df15a/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.1] /Users/Leon/.android/build-cache/0cee31b4c22228670ad6847d83f0c1511324c72d/output/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-core:10.0.1] /Users/Leon/.android/build-cache/d06555f4eb4ab259396c6d3f24057ad6d6d486ad/output/AndroidManifest.xml:4:5-42
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /Users/Leon/.android/build-cache/b1aa8ad6cd20078e73efd84572abda788f8369c8/output/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-common:10.0.1] /Users/Leon/.android/build-cache/42bb24b520390311655823e9ddf132c0f1a24748/output/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /Users/Leon/.android/build-cache/37dd7f5c3ba7308bef772a93396ca49879de5cf2/output/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] /Users/Leon/.android/build-cache/7d2eeb6b3d4afc17a22637f3946599b9c6f0dd9b/output/AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Leon/.android/build-cache/0d5562debd7014d30386477c122fc10204513fad/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Leon/.android/build-cache/f0a573ca3c53f0b50e0521a3d7b985437b622685/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Leon/.android/build-cache/30ce9b74d2ef4457fa7af7eb0e2d3ccc625eeb55/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Leon/.android/build-cache/bddf3d0caa4eb7be39c5c0449d62895a4509f46c/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Leon/.android/build-cache/2e2c22a3e3ad08cb5376fcac116e3c0184afafa4/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Leon/.android/build-cache/9c7fd5590f1b88e4b057dadaa8799bf735e9511b/output/AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.3.1] /Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Leon/Desktop/Deadline/Deadline/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:preference-v7:25.3.1] /Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:design:25.3.1] /Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Leon/.android/build-cache/5a96f200f3cea0aac20ca1b9b3cffa034412759b/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Leon/.android/build-cache/b4725947afba0e59c904a7e8849c334043f6ed54/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Leon/.android/build-cache/9bea14e1e837f5e2e42a7ad51d38305d7a9df15a/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] /Users/Leon/.android/build-cache/0cee31b4c22228670ad6847d83f0c1511324c72d/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Leon/.android/build-cache/0d5562debd7014d30386477c122fc10204513fad/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Leon/.android/build-cache/f0a573ca3c53f0b50e0521a3d7b985437b622685/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Leon/.android/build-cache/30ce9b74d2ef4457fa7af7eb0e2d3ccc625eeb55/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Leon/.android/build-cache/bddf3d0caa4eb7be39c5c0449d62895a4509f46c/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Leon/.android/build-cache/2e2c22a3e3ad08cb5376fcac116e3c0184afafa4/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Leon/.android/build-cache/9c7fd5590f1b88e4b057dadaa8799bf735e9511b/output/AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:preference-v7:25.3.1] /Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/AndroidManifest.xml:24:9-31
+	android:name
+		ADDED from [com.android.support:preference-v7:25.3.1] /Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/AndroidManifest.xml:23:9-47
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:10.0.1] /Users/Leon/.android/build-cache/a28cbbb5fa4867b6f808638c11ff4b79c0f0f539/output/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] /Users/Leon/.android/build-cache/a28cbbb5fa4867b6f808638c11ff4b79c0f0f539/output/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] /Users/Leon/.android/build-cache/a28cbbb5fa4867b6f808638c11ff4b79c0f0f539/output/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] /Users/Leon/.android/build-cache/a28cbbb5fa4867b6f808638c11ff4b79c0f0f539/output/AndroidManifest.xml:19:19-85
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /Users/Leon/.android/build-cache/b1aa8ad6cd20078e73efd84572abda788f8369c8/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:20:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /Users/Leon/.android/build-cache/b1aa8ad6cd20078e73efd84572abda788f8369c8/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:21:22-76
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /Users/Leon/.android/build-cache/b1aa8ad6cd20078e73efd84572abda788f8369c8/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:21:5-67
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:22:22-65
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /Users/Leon/.android/build-cache/b1aa8ad6cd20078e73efd84572abda788f8369c8/output/AndroidManifest.xml:25:7-26:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:25:90-112
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:25:113-137
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:25:17-89
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:27:7-31:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:27:162-184
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:27:105-161
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:27:17-104
+intent-filter#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:28:11-30:27
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:29:15-76
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:29:23-74
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /Users/Leon/.android/build-cache/b1aa8ad6cd20078e73efd84572abda788f8369c8/output/AndroidManifest.xml:27:7-137
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:32:88-110
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:32:111-135
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /Users/Leon/.android/build-cache/62cd2d85b2afd19677d66b4672ff3dfa0caeadc6/output/AndroidManifest.xml:32:16-87
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:22:22-79
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:24:5-109
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:24:72-107
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:24:17-71
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:26:5-78
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:26:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:30:9-36:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:30:85-108
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:30:109-169
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:30:19-84
+intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:31:13-35:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:32:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:32:25-78
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:33:17-85
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:33:25-83
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:34:17-60
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:34:27-58
+receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:40:9-119
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:40:93-117
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:40:19-92
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:44:9-48:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:44:83-106
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:44:18-82
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:45:13-47:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:45:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:46:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /Users/Leon/.android/build-cache/75b146da3df84515cdbf1aa927f3ed4b676948e6/output/AndroidManifest.xml:46:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:10.0.1] /Users/Leon/.android/build-cache/42bb24b520390311655823e9ddf132c0f1a24748/output/AndroidManifest.xml:6:9-194
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:10.0.1] /Users/Leon/.android/build-cache/42bb24b520390311655823e9ddf132c0f1a24748/output/AndroidManifest.xml:6:19-78
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:10.0.1] /Users/Leon/.android/build-cache/42bb24b520390311655823e9ddf132c0f1a24748/output/AndroidManifest.xml:6:144-168
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:10.0.1] /Users/Leon/.android/build-cache/42bb24b520390311655823e9ddf132c0f1a24748/output/AndroidManifest.xml:6:169-192
+	android:name
+		ADDED from [com.google.firebase:firebase-common:10.0.1] /Users/Leon/.android/build-cache/42bb24b520390311655823e9ddf132c0f1a24748/output/AndroidManifest.xml:6:79-143
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:10.0.1] /Users/Leon/.android/build-cache/7d2eeb6b3d4afc17a22637f3946599b9c6f0dd9b/output/AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /Users/Leon/.android/build-cache/7d2eeb6b3d4afc17a22637f3946599b9c6f0dd9b/output/AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /Users/Leon/.android/build-cache/7d2eeb6b3d4afc17a22637f3946599b9c6f0dd9b/output/AndroidManifest.xml:20:20-65

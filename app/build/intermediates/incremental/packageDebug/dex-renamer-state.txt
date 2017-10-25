@@ -1,0 +1,7 @@
+#Thu Oct 05 19:23:42 EDT 2017
+base.0=/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c4a741d4300d87dfeab58992654df3fdc364cbf9
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4689c53e67186dab8ab6461276f19601ec9e2293/classes.dex
+base.1=/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4689c53e67186dab8ab6461276f19601ec9e2293
+file.0=/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c4a741d4300d87dfeab58992654df3fdc364cbf9/classes.dex

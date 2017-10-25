@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.leon.deadline.ProjectCreationScreen"
+    tools:showIn="@layout/activity_project_creation_screen"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/projName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Project Name"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="98dp"
+            tools:layout_editor_absoluteY="195dp" />
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="107dp"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="28dp" />
+
+        <Switch
+            android:id="@+id/projPrivate"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:text="Private Project?"
+            tools:layout_editor_absoluteX="101dp"
+            tools:layout_editor_absoluteY="144dp" />
+
+        <Button
+            android:id="@+id/projCreate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="249dp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

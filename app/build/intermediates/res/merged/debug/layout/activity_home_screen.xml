@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.leon.deadline.HomeScreen">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <Button
+                android:id="@+id/Home_Button"
+                android:layout_width="28sp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/fab_margin"
+                android:background="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/Current_Activity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_weight="1"
+                android:text="Home"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/Options_Button"
+                android:layout_width="28sp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/fab_margin"
+                android:background="@drawable/ic_dehaze_black_24dp"
+                android:backgroundTint="@color/common_google_signin_btn_text_dark_default" />
+
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/newProject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/common_google_signin_btn_text_dark_disabled"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="top|right"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_home_screen" />
+
+</android.support.design.widget.CoordinatorLayout>

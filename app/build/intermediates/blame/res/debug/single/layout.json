@@ -1,0 +1,330 @@
+[
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_home_screen.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_home_screen.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/preference_widget_seekbar.xml",
+        "source": "/Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/res/layout/preference_widget_seekbar.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_tasks.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_tasks.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_title_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_edit_project.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_edit_project.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_project_creation_screen.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_project_creation_screen.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_deadlines.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_deadlines.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_create_task.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_create_task.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_test.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_test.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_splash_screen.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_splash_screen.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_member.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_member.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/preference_recyclerview.xml",
+        "source": "/Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/res/layout/preference_recyclerview.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/select_dialog_item_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/preference_widget_checkbox.xml",
+        "source": "/Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/res/layout/preference_widget_checkbox.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_deadlines.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_deadlines.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_home_screen.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_home_screen.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_navigation_menu.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_edit_project.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_edit_project.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/preference_list_fragment.xml",
+        "source": "/Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/res/layout/preference_list_fragment.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/preference_category.xml",
+        "source": "/Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/res/layout/preference_category.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_member.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_member.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_tasks.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_tasks.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/preference_information.xml",
+        "source": "/Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/res/layout/preference_information.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/preference_widget_switch_compat.xml",
+        "source": "/Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/res/layout/preference_widget_switch_compat.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_create_account.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_create_account.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_create_account.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_create_account.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_create_edit_roles.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_create_edit_roles.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_create_task.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_create_task.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_projects.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_projects.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_create_edit_roles.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_create_edit_roles.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_layout_tab_text.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/activity_project_creation_screen.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/activity_project_creation_screen.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_projects.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_projects.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/content_splash_screen.xml",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/layout/content_splash_screen.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/layout/preference_dialog_edittext.xml",
+        "source": "/Users/Leon/.android/build-cache/0636282ccaf614e7e82bee4230a04eedeb207f13/output/res/layout/preference_dialog_edittext.xml"
+    }
+]

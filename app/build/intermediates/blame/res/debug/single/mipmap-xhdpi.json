@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher_round.png",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher.png",
+        "source": "/Users/Leon/Desktop/Deadline/Deadline/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    }
+]

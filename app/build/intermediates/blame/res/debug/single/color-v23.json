@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_tint_spinner.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_tint_edittext.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/design_tint_password_toggle.xml",
+        "source": "/Users/Leon/.android/build-cache/51b24840738fc82f8ff8b93eb903177b507c14bb/output/res/color-v23/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_track.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_thumb.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/Leon/Desktop/Deadline/Deadline/app/build/intermediates/res/merged/debug/color-v23/abc_tint_default.xml",
+        "source": "/Users/Leon/.android/build-cache/93377fe3e5d0cf9cb0193b01bf30d0684c859998/output/res/color-v23/abc_tint_default.xml"
+    }
+]
