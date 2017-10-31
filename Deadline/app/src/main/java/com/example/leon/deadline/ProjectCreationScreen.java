@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class ProjectCreationScreen extends AppCompatActivity {
@@ -34,7 +35,8 @@ public class ProjectCreationScreen extends AppCompatActivity {
 
     private EditText eProjName;
     private DatePicker eDate;
-    private Switch priv;
+    private Calendar currentDay;
+    private Calendar validDate;
 
     private String _projName;
     private String _deadlineDate;
@@ -79,6 +81,10 @@ public class ProjectCreationScreen extends AppCompatActivity {
                 eProjName = (EditText) findViewById(R.id.projName);
                 eDate =  (DatePicker) findViewById(R.id.datePicker);
 
+                currentDay = Calendar.getInstance();
+                validDate =  Calendar.getInstance();
+                validDate.set(eDate.getYear(),eDate.getMonth(),eDate.getDayOfMonth());
+
                 _projName = eProjName.getText().toString();
                 _deadlineDate = (eDate.getMonth() + 1) + "/" + eDate.getDayOfMonth() + "/"  + eDate.getYear() ;
                 test = (Switch) findViewById(R.id.projPrivate);
@@ -87,7 +93,14 @@ public class ProjectCreationScreen extends AppCompatActivity {
                 if(!_projName.equals("") &&
                         !_deadlineDate.equals(""))
                 {
-                    CreateProject(_projName,_deadlineDate, _privateProj);
+                    if(!currentDay.after(validDate))
+                    {
+                        CreateProject(_projName,_deadlineDate, _privateProj);
+                    }
+                    else
+                    {
+                        Toast.makeText(ProjectCreationScreen.this, "Please enter a valid date", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else
                 {
