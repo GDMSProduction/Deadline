@@ -40,42 +40,42 @@ public class CProject extends CDeadline implements Serializable {
         this.m_bPrivate = m_bPrivate;
     }
 
+    // Summary Get + Set
     public String getSummary() {
         return m_szSummary;
     }
-
     public void setSummary(String m_szSummary) {
         this.m_szSummary = m_szSummary;
     }
 
+    // Privacy  Get + Set
     public boolean isbPrivate() {
         return m_bPrivate;
     }
-
     public void setbPrivate(boolean m_bPrivate) {
         this.m_bPrivate = m_bPrivate;
     }
 
+    // Member List  Get + Set
     public List<CMember> getMemberList() {
         return m_MemberList;
     }
-
     public void setMemberList(List<CMember> m_MemberList) {
         this.m_MemberList = m_MemberList;
     }
 
+    // Task List  Get + Set
     public List<CTask> getTaskList() {
         return m_TaskList;
     }
-
     public void setTaskList(List<CTask> m_TaskList) {
         this.m_TaskList = m_TaskList;
     }
 
+    // Roles  Get + Set
     public List<CRole> getRoles() {
         return m_Roles;
     }
-
     public void setRoles(List<CRole> m_Roles) {
         this.m_Roles = m_Roles;
     }
@@ -155,7 +155,7 @@ public class CProject extends CDeadline implements Serializable {
     }
 
 
-    // Task Functions
+// Task Functions
 
     public boolean addTask(String szName, Date date, eUrgency urgency){
         return m_TaskList.add(new CTask(szName, date, urgency));
@@ -270,14 +270,16 @@ public class CProject extends CDeadline implements Serializable {
     }
 
 
-    // Role Functions
+// Role Functions
 
-    public boolean addRole(String name, List<CTask> taskPermissions){
+    public boolean addRole(String Name, List<CTask> TaskPermissions, boolean AddMembersPermission, boolean RemoveMemberPermission,
+                           boolean EditMemberPermission, boolean TaskPermission, boolean RolePermission, boolean ProjectPermission)
+    {
         for(int i = 0; i < m_Roles.size(); i++){
-            if(m_Roles.get(i).getName() == name)
+            if(m_Roles.get(i).getName() == Name)
                 return false;
         }
-        return m_Roles.add(new CRole(name, taskPermissions));
+        return m_Roles.add(new CRole(Name, TaskPermissions, AddMembersPermission, RemoveMemberPermission, EditMemberPermission, TaskPermission, RolePermission, ProjectPermission));
     }
 
     public boolean addRole(CRole role){
