@@ -11,12 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 public class CProject extends CDeadline implements Serializable {
-    //private String  m_szName;
-    private String m_szSummary;
-    //private Date    m_Deadline;
+
     private boolean m_bPrivate;
 
-    private List<CMember> m_MemberList = new ArrayList<>();
+
     private List<CTask> m_TaskList = new ArrayList<>();
     private List<CRole> m_Roles = new ArrayList<>();
 
@@ -40,13 +38,7 @@ public class CProject extends CDeadline implements Serializable {
         this.m_bPrivate = m_bPrivate;
     }
 
-    // Summary Get + Set
-    public String getSummary() {
-        return m_szSummary;
-    }
-    public void setSummary(String m_szSummary) {
-        this.m_szSummary = m_szSummary;
-    }
+
 
     // Privacy  Get + Set
     public boolean isbPrivate() {
@@ -54,14 +46,6 @@ public class CProject extends CDeadline implements Serializable {
     }
     public void setbPrivate(boolean m_bPrivate) {
         this.m_bPrivate = m_bPrivate;
-    }
-
-    // Member List  Get + Set
-    public List<CMember> getMemberList() {
-        return m_MemberList;
-    }
-    public void setMemberList(List<CMember> m_MemberList) {
-        this.m_MemberList = m_MemberList;
     }
 
     // Task List  Get + Set
@@ -83,82 +67,13 @@ public class CProject extends CDeadline implements Serializable {
 
 // Member Functions
 
-    public boolean addMember(CMember member){
-        for(int i = 0; i < m_MemberList.size(); i++){
-            if(m_MemberList.get(i).getEmail() == member.getEmail())
-                return false;
-        }
-        return m_MemberList.add(new CMember(member));
-    }
 
-    public boolean addMember(CUser user, List<CRole> roles){
-        for(int i = 0; i < m_MemberList.size(); i++){
-            if(m_MemberList.get(i).getEmail() == user.getEmail())
-                return false;
-        }
-        return m_MemberList.add(new CMember(user, roles));
-    }
-
-    public void removeMember(CMember member){
-        m_MemberList.remove(member);
-    }
-
-    public void removeMember(int memberIndex){
-        m_MemberList.remove(memberIndex);
-    }
-
-    public int numMembers(int numMembers){
-        return m_MemberList.size();
-    }
-
-    public CMember getMember(int memberIndex){
-        return m_MemberList.get(memberIndex);
-    }
-
-    // Returns the index of the user or -1 if it was not found
-    public int getMemberIndex(String email){
-        for(int i = 0; i < m_MemberList.size(); i++){
-            if(m_MemberList.get(i).getEmail() == email)
-                return i;
-        }
-        return -1;
-    }
-
-    public void sortMembersAlphabeticalForward(){
-        List<CMember> sortMembers = new ArrayList<>();
-        int memberIndex;
-        while(m_MemberList.size() > 0) {
-            memberIndex = 0;
-            for (int i = 1; i < m_MemberList.size(); i++) {
-                if(m_MemberList.get(memberIndex).getName().compareTo(m_MemberList.get(i).getName()) > 0)
-                    memberIndex = i;
-            }
-            sortMembers.add(new CMember(m_MemberList.get(memberIndex)));
-            m_MemberList.remove(memberIndex);
-        }
-        m_MemberList = new ArrayList<>(sortMembers);
-    }
-
-    public void sortMembersAlphabeticalBackward(){
-        List<CMember> sortMembers = new ArrayList<>();
-        int memberIndex;
-        while(m_MemberList.size() > 0) {
-            memberIndex = 0;
-            for (int i = 1; i < m_MemberList.size(); i++) {
-                if(m_MemberList.get(memberIndex).getName().compareTo(m_MemberList.get(i).getName()) < 0)
-                    memberIndex = i;
-            }
-            sortMembers.add(new CMember(m_MemberList.get(memberIndex)));
-            m_MemberList.remove(memberIndex);
-        }
-        m_MemberList = new ArrayList<>(sortMembers);
-    }
 
 
 // Task Functions
 
-    public boolean addTask(String szName, Date date, eUrgency urgency){
-        return m_TaskList.add(new CTask(szName, date, urgency));
+    public boolean addTask(String szName, Date date, String summary, eUrgency urgency){
+        return m_TaskList.add(new CTask(szName, date, summary, urgency));
     }
 
     public boolean addTask(CTask task){

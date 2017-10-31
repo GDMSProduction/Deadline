@@ -9,7 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,18 +22,29 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeScreen extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser user;
+    private FirebaseDatabase fBase;
     private DatabaseReference mDataBase;
+
+    //private final ListView HomeList;
+    //private ArrayList<String> projecterino = new ArrayList<String>();
+    private ArrayAdapter<String> HomeAdapter;
+
+
     int projectSize;
 
     private CUser tempUser;
@@ -96,7 +112,7 @@ public class HomeScreen extends AppCompatActivity {
         TextView text = (TextView) findViewById(R.id.TempUserInfo);
         text.setText(test);
 
-        mDataBase = FirebaseDatabase.getInstance().getReference("user").child(user.getDisplayName()).child("projectListSize");
+        mDataBase = FirebaseDatabase.getInstance().getReference("users").child(user.getDisplayName()).child("projectListSize");
 
         mDataBase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -130,6 +146,60 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        //mDataBase = FirebaseDatabase.getInstance().getReference("users");
+        fBase = FirebaseDatabase.getInstance();
+        final CProject[] aTest = new CProject[10];
+        mDataBase = fBase.getReference("users").child(user.getDisplayName());//.child("projectList");
+        mDataBase.addChildEventListener(new ChildEventListener() {
+            //IT GETS IN HERE
+            //int i = 0;
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                int i = 0;
+                for(DataSnapshot mtest :dataSnapshot.getChildren())
+                {
+                    if(mtest != null)
+                    {
+                        CProject temp = new CProject(mtest.child("m_szName").getValue().toString(), mtest.child("m_Deadline").getValue().toString(), (Boolean) mtest.child("m_bPrivate").getValue());
+                        aTest[i] = temp;
+                        i++;
+                    }
+                    if(dataSnapshot.getChildrenCount() < i+1 && dataSnapshot.getChildrenCount() != 0)
+                    {
+                        populateScreen(aTest);
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                int i = 0;
+                for(DataSnapshot mtest :dataSnapshot.getChildren())
+                {
+                    CProject temp = new CProject(mtest.child("m_szName").getValue().toString(), mtest.child("m_Deadline").getValue().toString(), (Boolean) mtest.child("m_bPrivate").getValue());
+                    aTest[i] = temp;
+                    i++;
+                }
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                int i = 0;
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                int i = 0;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d(HomeScreen.class.getSimpleName(), "Did not completo");
+            }
+        });
+
 
 
 
@@ -158,4 +228,26 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(setIntent);
     }
 
+    public void populateScreen(final CProject[] _proj)
+    {
+        //TODO: Get List from database onto Home Screen
+        final ListView HomeList = (ListView) findViewById(R.id.HomeListView);
+        /*String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
+                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
+                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
+                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
+                "Android", "iPhone", "WindowsMobile" };
+                */
+
+        final ArrayList<String> list = new ArrayList<String>();
+        for (int i = 0; i < _proj.length; ++i) {
+            if(_proj[i] != null)
+            {
+                list.add(_proj[i].getM_szName());
+            }
+        }
+        final ArrayAdapter adapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, list);
+        HomeList.setAdapter(adapter);
+    }
 }

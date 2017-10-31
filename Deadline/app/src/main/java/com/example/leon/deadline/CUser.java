@@ -17,6 +17,7 @@ public class CUser implements Serializable{
     private String m_szEmail;
     private String m_szPhone;
     private String m_szBio;
+    private boolean m_bTutorial;
 
     public CUser(CUser tempUser) {
         m_szName = tempUser.m_szName;
@@ -58,6 +59,11 @@ public class CUser implements Serializable{
     // Username Get + Set
     public String getUsername() { return m_szUsername; }
     public void setUsername(String Username) { m_szUsername = Username; }
+
+    // Tutorial Get + Set
+    public boolean getTutorial() { return m_bTutorial; }
+    public void setTutorial(boolean Tutorial) { m_bTutorial = Tutorial;
+    }
 
     // Gets a project from the list
     public CProject getProject(int nProject) {return m_ProjectList.get(nProject);}
