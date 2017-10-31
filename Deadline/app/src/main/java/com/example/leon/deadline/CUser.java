@@ -17,12 +17,14 @@ public class CUser implements Serializable{
     private String m_szEmail;
     private String m_szPhone;
     private String m_szBio;
+    private boolean m_bTutorial;
 
     public CUser(CUser tempUser) {
-        m_szName = tempUser.getName();
-        m_szEmail = tempUser.getEmail();
-        m_szPhone = tempUser.getPhone();
-        m_szBio = tempUser.getBio();
+        m_szName = tempUser.m_szName;
+        m_szUsername = tempUser.m_szUsername;
+        m_szEmail = tempUser.m_szEmail;
+        m_szPhone = tempUser.m_szPhone;
+        m_szBio = tempUser.m_szBio;
     }
 
     private List<CProject> m_ProjectList = new ArrayList<>();
@@ -53,6 +55,15 @@ public class CUser implements Serializable{
     // ProjectList Get + Set
     public List<CProject> getProjectList() {return m_ProjectList;}
     public void setProjectList(List<CProject> ProjectList) {m_ProjectList = ProjectList;}
+
+    // Username Get + Set
+    public String getUsername() { return m_szUsername; }
+    public void setUsername(String Username) { m_szUsername = Username; }
+
+    // Tutorial Get + Set
+    public boolean getTutorial() { return m_bTutorial; }
+    public void setTutorial(boolean Tutorial) { m_bTutorial = Tutorial;
+    }
 
     // Gets a project from the list
     public CProject getProject(int nProject) {return m_ProjectList.get(nProject);}
