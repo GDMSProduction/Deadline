@@ -29,10 +29,10 @@ public class CTask extends CDeadline implements Serializable {
         this.m_eUrgency = task.m_eUrgency;
     }
 
+    // Urgency  Get + Set
     public eUrgency getUrgency() {
         return m_eUrgency;
     }
-
     public void setUrgency(eUrgency m_eUrgency) {
         this.m_eUrgency = m_eUrgency;
     }
