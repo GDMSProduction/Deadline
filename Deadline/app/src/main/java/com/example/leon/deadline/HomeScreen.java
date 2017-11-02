@@ -130,9 +130,9 @@ public class HomeScreen extends AppCompatActivity {
 
         if(projectSize == 0)
         {
-            String blah = "You do not have any opening projects! Please click the plus sign to create a new project";
+            String empty = "You do not have any open projects! Please click the button to create a new project";
             TextView emptyText = (TextView) findViewById(R.id.empty_Prompt);
-            emptyText.setText(blah);
+            emptyText.setText(empty);
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.gotoProjects);
