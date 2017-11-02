@@ -146,6 +146,17 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        Button AccBtn = (Button) findViewById(R.id.Account_Button);
+        AccBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                Intent intent = new Intent(HomeScreen.this, AccountInfo.class);
+                startActivity(intent);
+            }
+        });
+
         //mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
         final CProject[] aTest = new CProject[10];
@@ -243,7 +254,7 @@ public class HomeScreen extends AppCompatActivity {
         for (int i = 0; i < _proj.length; ++i) {
             if(_proj[i] != null)
             {
-                list.add(_proj[i].getM_szName());
+                list.add(_proj[i].getName());
             }
         }
         final ArrayAdapter adapter = new ArrayAdapter(this,
