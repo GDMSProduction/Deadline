@@ -31,11 +31,13 @@ public class CProject extends CDeadline implements Serializable {
 
     public CProject(String Name, String Deadline, boolean Private) {
         setName(Name);
-        try {
+        /*try {
             setDeadline(new SimpleDateFormat("MM/dd/yyyy").parse(Deadline));
         } catch (java.text.ParseException e){}
+        */
+        setDeadline(Deadline);
 
-        this.m_bPrivate = m_bPrivate;
+        this.m_bPrivate = Private;
     }
 
 
@@ -72,7 +74,7 @@ public class CProject extends CDeadline implements Serializable {
 
 // Task Functions
 
-    public boolean addTask(String szName, Date date, String summary, eUrgency urgency){
+    public boolean addTask(String szName, String date, String summary, eUrgency urgency){
         return m_TaskList.add(new CTask(szName, date, summary, urgency));
     }
 

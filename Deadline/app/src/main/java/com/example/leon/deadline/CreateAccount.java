@@ -165,7 +165,6 @@ public class CreateAccount extends AppCompatActivity {
                      UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
                      user.updateProfile(profileUpdates);
 
-
                      Intent intent = new Intent(CreateAccount.this, HomeScreen.class);
                      intent.putExtra("email",email);
                      intent.putExtra("pass",pass);

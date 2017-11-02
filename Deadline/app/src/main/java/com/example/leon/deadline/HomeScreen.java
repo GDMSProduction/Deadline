@@ -148,7 +148,7 @@ public class HomeScreen extends AppCompatActivity {
 
         //mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
-        final CProject[] aTest = new CProject[10];
+        final CDeadline[] aTest = new CDeadline[10];
         mDataBase = fBase.getReference("users").child(user.getDisplayName());//.child("projectList");
         mDataBase.addChildEventListener(new ChildEventListener() {
             //IT GETS IN HERE
@@ -161,7 +161,7 @@ public class HomeScreen extends AppCompatActivity {
                 {
                     if(mtest != null)
                     {
-                        CProject temp = new CProject(mtest.child("m_szName").getValue().toString(), mtest.child("m_Deadline").getValue().toString(), (Boolean) mtest.child("m_bPrivate").getValue());
+                        CProject temp = new CProject(mtest.child("name").getValue().toString(), mtest.child("deadline").getValue().toString(), (Boolean) mtest.child("bPrivate").getValue());
                         aTest[i] = temp;
                         i++;
                     }
@@ -177,7 +177,7 @@ public class HomeScreen extends AppCompatActivity {
                 int i = 0;
                 for(DataSnapshot mtest :dataSnapshot.getChildren())
                 {
-                    CProject temp = new CProject(mtest.child("m_szName").getValue().toString(), mtest.child("m_Deadline").getValue().toString(), (Boolean) mtest.child("m_bPrivate").getValue());
+                    CProject temp = new CProject(mtest.child("name").getValue().toString(), mtest.child("deadline").getValue().toString(), (Boolean) mtest.child("bPrivate").getValue());
                     aTest[i] = temp;
                     i++;
                 }
@@ -228,7 +228,7 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(setIntent);
     }
 
-    public void populateScreen(final CProject[] _proj)
+    public void populateScreen(final CDeadline[] _proj)
     {
         //TODO: Get List from database onto Home Screen
         final ListView HomeList = (ListView) findViewById(R.id.HomeListView);
@@ -243,7 +243,7 @@ public class HomeScreen extends AppCompatActivity {
         for (int i = 0; i < _proj.length; ++i) {
             if(_proj[i] != null)
             {
-                list.add(_proj[i].getM_szName());
+                list.add(_proj[i].getName());
             }
         }
         final ArrayAdapter adapter = new ArrayAdapter(this,

@@ -11,14 +11,14 @@ import java.util.List;
 
 public class CDeadline implements Serializable {
     private String m_szName;
-    private Date m_Deadline;
+    private String m_Deadline;
     private String m_szSummary;
     private List<CMember> m_MemberList = new ArrayList<>();
 
     public CDeadline() {
     }
 
-    public CDeadline(String Name, Date Deadline, String Summary) {
+    public CDeadline(String Name, String Deadline, String Summary) {
         m_szName = Name;
         m_Deadline = Deadline;
         m_szSummary = Summary;
@@ -33,10 +33,10 @@ public class CDeadline implements Serializable {
     }
 
     // Deadline Get + Set
-    public Date getDeadline() {
+    public String getDeadline() {
         return m_Deadline;
     }
-    public void setDeadline(Date Deadline) {
+    public void setDeadline(String Deadline) {
         this.m_Deadline = Deadline;
     }
 
