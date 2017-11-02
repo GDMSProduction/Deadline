@@ -8,21 +8,6 @@
     tools:context="com.example.leon.deadline.Projects"
     tools:showIn="@layout/activity_projects">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="67dp"
-        android:text="If no tasks appear here, you are not in any active tasks. Press the button to create one."
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/TaskCreate11"
         android:layout_width="wrap_content"
@@ -40,4 +25,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.017"
         app:srcCompat="@color/colorAccent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TaskCreate11">
+
+        <Button
+            android:id="@+id/btnProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:backgroundTint="@color/common_google_signin_btn_text_dark_disabled"
+            android:paddingLeft="20dp"
+            android:text="ProjectName"
+            android:textAlignment="viewStart"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="56dp" />
+
+        <Button
+            android:id="@+id/btnEditProject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:background="@drawable/ic_dehaze_black_24dp" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

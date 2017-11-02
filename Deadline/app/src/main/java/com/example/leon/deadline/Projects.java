@@ -21,6 +21,9 @@ public class Projects extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        CProject tempProject = new CProject();
+        tempProject.setName("My Project");
+
         createTask123 = (FloatingActionButton) findViewById(R.id.TaskCreate11);
         createTask123.setOnClickListener(new View.OnClickListener()
         {
@@ -37,6 +40,17 @@ public class Projects extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Projects.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Button tempButton = (Button) findViewById(R.id.btnProject);
+        tempButton.setText(tempProject.getName());
+
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Projects.this, Tasks.class);
                 startActivity(intent);
             }
         });
