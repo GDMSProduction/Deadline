@@ -161,7 +161,7 @@ public class HomeScreen extends AppCompatActivity {
                 {
                     if(mtest != null)
                     {
-                        CProject temp = new CProject(mtest.child("m_szName").getValue().toString(), mtest.child("m_Deadline").getValue().toString(), (Boolean) mtest.child("m_bPrivate").getValue());
+                        CProject temp = new CProject(mtest.child("name").getValue().toString(), mtest.child("deadline").getValue().toString(), (Boolean) mtest.child("bPrivate").getValue());
                         aTest[i] = temp;
                         i++;
                     }
@@ -177,7 +177,7 @@ public class HomeScreen extends AppCompatActivity {
                 int i = 0;
                 for(DataSnapshot mtest :dataSnapshot.getChildren())
                 {
-                    CProject temp = new CProject(mtest.child("m_szName").getValue().toString(), mtest.child("m_Deadline").getValue().toString(), (Boolean) mtest.child("m_bPrivate").getValue());
+                    CProject temp = new CProject(mtest.child("name").getValue().toString(), mtest.child("deadline").getValue().toString(), (Boolean) mtest.child("bPrivate").getValue());
                     aTest[i] = temp;
                     i++;
                 }
@@ -243,7 +243,7 @@ public class HomeScreen extends AppCompatActivity {
         for (int i = 0; i < _proj.length; ++i) {
             if(_proj[i] != null)
             {
-                list.add(_proj[i].getM_szName());
+                list.add(_proj[i].getName());
             }
         }
         final ArrayAdapter adapter = new ArrayAdapter(this,
