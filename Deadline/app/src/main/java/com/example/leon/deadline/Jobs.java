@@ -9,17 +9,14 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 
-import com.google.android.gms.tasks.Task;
-
-public class Tasks extends AppCompatActivity {
+public class Jobs extends AppCompatActivity {
 
     private Button Butt_Home;
-    private FloatingActionButton Create_Task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tasks);
+        setContentView(R.layout.activity_jobs);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -27,26 +24,10 @@ public class Tasks extends AppCompatActivity {
         Butt_Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Tasks.this, HomeScreen.class);
+                Intent intent = new Intent(Jobs.this, HomeScreen.class);
                 startActivity(intent);
             }
         });
-
-        Create_Task = (FloatingActionButton) findViewById(R.id.CreateTask);
-        Create_Task.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Tasks.this, CreateTask.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    @Override
-    public void onBackPressed()
-    {
-        Intent intent = new Intent(Tasks.this, Projects.class);
-        startActivity(intent);
     }
 
 }

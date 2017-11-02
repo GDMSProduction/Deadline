@@ -3,7 +3,6 @@ package com.example.leon.deadline;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.Button;
 
 public class Projects extends AppCompatActivity {
 
-    public FloatingActionButton createTask123;
+    public FloatingActionButton Create_Project;
     private Button Butt_Home;
 
     @Override
@@ -21,13 +20,16 @@ public class Projects extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        createTask123 = (FloatingActionButton) findViewById(R.id.TaskCreate11);
-        createTask123.setOnClickListener(new View.OnClickListener()
+        CProject tempProject = new CProject();
+        tempProject.setName("My Project");
+
+        Create_Project = (FloatingActionButton) findViewById(R.id.CreateProject);
+        Create_Project.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Projects.this, CreateTask.class);
+                Intent intent = new Intent(Projects.this, ProjectCreationScreen.class);
                 startActivity(intent);
             }
         });
@@ -37,6 +39,17 @@ public class Projects extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Projects.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Button tempButton = (Button) findViewById(R.id.btnProject);
+        tempButton.setText(tempProject.getName());
+
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Projects.this, Tasks.class);
                 startActivity(intent);
             }
         });
