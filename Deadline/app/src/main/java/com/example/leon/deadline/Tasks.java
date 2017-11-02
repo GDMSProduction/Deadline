@@ -14,7 +14,7 @@ import com.google.android.gms.tasks.Task;
 public class Tasks extends AppCompatActivity {
 
     private Button Butt_Home;
-    private Button Create_Task;
+    private FloatingActionButton Create_Task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class Tasks extends AppCompatActivity {
             }
         });
 
-        Create_Task = (Button) findViewById(R.id.CreateTask);
+        Create_Task = (FloatingActionButton) findViewById(R.id.CreateTask);
         Create_Task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
