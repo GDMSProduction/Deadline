@@ -79,9 +79,15 @@
             android:label="@string/title_activity_edit_task"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".CreateJob"
+            android:label="@string/title_activity_create_job"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditJob"
+            android:label="@string/title_activity_edit_job"            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".AccountInfo"
-            android:label="@string/title_activity_account_info"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_account_info"            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

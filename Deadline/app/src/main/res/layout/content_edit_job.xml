@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.leon.deadline.EditProject"
-    tools:showIn="@layout/activity_edit_project">
+    tools:context="com.example.leon.deadline.EditJob"
+    tools:showIn="@layout/activity_edit_job">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -23,11 +23,11 @@
         tools:layout_constraintTop_creator="1">
 
         <EditText
-            android:id="@+id/projName"
+            android:id="@+id/jobName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Project Name"
+            android:hint="Job Name"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="98dp"
             tools:layout_editor_absoluteY="195dp" />
@@ -41,16 +41,16 @@
             tools:layout_editor_absoluteX="82dp"
             tools:layout_editor_absoluteY="28dp" />
 
-        <Switch
-            android:id="@+id/projPrivate"
+        <EditText
+            android:id="@+id/jobDescription"
             android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:text="Private Project?"
-            tools:layout_editor_absoluteX="101dp"
-            tools:layout_editor_absoluteY="144dp" />
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Job Description"
+            android:inputType="textMultiLine" />
 
         <Button
-            android:id="@+id/projEdit"
+            android:id="@+id/jobEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit"
