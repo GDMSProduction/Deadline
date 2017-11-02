@@ -6,47 +6,52 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.leon.deadline.HomeScreen"
+    tools:layout_editor_absoluteY="89dp"
     tools:showIn="@layout/activity_home_screen">
 
-    <TextView
-        android:id="@+id/empty_Prompt"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        android:text="If no projects appear here, you are not in any active projects. Press the button to create one."
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
-
-    <TextView
-        android:id="@+id/TempUserInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/empty_Prompt"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="17dp" />
-
-    <ListView
-        android:id="@+id/HomeListView"
-        android:layout_width="618dp"
-        android:layout_height="693dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="-66dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/TempUserInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="center"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_editor_absoluteX="177dp"
+            tools:layout_editor_absoluteY="32dp" />
+
+        <TextView
+            android:id="@+id/empty_Prompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="If no projects appear here, you are not in any active projects. Press the button to create one."
+            android:textAlignment="center"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <ListView
+            android:id="@+id/HomeListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="128dp" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
