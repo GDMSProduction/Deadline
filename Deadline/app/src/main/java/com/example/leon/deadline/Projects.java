@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class Projects extends AppCompatActivity {
 
-    public FloatingActionButton createTask123;
+    public FloatingActionButton Create_Project;
     private Button Butt_Home;
 
     @Override
@@ -24,13 +24,13 @@ public class Projects extends AppCompatActivity {
         CProject tempProject = new CProject();
         tempProject.setName("My Project");
 
-        createTask123 = (FloatingActionButton) findViewById(R.id.TaskCreate11);
-        createTask123.setOnClickListener(new View.OnClickListener()
+        Create_Project = (FloatingActionButton) findViewById(R.id.TaskCreate11);
+        Create_Project.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Projects.this, CreateTask.class);
+                Intent intent = new Intent(Projects.this, ProjectCreationScreen.class);
                 startActivity(intent);
             }
         });
