@@ -22,6 +22,9 @@ public class CTask extends CDeadline implements Serializable {
     private eUrgency m_eUrgency;
     private List<CJob> m_JobList = new ArrayList<>();
 
+    public CTask() {
+    }
+
     public CTask(String Name, Date Deadline, String Summary, eUrgency Urgency) {
         super(Name, Deadline, Summary);
         this.m_eUrgency = Urgency;
