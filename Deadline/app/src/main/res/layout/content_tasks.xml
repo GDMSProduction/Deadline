@@ -26,4 +26,38 @@
         app:layout_constraintVertical_bias="0.017"
         app:srcCompat="@color/colorAccent" />
 
+    <LinearLayout
+        android:id="@+id/llTasks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+        android:paddingStart="0dp"
+        android:paddingTop="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CreateProject">
+
+        <Button
+            android:id="@+id/btnTask"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:text="TaskName"
+            android:textAlignment="viewStart"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="56dp" />
+
+        <Button
+            android:id="@+id/btnEditTask"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:background="@drawable/ic_dehaze_black_24dp" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

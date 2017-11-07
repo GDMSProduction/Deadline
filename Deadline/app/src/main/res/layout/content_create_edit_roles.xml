@@ -8,4 +8,19 @@
     tools:context="com.example.leon.deadline.CreateEditRoles"
     tools:showIn="@layout/activity_create_edit_roles">
 
+    <LinearLayout
+        android:id="@+id/llCreteRoles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etxtRoleName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Role Name"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

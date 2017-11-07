@@ -23,6 +23,10 @@ public class Tasks extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        CTask tempTask = new CTask();
+        tempTask.setName("My Task");
+
+
         Butt_Home = (Button) findViewById(R.id.Home_Button);
         Butt_Home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +41,29 @@ public class Tasks extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Tasks.this, CreateTask.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button tempButton = (Button) findViewById(R.id.btnTask);
+        tempButton.setText(tempTask.getName());
+
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Tasks.this, Jobs.class);
+                startActivity(intent);
+            }
+        });
+
+
+        tempButton = (Button) findViewById(R.id.btnEditTask);
+
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Tasks.this, EditTask.class);
                 startActivity(intent);
             }
         });
