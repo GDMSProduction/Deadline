@@ -141,7 +141,7 @@ public class ProjectCreationScreen extends AppCompatActivity {
         CProject temp = new CProject(_name,_date, _private);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
         ref.child(user.getDisplayName().toString()).child("projectList").child(_name).setValue(temp);
-
+        Toast.makeText(ProjectCreationScreen.this,"Project creation successful",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
         //intent.putExtra("TempProj", tempProject);
         startActivity(intent);
