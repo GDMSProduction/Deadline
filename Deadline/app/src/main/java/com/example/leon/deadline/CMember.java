@@ -26,6 +26,10 @@ public class CMember extends CUser implements Serializable {
         this.m_Roles = member.m_Roles;
     }
 
+    public CMember(CUser member) {
+        super(member.getName(), member.getEmail());
+    }
+
     public boolean addRole(CRole role){
         return m_Roles.add(role);
     }

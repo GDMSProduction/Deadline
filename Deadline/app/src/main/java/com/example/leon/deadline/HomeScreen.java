@@ -157,6 +157,17 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        Button tempCreateRoleBtn = (Button) findViewById(R.id.btnTempCreateRole);
+        tempCreateRoleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                Intent intent = new Intent(HomeScreen.this, CreateEditRoles.class);
+                startActivity(intent);
+            }
+        });
+
         //mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
         final CDeadline[] aTest = new CDeadline[10];

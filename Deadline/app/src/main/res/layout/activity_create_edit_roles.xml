@@ -26,12 +26,12 @@
                 android:backgroundTint="@color/common_google_signin_btn_text_dark_default" />
 
             <TextView
-                android:id="@+id/Create_Edit_Roles"
+                android:id="@+id/Create_Roles"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
                 android:layout_weight="1"
-                android:text="Create/Edit Roles"
+                android:text="Create Role"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="24sp" />
