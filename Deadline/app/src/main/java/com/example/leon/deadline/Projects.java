@@ -63,6 +63,8 @@ public class Projects extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     @Override

@@ -20,11 +20,36 @@ public class Jobs extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        CJob tempJob = new CJob();
+        tempJob.setName("My Job");
+
         Butt_Home = (Button) findViewById(R.id.Home_Button);
         Butt_Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Jobs.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Button tempButton = (Button) findViewById(R.id.btnJobs);
+        tempButton.setText(tempJob.getName());
+
+        /*tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Jobs.this, Jobs.class);
+                startActivity(intent);
+            }
+        });*/
+
+        tempButton = (Button) findViewById(R.id.btnEditJob);
+        tempButton.setText(tempJob.getName());
+
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Jobs.this, EditJob.class);
                 startActivity(intent);
             }
         });

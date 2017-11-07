@@ -27,7 +27,7 @@
         app:srcCompat="@color/colorAccent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/llProjects"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -39,11 +39,10 @@
 
         <Button
             android:id="@+id/btnProject"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
-            android:backgroundTint="@color/common_google_signin_btn_text_dark_disabled"
             android:paddingLeft="20dp"
             android:text="ProjectName"
             android:textAlignment="viewStart"
@@ -52,6 +51,7 @@
 
         <Button
             android:id="@+id/btnEditProject"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".25"

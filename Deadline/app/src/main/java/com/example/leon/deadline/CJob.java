@@ -11,6 +11,8 @@ public class CJob extends CDeadline implements Serializable {
 
    private eUrgency m_eUrgency;
 
+   public CJob(){};
+
    public CJob(CJob job){
        super(job.getName(), job.getDeadline(), job.getSummary());
        m_eUrgency = job.m_eUrgency;
