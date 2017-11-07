@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 
 public class SplashScreen extends AppCompatActivity {
 
-    public final int waitTime = 1000;
+    public final int waitTime = 3000;
     int i = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
