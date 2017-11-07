@@ -17,6 +17,7 @@ public class CProject extends CDeadline implements Serializable {
 
     private List<CTask> m_TaskList = new ArrayList<>();
     private List<CRole> m_Roles = new ArrayList<>();
+    private List<CMember> m_Members = new ArrayList<>();
 
    /* public String           GetName()           {return m_szName;}
     public Date             GetDeadline()       {return m_Deadline;}
@@ -66,9 +67,19 @@ public class CProject extends CDeadline implements Serializable {
         this.m_Roles = m_Roles;
     }
 
+    // Members Get + Set
+    public List<CMember> getMembers() { return m_Members; }
+    public void setMembers(List<CMember> Members) { m_Members = Members; }
+
 
 // Member Functions
+    public boolean addMember(CMember member){
+        return m_Members.add(member);
+    }
 
+    public boolean addMember(CUser member){
+        return m_Members.add(new CMember(member));
+    }
 
 
 

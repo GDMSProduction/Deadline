@@ -22,6 +22,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Button
+            android:id="@+id/btnTempCreateRole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temp Create Role Button" />
+
         <TextView
             android:id="@+id/TempUserInfo"
             android:layout_width="match_parent"
