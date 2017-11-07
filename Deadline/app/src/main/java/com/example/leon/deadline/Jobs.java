@@ -44,7 +44,6 @@ public class Jobs extends AppCompatActivity {
         });*/
 
         tempButton = (Button) findViewById(R.id.btnEditJob);
-        tempButton.setText(tempJob.getName());
 
         tempButton.setOnClickListener(new View.OnClickListener() {
             @Override
