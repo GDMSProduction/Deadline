@@ -48,6 +48,32 @@
             tools:layout_editor_absoluteY="120dp" />
 
         <EditText
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="none|textEmailAddress"
+            tools:layout_editor_absoluteX="99dp"
+            tools:layout_editor_absoluteY="120dp" />
+
+        <EditText
+            android:id="@+id/phoneNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Phone #"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/userBio"
+            android:layout_width="match_parent"
+            android:layout_height="117dp"
+            android:ems="10"
+            android:hint="Bio"
+            android:inputType="textMultiLine" />
+
+        <EditText
             android:id="@+id/password1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,5 +100,6 @@
             android:text="Create"
             tools:layout_editor_absoluteX="168dp"
             tools:layout_editor_absoluteY="326dp" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

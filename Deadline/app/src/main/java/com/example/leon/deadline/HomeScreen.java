@@ -160,7 +160,7 @@ public class HomeScreen extends AppCompatActivity {
         //mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
         final CDeadline[] aTest = new CDeadline[10];
-        mDataBase = fBase.getReference("users").child(user.getDisplayName());//.child("projectList");
+        mDataBase = fBase.getReference("users").child(user.getUid());//.child("projectList");
         mDataBase.addChildEventListener(new ChildEventListener() {
             //IT GETS IN HERE
             //int i = 0;

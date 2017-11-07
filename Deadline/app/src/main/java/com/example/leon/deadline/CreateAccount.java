@@ -34,10 +34,16 @@ public class CreateAccount extends AppCompatActivity {
     private EditText eEmail;
     private EditText eName;
     private EditText eConf;
+    private EditText ePhone;
+    private EditText eUserName;
+    private EditText eBio;
 
     private String name;
     private String pass;
     private String email;
+    private String phone;
+    private String username;
+    private String bio;
 
     private CUser tempUser = new CUser("name", "email");
 
@@ -80,22 +86,32 @@ public class CreateAccount extends AppCompatActivity {
                                           ePass = (EditText) findViewById(R.id.password1);
                                           eName = (EditText) findViewById(R.id.accName);
                                           eConf = (EditText) findViewById(R.id.passConf);
+                                          ePhone = (EditText) findViewById(R.id.phoneNum);
+                                          eUserName = (EditText) findViewById(R.id.userName);
+                                          eBio = (EditText) findViewById(R.id.userBio);
 
                                           if(!eName.getText().toString().equals("")
                                                   &&!eEmail.getText().toString().equals("")
                                                   && !ePass.getText().toString().equals("")
-                                                  && !eConf.getText().toString().equals(""))
+                                                  && !eConf.getText().toString().equals("")
+                                                  && !ePhone.getText().toString().equals("")
+                                                  && !eUserName.getText().toString().equals("")
+                                                  && !eBio.getText().toString().equals(""))
                                           {
                                               if(ePass.getText().toString().equals(eConf.getText().toString()))
                                               {
                                                   email = eEmail.getText().toString();
                                                   pass = ePass.getText().toString();
                                                   name = eName.getText().toString();
-                                                  /*TODO 1
+                                                  phone = ePhone.getText().toString();
+                                                  username = eUserName.getText().toString();
+                                                  bio = eBio.getText().toString();
+
+                                                  /*TODO 1 - FIXED
                                                   * check if any fields are blank
                                                   * check if password and confirmation password are the same
                                                   * */
-                                                  createAccount(name, email, pass);
+                                                  createAccount(name, email, pass, phone, username, bio);
 
                                                   tempUser.setName(name);
                                                   tempUser.setEmail((email));
@@ -143,7 +159,7 @@ public class CreateAccount extends AppCompatActivity {
     reason the onCompleteListener gets called after the if check instead of before.
     FIXED: moved the user creation code and the intent switching into the else statement.
     */
-    public void createAccount(final String name, final String email,final String pass)
+    public void createAccount(final String name, final String email,final String pass, final String phone, final String username, final String bio)
     {
 
          mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -156,10 +172,10 @@ public class CreateAccount extends AppCompatActivity {
                  } else {
                      Toast.makeText(CreateAccount.this, R.string.auth_succ, Toast.LENGTH_SHORT).show();
 
-                     CUser temp = new CUser(name, email);
+                     CUser temp = new CUser(name, email, username, phone, bio);
                      DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
                      String key = ref.push().getKey();
-                     ref.child(name).setValue(temp);
+                     ref.child(user.getUid()).setValue(temp);
                      //ref.setValue(temp);
 
                      UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();

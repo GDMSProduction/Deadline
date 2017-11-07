@@ -29,11 +29,20 @@ public class CUser implements Serializable{
 
     private List<CProject> m_ProjectList = new ArrayList<>();
 
-    public CUser(String _name, String _email/* *add to userstuff* ,String _username*/)
+    //Remove when possible.
+    public CUser(String _name, String _email)
     {
         m_szName = _name;
         m_szEmail = _email;
-        //m_szUsername = _username;
+    }
+
+    public CUser(String _name, String _email,String _username, String _phone, String _bio)
+    {
+        m_szName = _name;
+        m_szEmail = _email;
+        m_szUsername = _username;
+        m_szPhone = _phone;
+        m_szBio = _bio;
     }
 
     // Name Get + Set
