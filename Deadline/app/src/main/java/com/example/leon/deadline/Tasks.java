@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 public class Tasks extends AppCompatActivity {
 
     private Button Butt_Home;
+    private Button Butt_Op;
     private FloatingActionButton Create_Task;
 
     @Override
@@ -32,6 +33,15 @@ public class Tasks extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Tasks.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Tasks.this, Settings.class);
                 startActivity(intent);
             }
         });

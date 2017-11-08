@@ -12,6 +12,7 @@ public class Projects extends AppCompatActivity {
 
     public FloatingActionButton Create_Project;
     private Button Butt_Home;
+    private Button Butt_Op;
     private Button Butt_Edit;
 
     @Override
@@ -40,6 +41,15 @@ public class Projects extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Projects.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Projects.this, Settings.class);
                 startActivity(intent);
             }
         });

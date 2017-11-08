@@ -12,6 +12,7 @@ import android.widget.Button;
 public class CreateJob extends AppCompatActivity {
 
     private Button Butt_Home;
+    private Button Butt_Op;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,14 @@ public class CreateJob extends AppCompatActivity {
             }
         });
 
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateJob.this, Settings.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

@@ -13,6 +13,7 @@ public class CreateTask extends AppCompatActivity {
 
     private Button taskCreateButton;
     private Button Butt_Home;
+    private Button Butt_Op;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,15 @@ public class CreateTask extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CreateTask.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateTask.this, Settings.class);
                 startActivity(intent);
             }
         });
