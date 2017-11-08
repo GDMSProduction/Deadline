@@ -26,8 +26,10 @@ import java.util.Date;
 
 public class ProjectCreationScreen extends AppCompatActivity {
 
-    private Button projCreateButton;
     private Button Butt_Home;
+    private Button Butt_Op;
+
+    private Button projCreateButton;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -115,6 +117,15 @@ public class ProjectCreationScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProjectCreationScreen.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProjectCreationScreen.this, Settings.class);
                 startActivity(intent);
             }
         });
