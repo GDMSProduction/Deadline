@@ -140,7 +140,8 @@ public class ProjectCreationScreen extends AppCompatActivity {
     {
         CProject temp = new CProject(_name,_date, _private);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
-        ref.child(user.getUid()).child("projectList").child(_name).setValue(temp);
+        String newKey = ref.child(user.getUid()).child("projectList").push().getKey();
+        ref.child(user.getUid()).child("projectList").child(newKey).setValue(temp);
 
         Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
         //intent.putExtra("TempProj", tempProject);
