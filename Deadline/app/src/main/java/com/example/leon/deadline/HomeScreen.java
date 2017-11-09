@@ -182,7 +182,7 @@ public class HomeScreen extends AppCompatActivity {
         fBase = FirebaseDatabase.getInstance();
         final CDeadline[] aTest = new CDeadline[10];
         mDataBase = fBase.getReference("users").child(user.getUid());//.child("projectList");
-        mDataBase.addChildEventListener(new ChildEventListener() {
+       /* mDataBase.addChildEventListener(new ChildEventListener() {
             //IT GETS IN HERE
             //int i = 0;
 
@@ -230,7 +230,7 @@ public class HomeScreen extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
                 Log.d(HomeScreen.class.getSimpleName(), "Did not completo");
             }
-        });
+        });*/
 
 
 

@@ -8,12 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class Jobs extends AppCompatActivity {
 
     private Button Butt_Home;
     private Button Butt_Op;
     private FloatingActionButton Fab_CreateJob;
+    private LinearLayout llJobOption;
+    private Button Butt_JobOption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,32 @@ public class Jobs extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Jobs.this, EditJob.class);
                 startActivity(intent);
+            }
+        });
+
+
+        // btnViewJobOptions OnCLickListener
+        llJobOption = (LinearLayout) findViewById(R.id.llJobOptions);
+        tempButton = (Button) findViewById(R.id.btnViewJobOptions);
+
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(llJobOption.getVisibility() == View.GONE)
+                    llJobOption.setVisibility(View.VISIBLE);
+                else
+                    llJobOption.setVisibility(View.GONE);
+            }
+        });
+
+        // btnDeleteJob OnCLickListener
+        Butt_JobOption = (Button) findViewById(R.id.btnDeleteJob);
+        Butt_JobOption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llJobOption.removeAllViews();
+                llJobOption = (LinearLayout)findViewById(R.id.llJobs);
+                llJobOption.removeAllViews();
             }
         });
     }
