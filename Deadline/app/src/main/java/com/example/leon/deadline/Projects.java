@@ -7,13 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class Projects extends AppCompatActivity {
 
     public FloatingActionButton Create_Project;
     private Button Butt_Home;
     private Button Butt_Op;
-    private Button Butt_Edit;
+    private Button Butt_ViewProjectOptions;
+    private Button Butt_ProjOptions;
+    private LinearLayout llProjOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +57,16 @@ public class Projects extends AppCompatActivity {
             }
         });
 
-        Butt_Edit = (Button) findViewById(R.id.btnEditProject);
-        Butt_Edit.setOnClickListener(new View.OnClickListener() {
+        llProjOptions = (LinearLayout) findViewById(R.id.llProjectOptions);
+
+        Butt_ViewProjectOptions = (Button) findViewById(R.id.btnViewProjectOptions);
+        Butt_ViewProjectOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Projects.this, EditProject.class);
-                startActivity(intent);
+                if(llProjOptions.getVisibility() == View.GONE)
+                    llProjOptions.setVisibility(View.VISIBLE);
+                else
+                    llProjOptions.setVisibility(View.GONE);
             }
         });
 
@@ -69,11 +76,43 @@ public class Projects extends AppCompatActivity {
         tempButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(llProjOptions.getVisibility() == View.VISIBLE)
+                    llProjOptions.setVisibility(View.GONE);
                 Intent intent = new Intent(Projects.this, Tasks.class);
                 startActivity(intent);
             }
         });
 
+        // btnEditProject OnCLickListener
+        Butt_ProjOptions = (Button) findViewById(R.id.btnEditProject);
+        Butt_ProjOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Projects.this, EditProject.class);
+                startActivity(intent);
+            }
+        });
+
+        // btnViewEditRoles OnCLickListener
+        Butt_ProjOptions = (Button) findViewById(R.id.btnViewEditRoles);
+        Butt_ProjOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Projects.this, CreateEditRoles.class);
+                startActivity(intent);
+            }
+        });
+
+        // btnDeleteProject OnCLickListener
+        Butt_ProjOptions = (Button) findViewById(R.id.btnDeleteProject);
+        Butt_ProjOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llProjOptions.removeAllViews();
+                llProjOptions = (LinearLayout) findViewById(R.id.llProjects);
+                llProjOptions.removeAllViews();
+            }
+        });
 
     }
 
