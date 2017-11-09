@@ -3,4 +3,8 @@
     <color name="colorPrimary">#1c287a</color>
     <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="ProjectColor">#3671b5</color>
+    <color name="TaskColor">#2ec1a3</color>
+    <color name="JobColo">#4aaa6b</color>
+    <color name="JobColor">#4aaa6b</color>
 </resources>

@@ -6,37 +6,38 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.leon.deadline.Tasks"
+    tools:layout_editor_absoluteY="89dp"
     tools:showIn="@layout/activity_tasks">
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/CreateTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="17dp"
         android:clickable="true"
+        android:foreground="@android:drawable/ic_input_add"
+        android:foregroundTint="@color/common_google_signin_btn_text_dark_focused"
+        android:tint="@color/TaskColor"
+        app:backgroundTint="@color/TaskColor"
         app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Tasks"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017"
         app:srcCompat="@color/colorAccent" />
 
     <LinearLayout
         android:id="@+id/Tasks"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="465dp"
+        android:background="@color/TaskColor"
         android:orientation="horizontal"
-        android:paddingRight="20dp"
-        android:paddingStart="0dp"
-        android:paddingTop="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CreateProject">
+        app:layout_constraintTop_toBottomOf="@+id/CreateTask">
 
         <Button
             android:id="@+id/btnTask"
