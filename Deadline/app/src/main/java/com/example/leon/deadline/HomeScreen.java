@@ -182,7 +182,7 @@ public class HomeScreen extends AppCompatActivity {
         fBase = FirebaseDatabase.getInstance();
         final CDeadline[] aTest = new CDeadline[10];
         mDataBase = fBase.getReference("users").child(user.getUid());//.child("projectList");
-       /* mDataBase.addChildEventListener(new ChildEventListener() {
+        mDataBase.addChildEventListener(new ChildEventListener() {
             //IT GETS IN HERE
             //int i = 0;
 
@@ -193,44 +193,38 @@ public class HomeScreen extends AppCompatActivity {
                 {
                     if(mtest != null)
                     {
+                        String projectKey = mtest.getValue().toString();
+                        sDatabase(projectKey, aTest, i);
+                        i++;
+                        /*
                         CProject temp = new CProject(mtest.child("name").getValue().toString(), mtest.child("deadline").getValue().toString(), (Boolean) mtest.child("bPrivate").getValue());
                         aTest[i] = temp;
                         i++;
-                    }
-                    if(dataSnapshot.getChildrenCount() < i+1 && dataSnapshot.getChildrenCount() != 0)
-                    {
-                        populateScreen(aTest);
+                        */
                     }
                 }
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                int i = 0;
-                for(DataSnapshot mtest :dataSnapshot.getChildren())
-                {
-                    CProject temp = new CProject(mtest.child("name").getValue().toString(), mtest.child("deadline").getValue().toString(), (Boolean) mtest.child("bPrivate").getValue());
-                    aTest[i] = temp;
-                    i++;
-                }
+
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                int i = 0;
+
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-                int i = 0;
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.d(HomeScreen.class.getSimpleName(), "Did not completo");
             }
-        });*/
+        });
 
 
 
@@ -282,4 +276,72 @@ public class HomeScreen extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, list);
         HomeList.setAdapter(adapter);
     }
+
+    public void sDatabase(final String _key, final CDeadline[] _array,final int _j)
+    {
+        DatabaseReference pDataBase = fBase.getReference().child("projects");
+        pDataBase.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                int i = 0;
+                String name = "";
+                String deadline = "";
+                Boolean priv = false;
+                for(DataSnapshot mtest :dataSnapshot.getChildren())
+                {
+                    if(mtest != null && dataSnapshot.getKey().toString().equals(_key))
+                    {
+                        switch(mtest.getKey().toString())
+                        {
+                            case "bPrivate":
+                                priv = (boolean) mtest.getValue();
+                                i++;
+                                break;
+                            case "name":
+                                name = mtest.getValue().toString();
+                                i++;
+                                break;
+                            case "deadline":
+                                deadline = mtest.getValue().toString();
+                                i++;
+                                break;
+                            default:
+                                break;
+                        }
+                        if(name != "" && deadline !="")
+                        {
+                            CProject temp = new CProject(name, deadline, priv);
+                            _array[_j] = temp;
+                            //i++;
+                        }
+                    }
+                    if(dataSnapshot.getChildrenCount() < i+1 && dataSnapshot.getChildrenCount() != 0)
+                    {
+                        populateScreen(_array);
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 }
