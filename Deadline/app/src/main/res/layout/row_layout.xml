@@ -12,7 +12,9 @@
         android:layout_alignParentTop="true"
         android:text="TEST PROJECT"
         android:textSize = "20dp"
-        android:textColor="@android:color/black" />
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        />
 
     <ImageView
         android:id="@+id/item_dots"
