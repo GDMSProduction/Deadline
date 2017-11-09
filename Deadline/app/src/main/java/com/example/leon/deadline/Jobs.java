@@ -12,6 +12,8 @@ import android.widget.Button;
 public class Jobs extends AppCompatActivity {
 
     private Button Butt_Home;
+    private Button Butt_Op;
+    private FloatingActionButton Fab_CreateJob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,24 @@ public class Jobs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Jobs.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Jobs.this, Settings.class);
+                startActivity(intent);
+            }
+        });
+
+        Fab_CreateJob = (FloatingActionButton) findViewById(R.id.createJob);
+        Fab_CreateJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Jobs.this, CreateJob.class);
                 startActivity(intent);
             }
         });

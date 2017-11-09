@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 public class AccountInfo extends AppCompatActivity {
 
     private Button Butt_Home;
+    private Button Butt_Op;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser user;
@@ -69,6 +70,15 @@ public class AccountInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AccountInfo.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AccountInfo.this, Settings.class);
                 startActivity(intent);
             }
         });

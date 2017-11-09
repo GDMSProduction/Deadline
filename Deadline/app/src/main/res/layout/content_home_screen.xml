@@ -9,6 +9,15 @@
     tools:layout_editor_absoluteY="89dp"
     tools:showIn="@layout/activity_home_screen">
 
+    <Button
+        android:id="@+id/btnTempCreateRole"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Temp Create Role Button"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
@@ -21,12 +30,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/btnTempCreateRole"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Temp Create Role Button" />
 
         <TextView
             android:id="@+id/TempUserInfo"

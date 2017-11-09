@@ -12,6 +12,7 @@ import android.widget.Button;
 public class EditProject extends AppCompatActivity {
 
     private Button Butt_Home;
+    private Button Butt_Op;
     private Button Butt_Save;
 
     @Override
@@ -26,6 +27,15 @@ public class EditProject extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditProject.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditProject.this, Settings.class);
                 startActivity(intent);
             }
         });

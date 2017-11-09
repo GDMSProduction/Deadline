@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Version: 171102_P1"
+            android:text="Version: 171107_P1"
             tools:layout_editor_absoluteX="158dp"
             tools:layout_editor_absoluteY="500dp" />
     </LinearLayout>

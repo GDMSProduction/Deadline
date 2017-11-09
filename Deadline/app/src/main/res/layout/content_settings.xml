@@ -25,16 +25,28 @@
             android:orientation="vertical">
 
             <Switch
-                android:id="@+id/Notifications_Switch"
+                android:id="@+id/PushNotifications_Switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notifications" />
+                android:text="Push Notifications" />
 
             <Switch
-                android:id="@+id/Email_Switch"
+                android:id="@+id/EmailNotification_Switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email Notifications" />
+
+            <Switch
+                android:id="@+id/ScreenTimeout_Switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prevent Screen Sleep" />
+
+            <Button
+                android:id="@+id/TutorialToggle_Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reset Tutorial" />
 
         </LinearLayout>
     </ScrollView>

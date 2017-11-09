@@ -34,6 +34,7 @@ import java.util.List;
 
 public class HomeScreen extends AppCompatActivity {
 
+    private Button Butt_Op;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser user;
@@ -57,6 +58,15 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreen.this, Settings.class);
+                startActivity(intent);
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {

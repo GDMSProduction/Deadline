@@ -26,8 +26,10 @@ import java.util.Date;
 
 public class ProjectCreationScreen extends AppCompatActivity {
 
-    private Button projCreateButton;
     private Button Butt_Home;
+    private Button Butt_Op;
+
+    private Button projCreateButton;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -118,6 +120,15 @@ public class ProjectCreationScreen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Butt_Op = (Button) findViewById(R.id.Options_Button);
+        Butt_Op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProjectCreationScreen.this, Settings.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onStart()
@@ -141,7 +152,8 @@ public class ProjectCreationScreen extends AppCompatActivity {
         CProject temp = new CProject(_name,_date, _private);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
 
-        ref.child(user.getUid()).child("projectList").child(_name).setValue(temp);
+        String newKey = ref.child(user.getUid()).child("projectList").push().getKey();
+        ref.child(user.getUid()).child("projectList").child(newKey).setValue(temp);
 
         Toast.makeText(ProjectCreationScreen.this,"Project creation successful",Toast.LENGTH_SHORT).show();
 

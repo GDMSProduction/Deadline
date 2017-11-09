@@ -13,6 +13,8 @@ public class CDeadline implements Serializable {
     private String m_szName;
     private String m_Deadline;
     private String m_szSummary;
+    private String m_szUniqueID;
+
     private List<CMember> m_MemberList = new ArrayList<>();
 
     public CDeadline() {
@@ -29,7 +31,7 @@ public class CDeadline implements Serializable {
         return m_szName;
     }
     public void setName(String Name) {
-        this.m_szName = Name;
+        m_szName = Name;
     }
 
     // Deadline Get + Set
@@ -37,27 +39,32 @@ public class CDeadline implements Serializable {
         return m_Deadline;
     }
     public void setDeadline(String Deadline) {
-        this.m_Deadline = Deadline;
+        m_Deadline = Deadline;
     }
 
     // Summary Get + Set
     public String getSummary() {
         return m_szSummary;
     }
-    public void setSummary(String m_szSummary) {
-        this.m_szSummary = m_szSummary;
+    public void setSummary(String Summary) {
+        m_szSummary = Summary;
     }
 
     // Member List  Get + Set
     public List<CMember> getMemberList() {
         return m_MemberList;
     }
-    public void setMemberList(List<CMember> m_MemberList) {
-        this.m_MemberList = m_MemberList;
+    public void setMemberList(List<CMember> MemberList) {
+        m_MemberList = MemberList;
     }
 
+    // Unique ID Get + Set
+    public String getUniqueID() { return m_szUniqueID; }
+    public void setUniqueID(String UniqueID) { m_szUniqueID = UniqueID; }
 
-// Member Functions
+
+
+    // Member Functions
     public boolean addMember(CMember member){
         for(int i = 0; i < m_MemberList.size(); i++){
             if(m_MemberList.get(i).getEmail() == member.getEmail())
