@@ -13,7 +13,7 @@
         android:id="@+id/CreateTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="17dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="17dp"
         android:clickable="true"
@@ -22,17 +22,20 @@
         android:tint="@color/TaskColor"
         app:backgroundTint="@color/TaskColor"
         app:fabSize="mini"
-        app:layout_constraintBottom_toTopOf="@+id/Tasks"
+        app:layout_constraintBottom_toTopOf="@+id/llTaskLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/colorAccent" />
 
     <LinearLayout
         android:id="@+id/llTaskLayout"
-        android:layout_width="match_parent"
-        android:layout_height="520dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteY="74dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CreateTask">
 
         <LinearLayout
             android:id="@+id/Tasks"

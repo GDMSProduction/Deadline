@@ -8,6 +8,15 @@
     <string name="title_activity_splash_screen">Splash Screen</string>
     <!-- Strings related to Settings -->
 
+    <string-array name="nav_Destinations">
+        <item>Projects</item>
+        <item>Settings</item>
+        <item>Account</item>
+        <item>About</item>
+        <item>Logout</item>
+    </string-array>
+
+
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
 

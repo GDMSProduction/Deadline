@@ -10,11 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +36,6 @@ import java.util.List;
 
 public class HomeScreen extends AppCompatActivity {
 
-    private Button Butt_Op;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser user;
@@ -51,6 +52,11 @@ public class HomeScreen extends AppCompatActivity {
     private CUser tempUser;
     private String tempHoldName;
 
+    private Spinner nav_spin;
+    private Boolean spin_Clicked = false;
+
+    private Button projJump;
+    private Button taskJump;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +65,54 @@ public class HomeScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Butt_Op = (Button) findViewById(R.id.Options_Button);
-        Butt_Op.setOnClickListener(new View.OnClickListener() {
+        nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
+        nav_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = parent.getSelectedItem().toString();
+                Toast.makeText(HomeScreen.this, selection, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        projJump = (Button) findViewById(R.id.btnProject);
+        projJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeScreen.this, Settings.class);
+                Intent intent = new Intent(HomeScreen.this, Tasks.class);
                 startActivity(intent);
             }
         });
+        projJump = (Button) findViewById(R.id.projDate);
+        projJump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreen.this, Tasks.class);
+                startActivity(intent);
+            }
+        });
+
+        taskJump = (Button) findViewById(R.id.btnTask);
+        taskJump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreen.this, Jobs.class);
+                startActivity(intent);
+            }
+        });
+        taskJump = (Button) findViewById(R.id.taskDate);
+        taskJump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreen.this, Jobs.class);
+                startActivity(intent);
+            }
+        });
+
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -163,17 +209,6 @@ public class HomeScreen extends AppCompatActivity {
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
                 Intent intent = new Intent(HomeScreen.this, AccountInfo.class);
-                startActivity(intent);
-            }
-        });
-
-        Button tempCreateRoleBtn = (Button) findViewById(R.id.btnTempCreateRole);
-        tempCreateRoleBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                Intent intent = new Intent(HomeScreen.this, CreateEditRoles.class);
                 startActivity(intent);
             }
         });

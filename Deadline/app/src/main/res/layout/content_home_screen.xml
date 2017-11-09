@@ -11,15 +11,19 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginEnd="205dp"
+        android:layout_marginStart="205dp"
+        android:layout_marginTop="80dp"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="40dp"
         android:visibility="gone"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="136dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3">
 
         <TextView
             android:id="@+id/TempUserInfo"
@@ -56,10 +60,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="411dp"
-        android:layout_height="537dp"
+        android:layout_width="0dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="57dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteY="57dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/llProjects"
@@ -128,7 +135,8 @@
         <LinearLayout
             android:id="@+id/llJobs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:backgroundTint="@color/JobColor"
             android:foregroundTint="@color/JobColor"
             android:orientation="horizontal"
@@ -160,13 +168,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnTempCreateRole"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:text="Temp Create Role Button"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="530dp" />
 
 </android.support.constraint.ConstraintLayout>
