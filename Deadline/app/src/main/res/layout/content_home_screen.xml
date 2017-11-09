@@ -9,15 +9,6 @@
     tools:layout_editor_absoluteY="89dp"
     tools:showIn="@layout/activity_home_screen">
 
-    <Button
-        android:id="@+id/btnTempCreateRole"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Temp Create Role Button"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
@@ -26,10 +17,9 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="136dp">
 
         <TextView
             android:id="@+id/TempUserInfo"
@@ -63,5 +53,120 @@
             tools:layout_editor_absoluteY="128dp" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="411dp"
+        android:layout_height="537dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="57dp">
+
+        <LinearLayout
+            android:id="@+id/llProjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CreateProject">
+
+            <Button
+                android:id="@+id/btnProject"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/ProjectColor"
+                android:paddingLeft="20dp"
+                android:text="My Project"
+                android:textAlignment="viewStart"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="56dp" />
+
+            <Button
+                android:id="@+id/projDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:backgroundTint="@color/ProjectColor"
+                android:text="11/29/17" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Tasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CreateProject">
+
+            <Button
+                android:id="@+id/btnTask"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/TaskColor"
+                android:paddingLeft="20dp"
+                android:text="My Task"
+                android:textAlignment="viewStart"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="56dp" />
+
+            <Button
+                android:id="@+id/taskDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:backgroundTint="@color/TaskColor"
+                android:text="11/18/17" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llJobs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/JobColor"
+            android:foregroundTint="@color/JobColor"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/createJob">
+
+            <Button
+                android:id="@+id/btnJobs"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/JobColor"
+                android:paddingLeft="20dp"
+                android:text="My Job"
+                android:textAlignment="viewStart"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="56dp" />
+
+            <Button
+                android:id="@+id/jobDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:backgroundTint="@color/JobColor"
+                android:text="11/13/17" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnTempCreateRole"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:text="Temp Create Role Button"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="530dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -60,7 +60,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/JobColor"
                 android:paddingLeft="20dp"
-                android:text="JobName"
+                android:text="My Job"
                 android:textAlignment="viewStart"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="56dp" />

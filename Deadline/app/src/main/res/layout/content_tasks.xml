@@ -51,7 +51,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/TaskColor"
                 android:paddingLeft="20dp"
-                android:text="TaskName"
+                android:text="My Task"
                 android:textAlignment="viewStart"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="56dp" />
