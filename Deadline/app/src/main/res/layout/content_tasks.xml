@@ -28,37 +28,73 @@
         app:srcCompat="@color/colorAccent" />
 
     <LinearLayout
-        android:id="@+id/Tasks"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="465dp"
-        android:background="@color/TaskColor"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CreateTask">
+        android:id="@+id/llTaskLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnTask"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/Tasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="20dp"
+            android:paddingStart="0dp"
+            android:paddingTop="75dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CreateProject">
+
+            <Button
+                android:id="@+id/btnTask"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:text="TaskName"
+                android:textAlignment="viewStart"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="56dp" />
+
+            <Button
+                android:id="@+id/btnViewTaskOptions"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
+                android:background="@drawable/ic_dehaze_black_24dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llTaskOptions"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="20dp"
-            android:text="TaskName"
-            android:textAlignment="viewStart"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="56dp" />
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <Button
-            android:id="@+id/btnEditTask"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".25"
-            android:background="@drawable/ic_dehaze_black_24dp" />
+            <Button
+                android:id="@+id/btnEditTask"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:text="Edit Task"
+                android:textAlignment="viewStart"
+                android:textSize="12sp" />
 
+            <Button
+                android:id="@+id/btnDeleteTask"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:text="Delete Task"
+                android:textAlignment="viewStart"
+                android:textSize="12sp" />
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
