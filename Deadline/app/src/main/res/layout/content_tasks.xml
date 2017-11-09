@@ -30,27 +30,26 @@
     <LinearLayout
         android:id="@+id/llTaskLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="520dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="74dp">
 
         <LinearLayout
             android:id="@+id/Tasks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingRight="20dp"
-            android:paddingStart="0dp"
-            android:paddingTop="75dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/CreateProject">
 
             <Button
                 android:id="@+id/btnTask"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/TaskColor"
                 android:paddingLeft="20dp"
                 android:text="TaskName"
                 android:textAlignment="viewStart"
