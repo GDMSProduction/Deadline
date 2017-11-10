@@ -9,6 +9,7 @@
     <!-- Strings related to Settings -->
 
     <string-array name="nav_Destinations">
+        <item> </item>
         <item>Projects</item>
         <item>Settings</item>
         <item>Account</item>

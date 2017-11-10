@@ -10,19 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:baselineAligned="false">
-
-            <Button
-                android:id="@+id/Account_Button"
-                android:layout_width="28sp"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/fab_margin"
-                android:background="@android:drawable/ic_menu_myplaces"
-                android:backgroundTint="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/Current_Activity"
@@ -30,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
                 android:layout_weight="1"
+                android:paddingLeft="60dp"
                 android:text="Home"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -38,7 +32,7 @@
             <Spinner
                 android:id="@+id/nav_Spinner"
                 style="@style/Widget.AppCompat.Spinner.DropDown"
-                android:layout_width="wrap_content"
+                android:layout_width="58dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0"
                 android:entries="@array/nav_Destinations" />
@@ -46,17 +40,6 @@
         </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/gotoProjects"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@color/common_google_signin_btn_text_dark_disabled"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="top|right"
-        app:srcCompat="@android:drawable/ic_menu_set_as" />
 
     <include
         android:id="@+id/include"

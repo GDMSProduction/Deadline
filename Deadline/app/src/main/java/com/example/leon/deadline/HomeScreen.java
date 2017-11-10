@@ -70,7 +70,27 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = parent.getSelectedItem().toString();
-                Toast.makeText(HomeScreen.this, selection, Toast.LENGTH_SHORT).show();
+                if (selection.equals("Projects") && spin_Clicked){
+                    Intent intent = new Intent(HomeScreen.this, Projects.class);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Settings") && spin_Clicked){
+                    Intent intent = new Intent(HomeScreen.this, Settings.class);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Account") && spin_Clicked){
+                    Intent intent = new Intent(HomeScreen.this, AccountInfo.class);
+                    startActivity(intent);
+                }
+                else if (selection.equals("About") && spin_Clicked){
+                    Toast.makeText(HomeScreen.this, "Version: 171109_P2", Toast.LENGTH_SHORT).show();
+                }
+                else if (selection.equals("Logout") && spin_Clicked){
+                    mAuth.signOut();
+                    Intent intent = new Intent(HomeScreen.this, Login.class);
+                    startActivity(intent);
+                }
+                spin_Clicked = true;
             }
 
             @Override
@@ -190,29 +210,7 @@ public class HomeScreen extends AppCompatActivity {
             TextView emptyText = (TextView) findViewById(R.id.empty_Prompt);
             emptyText.setText(empty);
         }
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.gotoProjects);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                Intent intent = new Intent(HomeScreen.this, Projects.class);
-                startActivity(intent);
-            }
-        });
-
-        Button AccBtn = (Button) findViewById(R.id.Account_Button);
-        AccBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                Intent intent = new Intent(HomeScreen.this, AccountInfo.class);
-                startActivity(intent);
-            }
-        });
-
+        
         //mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
         final CDeadline[] aTest = new CDeadline[10];
@@ -260,9 +258,6 @@ public class HomeScreen extends AppCompatActivity {
                 Log.d(HomeScreen.class.getSimpleName(), "Did not completo");
             }
         });
-
-
-
 
     }
 
