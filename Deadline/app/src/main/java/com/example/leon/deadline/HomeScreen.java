@@ -83,7 +83,7 @@ public class HomeScreen extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if (selection.equals("About") && spin_Clicked){
-                    Toast.makeText(HomeScreen.this, "Version: 171109_P2", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomeScreen.this, "Version: 171109_P3", Toast.LENGTH_SHORT).show();
                 }
                 else if (selection.equals("Logout") && spin_Clicked){
                     mAuth.signOut();
@@ -210,7 +210,7 @@ public class HomeScreen extends AppCompatActivity {
             TextView emptyText = (TextView) findViewById(R.id.empty_Prompt);
             emptyText.setText(empty);
         }
-        
+
         //mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
         final CDeadline[] aTest = new CDeadline[10];
