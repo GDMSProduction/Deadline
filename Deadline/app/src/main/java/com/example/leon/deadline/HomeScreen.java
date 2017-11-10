@@ -266,6 +266,7 @@ public class HomeScreen extends AppCompatActivity {
     {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
+        nav_spin.setSelection(0);
     }
 
     @Override
