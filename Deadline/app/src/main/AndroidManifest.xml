@@ -70,11 +70,6 @@
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Deadlines"
-            android:label="@string/title_activity_deadlines"
-            android:screenOrientation="sensorPortrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".EditTask"
             android:label="@string/title_activity_edit_task"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -97,6 +92,18 @@
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Roles"
+            android:label="@string/title_activity_roles"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditRoles"
+            android:label="@string/title_activity_edit_roles"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RolePermissions"
+            android:label="@string/title_activity_role_permissions"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

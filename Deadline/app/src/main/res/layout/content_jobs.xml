@@ -23,7 +23,7 @@
         android:tint="@color/JobColor"
         app:backgroundTint="@color/JobColor"
         app:fabSize="mini"
-        app:layout_constraintBottom_toTopOf="@+id/llJobsLayout"
+        app:layout_constraintBottom_toTopOf="@+id/llRolesLayout"
         app:layout_constraintHorizontal_bias="0.975"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -32,7 +32,7 @@
         app:srcCompat="@color/colorAccent" />
 
     <LinearLayout
-        android:id="@+id/llJobsLayout"
+        android:id="@+id/llRolesLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -60,7 +60,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/JobColor"
                 android:paddingLeft="20dp"
-                android:text="JobName"
+                android:text="My Job"
                 android:textAlignment="viewStart"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="56dp" />

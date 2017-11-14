@@ -23,13 +23,19 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 import java.util.Date;
+import com.google.firebase.auth.FirebaseAuth;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 public class ProjectCreationScreen extends AppCompatActivity {
 
     private Button Butt_Home;
-    private Button Butt_Op;
 
     private Button projCreateButton;
+
+    private Spinner nav_spin;
+    private Boolean spin_Clicked = false;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -121,20 +127,54 @@ public class ProjectCreationScreen extends AppCompatActivity {
             }
         });
 
-        Butt_Op = (Button) findViewById(R.id.Options_Button);
-        Butt_Op.setOnClickListener(new View.OnClickListener() {
+        mAuth = FirebaseAuth.getInstance();
+
+        nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
+        nav_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProjectCreationScreen.this, Settings.class);
-                startActivity(intent);
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = parent.getSelectedItem().toString();
+                if (selection.equals("Projects") && spin_Clicked){
+                    Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Settings") && spin_Clicked){
+                    Intent intent = new Intent(ProjectCreationScreen.this, Settings.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Account") && spin_Clicked){
+                    Intent intent = new Intent(ProjectCreationScreen.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("About") && spin_Clicked){
+                    Toast.makeText(ProjectCreationScreen.this, "Version: 171109_P3", Toast.LENGTH_SHORT).show();
+                    nav_spin.setSelection(0);
+                }
+                else if (selection.equals("Logout") && spin_Clicked){
+                    mAuth.signOut();
+                    Intent intent = new Intent(ProjectCreationScreen.this, Login.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                spin_Clicked = true;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
+
     }
 
     public void onStart()
     {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
+        nav_spin.setSelection(0);
     }
 
     @Override

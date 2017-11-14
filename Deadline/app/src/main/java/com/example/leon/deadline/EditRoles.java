@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class CreateJob extends AppCompatActivity {
+public class EditRoles extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
@@ -25,7 +25,7 @@ public class CreateJob extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_job);
+        setContentView(R.layout.activity_edit_roles);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,7 +33,7 @@ public class CreateJob extends AppCompatActivity {
         Butt_Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateJob.this, HomeScreen.class);
+                Intent intent = new Intent(EditRoles.this, HomeScreen.class);
                 startActivity(intent);
             }
         });
@@ -46,27 +46,27 @@ public class CreateJob extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = parent.getSelectedItem().toString();
                 if (selection.equals("Projects") && spin_Clicked){
-                    Intent intent = new Intent(CreateJob.this, Projects.class);
+                    Intent intent = new Intent(EditRoles.this, Projects.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 else if (selection.equals("Settings") && spin_Clicked){
-                    Intent intent = new Intent(CreateJob.this, Settings.class);
+                    Intent intent = new Intent(EditRoles.this, Settings.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 else if (selection.equals("Account") && spin_Clicked){
-                    Intent intent = new Intent(CreateJob.this, AccountInfo.class);
+                    Intent intent = new Intent(EditRoles.this, AccountInfo.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 else if (selection.equals("About") && spin_Clicked){
-                    Toast.makeText(CreateJob.this, "Version: 171109_P3", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditRoles.this, "Version: 171109_P3", Toast.LENGTH_SHORT).show();
                     nav_spin.setSelection(0);
                 }
                 else if (selection.equals("Logout") && spin_Clicked){
                     mAuth.signOut();
-                    Intent intent = new Intent(CreateJob.this, Login.class);
+                    Intent intent = new Intent(EditRoles.this, Login.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
@@ -78,7 +78,6 @@ public class CreateJob extends AppCompatActivity {
 
             }
         });
-
     }
 
     @Override

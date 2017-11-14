@@ -36,13 +36,15 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/Options_Button"
-                android:layout_width="28sp"
+            <Spinner
+                android:id="@+id/nav_Spinner"
+                style="@style/Widget.AppCompat.Spinner.DropDown"
+                android:layout_width="58dp"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/fab_margin"
+                android:layout_weight="0"
                 android:background="@drawable/ic_dehaze_black_24dp"
-                android:backgroundTint="@color/common_google_signin_btn_text_dark_default" />
+                android:backgroundTint="@color/common_google_signin_btn_text_dark_default"
+                android:entries="@array/nav_Destinations" />
 
         </LinearLayout>
 

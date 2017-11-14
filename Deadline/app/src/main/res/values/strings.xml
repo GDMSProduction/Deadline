@@ -8,6 +8,16 @@
     <string name="title_activity_splash_screen">Splash Screen</string>
     <!-- Strings related to Settings -->
 
+    <string-array name="nav_Destinations">
+        <item> </item>
+        <item>Projects</item>
+        <item>Settings</item>
+        <item>Account</item>
+        <item>About</item>
+        <item>Logout</item>
+    </string-array>
+
+
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
 
@@ -90,4 +100,7 @@
     <string name="title_activity_account_info">AccountInfo</string>
     <string name="title_activity_jobs">Jobs</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_roles">Roles</string>
+    <string name="title_activity_edit_roles">EditRoles</string>
+    <string name="title_activity_role_permissions">RolePermissions</string>
 </resources>

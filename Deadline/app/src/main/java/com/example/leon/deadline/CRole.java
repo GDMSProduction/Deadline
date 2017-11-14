@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CRole implements Serializable {
     private String m_szName = null;
-    private List<CTask> m_TaskPermissions = new ArrayList<>();
+    private List<String> m_TaskIDPermissions = new ArrayList<>();
 
     private boolean m_bAddMembersPermission;
     private boolean m_bRemoveMemberPermission;
@@ -21,11 +21,9 @@ public class CRole implements Serializable {
 
 
     // Name  Get + Set
-    public String getName() {
-        return m_szName;
-    }
-    public void setName(String m_szName) {
-        this.m_szName = m_szName;
+    public String getName() { return m_szName; }
+    public void setName(String Name) {
+        m_szName = Name;
     }
 
     // AddMemberPermission Get + Set
@@ -54,18 +52,18 @@ public class CRole implements Serializable {
 
 
 
-    public boolean addTaskPermission(CTask task){
-       return m_TaskPermissions.add(task);
+    public boolean addTaskPermission(String taskID){
+       return m_TaskIDPermissions.add(taskID);
     }
 
     // Remove by object
-    public void removeTaskPermission(CTask task){
-        m_TaskPermissions.remove(task);
+    public void removeTaskPermission(String taskID){
+        m_TaskIDPermissions.remove(taskID);
     }
 
     // Remove by index
-    public void removeTaskPermission(int  taskIndex){
-        m_TaskPermissions.remove(taskIndex);
+    public void removeTaskPermission(int  taskIDIndex){
+        m_TaskIDPermissions.remove(taskIDIndex);
     }
 
   /*  public CRole(String name, List<CTask> taskPermissions) {
@@ -73,11 +71,11 @@ public class CRole implements Serializable {
         this.m_TaskPermissions = taskPermissions;
     }*/
 
-    public CRole(String Name, List<CTask> TaskPermissions, boolean AddMembersPermission, boolean RemoveMemberPermission,
+    public CRole(String Name, List<String> TaskIDPermissions, boolean AddMembersPermission, boolean RemoveMemberPermission,
                  boolean EditMemberPermission, boolean TaskPermission, boolean RolePermission, boolean ProjectPermission)
     {
         m_szName = Name;
-        m_TaskPermissions = TaskPermissions;
+        m_TaskIDPermissions = TaskIDPermissions;
         m_bAddMembersPermission = AddMembersPermission;
         m_bRemoveMemberPermission = RemoveMemberPermission;
         m_bEditMemberPermission = EditMemberPermission;

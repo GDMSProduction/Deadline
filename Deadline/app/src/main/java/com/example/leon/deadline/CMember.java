@@ -8,26 +8,41 @@ import java.util.List;
  * Created by sml91_000 on 9/19/2017.
  */
 
-public class CMember extends CUser implements Serializable {
+public class CMember implements Serializable {
     private List<CRole> m_Roles = new ArrayList<>();
 
-    public CMember(String name, String email )
-    {
-        super(name, email);
-    }
+    private String m_szUserID;
 
-    public CMember(CUser tempUser, List<CRole> roles) {
-        super(tempUser);
-        this.m_Roles = roles;
+    public CMember(String szUserID) { m_szUserID = szUserID; }
+
+    public CMember(String szUserID, List<CRole> roles) {
+        m_szUserID = szUserID;
+        m_Roles = roles;
     }
 
     public CMember(CMember member) {
-        super(member.getName(), member.getEmail());
-        this.m_Roles = member.m_Roles;
+        m_szUserID = member.m_szUserID;
+        m_Roles = member.m_Roles;
     }
 
-    public CMember(CUser member) {
-        super(member.getName(), member.getEmail());
+    //public CMember(CUser member) {  }
+
+    // UserID Get + Set
+    public String getUserID() { return m_szUserID; }
+    public void setUserID(String szUserID) { m_szUserID = szUserID; }
+
+
+    public int getRoleSize() { return m_Roles.size(); }
+
+    public CRole getRoleByIndex(int index) { return m_Roles.get(index); }
+
+    // Returns -1 if not found
+    public int getRoleIndexByName(String roleName){
+        for(int i = 0; i < m_Roles.size(); i++){
+            if(m_Roles.get(i).getName() == roleName)
+                return i;
+        }
+        return -1;
     }
 
     public boolean addRole(CRole role){
