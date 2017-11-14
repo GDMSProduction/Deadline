@@ -17,6 +17,7 @@
         <item>Logout</item>
     </string-array>
 
+    <string name="version_number">Version: 171114_P1</string>
 
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
