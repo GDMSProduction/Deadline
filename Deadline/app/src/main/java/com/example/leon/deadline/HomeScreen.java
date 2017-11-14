@@ -72,22 +72,27 @@ public class HomeScreen extends AppCompatActivity {
                 String selection = parent.getSelectedItem().toString();
                 if (selection.equals("Projects") && spin_Clicked){
                     Intent intent = new Intent(HomeScreen.this, Projects.class);
+                    nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 else if (selection.equals("Settings") && spin_Clicked){
                     Intent intent = new Intent(HomeScreen.this, Settings.class);
+                    nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 else if (selection.equals("Account") && spin_Clicked){
                     Intent intent = new Intent(HomeScreen.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 else if (selection.equals("About") && spin_Clicked){
                     Toast.makeText(HomeScreen.this, "Version: 171109_P3", Toast.LENGTH_SHORT).show();
+                    nav_spin.setSelection(0);
                 }
                 else if (selection.equals("Logout") && spin_Clicked){
                     mAuth.signOut();
                     Intent intent = new Intent(HomeScreen.this, Login.class);
+                    nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 spin_Clicked = true;
@@ -99,6 +104,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        //Remove all of these and "ungone" the visibility of the actual display linear layout
         projJump = (Button) findViewById(R.id.btnProject);
         projJump.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,6 +210,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        //Do we even need this?
         if(projectSize == 0)
         {
             String empty = "You do not have any open projects! Please click the button to create a new project";

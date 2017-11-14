@@ -94,11 +94,11 @@ public class Projects extends AppCompatActivity {
         });
 
         // btnViewEditRoles OnCLickListener
-        Butt_ProjOptions = (Button) findViewById(R.id.btnViewEditRoles);
+        Butt_ProjOptions = (Button) findViewById(R.id.btnViewRoles);
         Butt_ProjOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Projects.this, CreateEditRoles.class);
+                Intent intent = new Intent(Projects.this, Roles.class);
                 startActivity(intent);
             }
         });

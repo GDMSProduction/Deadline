@@ -97,6 +97,10 @@
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Roles"
+            android:label="@string/title_activity_roles"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
