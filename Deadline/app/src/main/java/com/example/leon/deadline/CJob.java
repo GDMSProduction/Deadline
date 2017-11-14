@@ -11,6 +11,8 @@ public class CJob extends CDeadline implements Serializable {
 
    private eUrgency m_eUrgency;
 
+   private static int typeID = 0;
+
    public CJob(){};
 
    public CJob(CJob job){
@@ -26,4 +28,7 @@ public class CJob extends CDeadline implements Serializable {
     // Urgency Get + Set
     public eUrgency getUrgency() { return m_eUrgency; }
     public void setUrgency(eUrgency Urgency) { m_eUrgency = Urgency; }
+
+    @Override
+    public int getTypeID() {return typeID;}
 }

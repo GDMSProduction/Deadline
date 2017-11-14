@@ -22,6 +22,8 @@ public class CTask extends CDeadline implements Serializable {
     private eUrgency m_eUrgency;
     private List<CJob> m_JobList = new ArrayList<>();
 
+    private static int typeID = 0;
+
 
 
 
@@ -37,6 +39,9 @@ public class CTask extends CDeadline implements Serializable {
         super(task.getName(), task.getDeadline(), task.getSummary());
         this.m_eUrgency = task.m_eUrgency;
     }
+
+    @Override
+    public int getTypeID() {return typeID;}
 
     // Urgency  Get + Set
     public eUrgency getUrgency() {

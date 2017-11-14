@@ -3,17 +3,39 @@ package com.example.leon.deadline;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by Sean on 10/26/2017.
  */
 
-public class CDeadline implements Serializable {
+public class CDeadline extends HashMap implements Serializable {
     private String m_szName;
     private String m_Deadline;
     private String m_szSummary;
     private String m_szUniqueID;
+
+    private static int typeID = 9;
+
+    //TODO: HASHMAP STUFF
+    public static String ITEM_NAME = "name";
+    public static String DEADLINE_DATE = "date";
+
+    @Override
+    public String get(Object k)
+    {
+        String key = (String) k;
+        if(ITEM_NAME.equals(key))
+        {
+            return m_szName;
+        }
+        else if(DEADLINE_DATE.equals(key))
+        {
+            return m_Deadline;
+        }
+        return null;
+    };
 
     private List<CMember> m_MemberList = new ArrayList<>();
 
@@ -25,6 +47,8 @@ public class CDeadline implements Serializable {
         m_Deadline = Deadline;
         m_szSummary = Summary;
     }
+
+    public int getTypeID() {return typeID;}
 
     // Name Get + Set
     public String getName() {

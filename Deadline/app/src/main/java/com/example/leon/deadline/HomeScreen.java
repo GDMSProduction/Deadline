@@ -33,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -291,7 +292,6 @@ public class HomeScreen extends AppCompatActivity {
         setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(setIntent);
     }
-
     public void populateScreen(final CDeadline[] _proj)
     {
         //TODO: Get List from database onto Home Screen
@@ -304,15 +304,52 @@ public class HomeScreen extends AppCompatActivity {
                 */
 
         final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < _proj.length; ++i) {
+        for (int i = 0; i < _proj.length; ++i)
+        {
             if(_proj[i] != null)
             {
                 list.add(_proj[i].getName());
             }
         }
+        /*
         final ArrayAdapter adapter = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, list);
         HomeList.setAdapter(adapter);
+
+        //*/
+        //TODO: CHANGE ARRAY TO CUSTOM
+        List<Map<String, String>> deadlines = new ArrayList<Map<String, String>>();
+        int colorID;
+      /*
+      TODO: Figure out why this isn't working
+      *The list array created above isn't the same type needed in
+      *the parameters of the function.
+      *
+      *Look at the tutorial again and see if there is anything needed.
+      *Check and see if the
+      *
+
+      */
+      for(int i = 0; i < _proj.length; ++i)
+      {
+          if(_proj[i] != null )
+          {
+              deadlines.add(_proj[i]);
+              colorID = _proj[i].getTypeID();
+          }
+      }
+
+      /*TODO:FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES
+      deadlines.add(new CTask("test","11/11/2050","TESTSUMM",eUrgency.HIGH));
+      //*/
+      final ListAdapter testAdapt = new CustomAdapter(this,
+              deadlines,
+              R.layout.row_layout,
+              new String[] {CDeadline.ITEM_NAME, CDeadline.DEADLINE_DATE},
+              new int[] {R.id.item_name,R.id.deadline_date});
+
+      HomeList.setAdapter(testAdapt);
+       //*/
     }
 
     public void sDatabase(final String _key, final CDeadline[] _array,final int _j)
