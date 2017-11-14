@@ -98,12 +98,21 @@ public class Roles extends AppCompatActivity {
         });
 
 
-        Button tempButton = (Button) findViewById(R.id.btnEditJob);
+        Button tempButton = (Button) findViewById(R.id.btnEditRole);
 
         tempButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Roles.this, EditRoles.class);
+                startActivity(intent);
+            }
+        });
+
+        tempButton = (Button) findViewById(R.id.btnRoles);
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Roles.this, RolePermissions.class);
                 startActivity(intent);
             }
         });
