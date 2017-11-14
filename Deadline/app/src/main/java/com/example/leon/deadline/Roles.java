@@ -9,6 +9,7 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,6 +25,9 @@ public class Roles extends AppCompatActivity {
 
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
+
+    private LinearLayout llRoleLayout;
+    private Button Butt_RoleOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +94,43 @@ public class Roles extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Roles.this, CreateEditRoles.class);
                 startActivity(intent);
+            }
+        });
+
+
+        Button tempButton = (Button) findViewById(R.id.btnEditJob);
+
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Roles.this, EditRoles.class);
+                startActivity(intent);
+            }
+        });
+
+
+        // btnViewJobOptions OnCLickListener
+        llRoleLayout = (LinearLayout) findViewById(R.id.llRoleOptions);
+        tempButton = (Button) findViewById(R.id.btnViewRoleOptions);
+
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(llRoleLayout.getVisibility() == View.GONE)
+                    llRoleLayout.setVisibility(View.VISIBLE);
+                else
+                    llRoleLayout.setVisibility(View.GONE);
+            }
+        });
+
+        // btnDeleteJob OnCLickListener
+        Butt_RoleOptions = (Button) findViewById(R.id.btnDeleteRole);
+        Butt_RoleOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llRoleLayout.removeAllViews();
+                llRoleLayout = (LinearLayout)findViewById(R.id.llRoles);
+                llRoleLayout.removeAllViews();
             }
         });
 
