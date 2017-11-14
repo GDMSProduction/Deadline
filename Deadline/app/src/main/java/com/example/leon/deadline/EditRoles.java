@@ -61,7 +61,7 @@ public class EditRoles extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if (selection.equals("About") && spin_Clicked){
-                    Toast.makeText(EditRoles.this, "Version: 171109_P3", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditRoles.this, R.string.version_number, Toast.LENGTH_SHORT).show();
                     nav_spin.setSelection(0);
                 }
                 else if (selection.equals("Logout") && spin_Clicked){
