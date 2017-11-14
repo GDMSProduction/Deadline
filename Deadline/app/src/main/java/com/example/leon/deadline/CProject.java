@@ -13,6 +13,7 @@ import java.util.List;
 public class CProject extends CDeadline implements Serializable {
 
     private boolean m_bPrivate;
+    private static int typeID = 2;
 
 
     private List<CTask> m_TaskList = new ArrayList<>();
@@ -41,7 +42,8 @@ public class CProject extends CDeadline implements Serializable {
         this.m_bPrivate = Private;
     }
 
-
+    @Override
+    public int getTypeID() {return typeID;}
 
     // Privacy  Get + Set
     public boolean isbPrivate() {
