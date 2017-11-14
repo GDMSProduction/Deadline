@@ -104,6 +104,10 @@
         <activity
             android:name=".RolePermissions"
             android:label="@string/title_activity_role_permissions"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FileManager"
+            android:label="@string/title_activity_file_manager"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
