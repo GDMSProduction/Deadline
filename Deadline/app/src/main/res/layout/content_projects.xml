@@ -89,12 +89,12 @@
                 android:textSize="12sp" />
 
             <Button
-                android:id="@+id/btnViewEditRoles"
+                android:id="@+id/btnViewRoles"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="50dp"
-                android:text="View/Edit Roles"
+                android:text="View Roles"
                 android:textAlignment="viewStart"
                 android:textSize="12sp" />
 
