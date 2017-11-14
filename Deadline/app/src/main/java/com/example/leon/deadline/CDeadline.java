@@ -67,18 +67,18 @@ public class CDeadline implements Serializable {
     // Member Functions
     public boolean addMember(CMember member){
         for(int i = 0; i < m_MemberList.size(); i++){
-            if(m_MemberList.get(i).getEmail() == member.getEmail())
+            if(m_MemberList.get(i).getUserID() == member.getUserID())
                 return false;
         }
         return m_MemberList.add(new CMember(member));
     }
 
-    public boolean addMember(CUser user, List<CRole> roles){
+    public boolean addMember(String UserID, List<CRole> roles){
         for(int i = 0; i < m_MemberList.size(); i++){
-            if(m_MemberList.get(i).getEmail() == user.getEmail())
+            if(m_MemberList.get(i).getUserID() == UserID)
                 return false;
         }
-        return m_MemberList.add(new CMember(user, roles));
+        return m_MemberList.add(new CMember(UserID, roles));
     }
 
     public void removeMember(CMember member){
@@ -98,15 +98,15 @@ public class CDeadline implements Serializable {
     }
 
     // Returns the index of the user or -1 if it was not found
-    public int getMemberIndex(String email){
+    public int getMemberIndex(String userID){
         for(int i = 0; i < m_MemberList.size(); i++){
-            if(m_MemberList.get(i).getEmail() == email)
+            if(m_MemberList.get(i).getUserID() == userID)
                 return i;
         }
         return -1;
     }
 
-    public void sortMembersAlphabeticalForward(){
+    /*public void sortMembersAlphabeticalForward(){
         List<CMember> sortMembers = new ArrayList<>();
         int memberIndex;
         while(m_MemberList.size() > 0) {
@@ -134,5 +134,5 @@ public class CDeadline implements Serializable {
             m_MemberList.remove(memberIndex);
         }
         m_MemberList = new ArrayList<>(sortMembers);
-    }
+    }*/
 }
