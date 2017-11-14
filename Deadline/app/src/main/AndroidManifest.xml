@@ -70,11 +70,6 @@
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Deadlines"
-            android:label="@string/title_activity_deadlines"
-            android:screenOrientation="sensorPortrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".EditTask"
             android:label="@string/title_activity_edit_task"
             android:theme="@style/AppTheme.NoActionBar" />
