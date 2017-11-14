@@ -105,6 +105,10 @@
         <activity
             android:name=".EditRoles"
             android:label="@string/title_activity_edit_roles"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RolePermissions"
+            android:label="@string/title_activity_role_permissions"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
