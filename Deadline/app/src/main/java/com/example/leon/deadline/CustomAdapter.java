@@ -51,10 +51,11 @@ public class CustomAdapter extends SimpleAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
 
+        
         int colorPos = position % colors.length;
         view.setBackgroundColor(colors[colorPos]);
 
-        /*TODO: FIGURE OUT IF THIS IS ACTUALLY HAPPENING
+        /*TODO: FIGURE OUT IF THIS IS ACTUALLY HAPPENING*
         if(colorID > 0 && colorID < colors.length)
         {
             view.setBackgroundColor(colors[colorID]);

@@ -105,7 +105,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        //Remove all of these and "ungone" the visibility of the actual display linear layout
+        /*Remove all of these and "ungone" the visibility of the actual display linear layout
         projJump = (Button) findViewById(R.id.btnProject);
         projJump.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +139,7 @@ public class HomeScreen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //*/
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -219,7 +219,7 @@ public class HomeScreen extends AppCompatActivity {
             emptyText.setText(empty);
         }
 
-        //mDataBase = FirebaseDatabase.getInstance().getReference("users");
+        mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
         final CDeadline[] aTest = new CDeadline[10];
         mDataBase = fBase.getReference("users").child(user.getUid());//.child("projectList");
@@ -339,8 +339,9 @@ public class HomeScreen extends AppCompatActivity {
           }
       }
 
-      /*TODO:FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES
+      /*TODO:FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES*/
       deadlines.add(new CTask("test","11/11/2050","TESTSUMM",eUrgency.HIGH));
+      colorID = 2;
       //*/
       final ListAdapter testAdapt = new CustomAdapter(this,
               deadlines,
