@@ -77,9 +77,9 @@ public class CProject extends CDeadline implements Serializable {
         return m_Members.add(member);
     }
 
-    public boolean addMember(CUser member){
+   /* public boolean addMember(CUser member){
         return m_Members.add(new CMember(member));
-    }
+    }*/
 
 
 
@@ -200,14 +200,14 @@ public class CProject extends CDeadline implements Serializable {
 
 // Role Functions
 
-    public boolean addRole(String Name, List<CTask> TaskPermissions, boolean AddMembersPermission, boolean RemoveMemberPermission,
+    public boolean addRole(String Name, List<String> TaskIDPermissions, boolean AddMembersPermission, boolean RemoveMemberPermission,
                            boolean EditMemberPermission, boolean TaskPermission, boolean RolePermission, boolean ProjectPermission)
     {
         for(int i = 0; i < m_Roles.size(); i++){
             if(m_Roles.get(i).getName() == Name)
                 return false;
         }
-        return m_Roles.add(new CRole(Name, TaskPermissions, AddMembersPermission, RemoveMemberPermission, EditMemberPermission, TaskPermission, RolePermission, ProjectPermission));
+        return m_Roles.add(new CRole(Name, TaskIDPermissions, AddMembersPermission, RemoveMemberPermission, EditMemberPermission, TaskPermission, RolePermission, ProjectPermission));
     }
 
     public boolean addRole(CRole role){

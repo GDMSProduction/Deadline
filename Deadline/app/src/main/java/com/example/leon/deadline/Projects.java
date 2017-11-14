@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 public class Projects extends AppCompatActivity {
 
@@ -92,6 +93,7 @@ public class Projects extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         // btnViewEditRoles OnCLickListener
         Butt_ProjOptions = (Button) findViewById(R.id.btnViewEditRoles);
