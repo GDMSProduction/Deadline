@@ -339,7 +339,7 @@ public class HomeScreen extends AppCompatActivity {
           }
       }
 
-      /*TODO:FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES*/
+      /*TODO:FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES
       deadlines.add(new CTask("test","11/11/2050","TESTSUMM",eUrgency.HIGH));
       colorID = 2;
       //*/

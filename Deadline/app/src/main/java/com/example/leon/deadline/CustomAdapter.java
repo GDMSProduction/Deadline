@@ -51,7 +51,7 @@ public class CustomAdapter extends SimpleAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
 
-        
+
         int colorPos = position % colors.length;
         view.setBackgroundColor(colors[colorPos]);
 
