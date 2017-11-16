@@ -34,6 +34,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +46,7 @@ public class HomeScreen extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseDatabase fBase;
     private DatabaseReference mDataBase;
+    final CDeadline[] aTest = new CDeadline[10];
 
     //private final ListView HomeList;
     //private ArrayList<String> projecterino = new ArrayList<String>();
@@ -62,6 +65,8 @@ public class HomeScreen extends AppCompatActivity {
     private Boolean spin_Clicked = false;
 
     private ImageButton homeProjCreate;
+    private ImageButton Butt_Sort;
+    private boolean sort_Switch = false;
 
 /*
     private Button projJump;
@@ -75,6 +80,15 @@ public class HomeScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Butt_Sort = (ImageButton) findViewById(R.id.sort_button);
+        Butt_Sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            sortDeadlinesDescending();
+            populateScreen(aTest);
+            }
+        });
+
         homeProjCreate = (ImageButton) findViewById(R.id.homeCreateProj);
         homeProjCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +97,8 @@ public class HomeScreen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
         nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
         nav_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -239,7 +255,8 @@ public class HomeScreen extends AppCompatActivity {
 
         mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
-        final CDeadline[] aTest = new CDeadline[10];
+       // final CDeadline[] aTest = new CDeadline[10];
+        //aTest = new CDeadline[10];
         mDataBase = fBase.getReference("users").child(user.getUid());//.child("projectList");
         mDataBase.addChildEventListener(new ChildEventListener() {
             //IT GETS IN HERE
@@ -486,5 +503,19 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
     }
+
+    public void sortDeadlinesDescending() {
+        List<CDeadline> deadlines = new ArrayList<>();
+        for (int i = 0; i < aTest.length; i++) {
+            deadlines.add(aTest[i]);
+        }
+
+        Collections.sort(deadlines, new CDeadlineComparator());
+
+        for (int i = 0; i < aTest.length; i++) {
+            aTest[i] = deadlines.get(i);
+        }
+    }
+
 
 }
