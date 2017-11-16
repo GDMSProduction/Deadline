@@ -366,17 +366,14 @@ public class HomeScreen extends AppCompatActivity {
                 int i = 0;
                 String name = "";
                 String deadline = "";
-                Boolean priv = false;
+                Boolean complete = false;
+                String summary = "";
                 for(DataSnapshot mtest :dataSnapshot.getChildren())
                 {
                     if(mtest != null && dataSnapshot.getKey().toString().equals(_key))
                     {
                         switch(mtest.getKey().toString())
                         {
-                            case "bPrivate":
-                                priv = (boolean) mtest.getValue();
-                                i++;
-                                break;
                             case "name":
                                 name = mtest.getValue().toString();
                                 i++;
@@ -385,12 +382,20 @@ public class HomeScreen extends AppCompatActivity {
                                 deadline = mtest.getValue().toString();
                                 i++;
                                 break;
+                            case "summary":
+                                summary = mtest.getValue().toString();
+                                i++;
+                                break;
+                            case "complete":
+                                complete = (boolean) mtest.getValue();
+                                i++;
+                                break;
                             default:
                                 break;
                         }
                         if(name != "" && deadline !="")
                         {
-                            CProject temp = new CProject(name, deadline, priv);
+                            CProject temp = new CProject(name, deadline, summary, complete);
                             _array[_j] = temp;
                             //i++;
                         }

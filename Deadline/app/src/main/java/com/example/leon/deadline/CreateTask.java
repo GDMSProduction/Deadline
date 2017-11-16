@@ -24,16 +24,21 @@ import java.util.Date;
 
 public class CreateTask extends AppCompatActivity {
 
+    //Buttons
     private Button taskCreateButton;
     private Button Butt_Home;
 
+    //Firebase
     private FirebaseUser user;
     private FirebaseAuth mAuth;
 
+    //Spinner
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
 
+    //Task
     private String tName, tDate, tSummary;
+    private Boolean tComplete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,14 +61,16 @@ public class CreateTask extends AppCompatActivity {
                 DatePicker tCalendar = (DatePicker) findViewById(R.id.datePicker);
                 Calendar validDate = Calendar.getInstance();
                 validDate.set(tCalendar.getYear(),tCalendar.getMonth(),tCalendar.getDayOfMonth());
+                //TODO: Create a toggle for this in the creation and edit screens and set tComplete to the one from creation screen
+                tComplete = false;
 
                 if(!tName.equals("") &&
                         !tDate.equals(""))
                 {
                     if(!Calendar.getInstance().after(validDate))
                     {
-                        //TODO: add a create task method in this java file
-                        CreateTask(tName,tDate,tSummary);
+                        //TODO: Add a create task method in this java file
+                        CreateTask(tName,tDate,tSummary,tComplete);
                     }
                     else
                     {
@@ -137,9 +144,11 @@ public class CreateTask extends AppCompatActivity {
         nav_spin.setSelection(0);
     }
 
-    public void CreateTask(String _name, String _date, String _summary)
+    public void CreateTask(String _name, String _date, String _summary, Boolean _complete)
     {
-        CTask temp = new CTask(_name,_date,_summary);
+        CTask temp = new CTask(_name,_date,_summary, _complete);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tasks");
+
+        //TODO: Figure out how to add this to the projects tasklist
     }
 }

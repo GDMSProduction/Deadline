@@ -7,14 +7,12 @@ public class CJob extends CDeadline implements Serializable {
 
    private static int typeID = 1;
 
-   public CJob(){};
-
+   public CJob(){}
    public CJob(CJob job){
-       super(job.getName(), job.getDeadline(), job.getSummary());
+       super(job.getName(), job.getDeadline(), job.getSummary(), job.getComplete());
    }
-
-    public CJob(String Name, String Deadline, String Summary) {
-        super(Name, Deadline, Summary);
+   public CJob(String Name, String Deadline, String Summary, Boolean Complete) {
+        super(Name, Deadline, Summary, Complete);
     }
 
     @Override
