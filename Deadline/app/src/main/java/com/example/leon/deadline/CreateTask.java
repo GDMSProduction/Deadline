@@ -2,10 +2,12 @@ package com.example.leon.deadline;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,8 +31,9 @@ public class CreateTask extends AppCompatActivity {
     private Button Butt_Home;
 
     //Firebase
-    private FirebaseUser user;
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseUser user;
 
     //Spinner
     private Spinner nav_spin;
@@ -47,6 +50,26 @@ public class CreateTask extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener()
+        {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+            {
+                /*FirebaseUser*/ user = firebaseAuth.getCurrentUser();
+                if(user != null)
+                {
+                    Log.d(CreateAccount.class.getSimpleName(), "onAuthStateChanged:signed_in" + user.getUid());
+                }
+                else
+                {
+                    Log.d(CreateAccount.class.getSimpleName(), "onAuthStateChanged:signed_out");
+                }
+            }
+
+        };
+
+
         user = mAuth.getCurrentUser();
 
         taskCreateButton = (Button) findViewById(R.id.taskCreate);
@@ -57,11 +80,11 @@ public class CreateTask extends AppCompatActivity {
             public void onClick(View v) {
                 tName = ((EditText) findViewById(R.id.taskName)).getText().toString();
                 tDate = ((DatePicker) findViewById(R.id.datePicker)).getMonth() + 1 + "/" + ((DatePicker) findViewById(R.id.datePicker)).getDayOfMonth() + "/" + ((DatePicker) findViewById(R.id.datePicker)).getYear();
-                tSummary = ((EditText) findViewById(R.id.taskDescription)).getText().toString();
+                tSummary = ((EditText) findViewById(R.id.TaskDescription)).getText().toString();
                 DatePicker tCalendar = (DatePicker) findViewById(R.id.datePicker);
                 Calendar validDate = Calendar.getInstance();
                 validDate.set(tCalendar.getYear(),tCalendar.getMonth(),tCalendar.getDayOfMonth());
-                //TODO: Create a toggle for this in the creation and edit screens and set tComplete to the one from creation screen
+                //TODO: Create a toggle for this in the edit screen or from the view screen under the 3 dots options menu
                 tComplete = false;
 
                 if(!tName.equals("") &&
@@ -146,9 +169,18 @@ public class CreateTask extends AppCompatActivity {
 
     public void CreateTask(String _name, String _date, String _summary, Boolean _complete)
     {
-        CTask temp = new CTask(_name,_date,_summary, _complete);
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tasks");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
 
-        //TODO: Figure out how to add this to the projects tasklist
+        String newKey = ref.child(user.getUid()).child("tasks").push().getKey();
+
+        //TODO: Need to replace hardcoded key with active project key as determined by CStoreIDs
+        ref = ref.child("-Kz2wMarYnsgDtEiXaWa").child("tasks");
+
+        ref.child(newKey).child("name").setValue(_name);
+        ref.child(newKey).child("deadline").setValue(_date);
+        ref.child(newKey).child("summary").setValue(_summary);
+        ref.child(newKey).child("complete").setValue(_complete);
+
+        Toast.makeText(CreateTask.this,"Task creation successful",Toast.LENGTH_SHORT).show();
     }
 }

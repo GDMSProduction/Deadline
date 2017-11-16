@@ -1,6 +1,7 @@
 package com.example.leon.deadline;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -59,8 +61,12 @@ public class HomeScreen extends AppCompatActivity {
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
 
+    private ImageButton homeProjCreate;
+
+/*
     private Button projJump;
     private Button taskJump;
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +75,16 @@ public class HomeScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
+        homeProjCreate = (ImageButton) findViewById(R.id.homeCreateProj);
+        homeProjCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreen.this, ProjectCreationScreen.class);
+                startActivity(intent);
+            }
+        });
+
+                nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
         nav_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
