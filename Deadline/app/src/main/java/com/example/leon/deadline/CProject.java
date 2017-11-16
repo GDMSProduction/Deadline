@@ -165,14 +165,14 @@ public class CProject extends CDeadline implements Serializable {
 
 // Role Functions
 
-    public boolean addRole(String Name, List<String> TaskIDPermissions, boolean AddMembersPermission, boolean RemoveMemberPermission,
-                           boolean EditMemberPermission, boolean TaskPermission, boolean RolePermission, boolean ProjectPermission)
+    public boolean addRole(String Name, List<String> JobIDPermissions, List<String> TaskIDPermissions, boolean AddMembersPermission, boolean RemoveMemberPermission,
+                           boolean EditMemberPermission, boolean JobPermission, boolean TaskPermission, boolean RolePermission, boolean ProjectPermission)
     {
         for(int i = 0; i < m_Roles.size(); i++){
             if(m_Roles.get(i).getName() == Name)
                 return false;
         }
-        return m_Roles.add(new CRole(Name, TaskIDPermissions, AddMembersPermission, RemoveMemberPermission, EditMemberPermission, TaskPermission, RolePermission, ProjectPermission));
+        return m_Roles.add(new CRole(Name, JobIDPermissions, TaskIDPermissions, AddMembersPermission, RemoveMemberPermission, EditMemberPermission, JobPermission, TaskPermission, RolePermission, ProjectPermission));
     }
 
     public boolean addRole(CRole role){

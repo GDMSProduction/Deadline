@@ -2,26 +2,45 @@ package com.example.leon.deadline;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.List;
 
 public class CreateEditRoles extends AppCompatActivity {
-
-    private FirebaseAuth mAuth;
-
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
 
     private Button Butt_Home;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseUser user;
+
+    private EditText etxtName;
+    private Switch swAddMembersPermission;
+    private Switch swRemoveMemberPermission;
+    private Switch swEditMemberPermission;
+    private Switch swJobPermission;
+    private Switch swTaskPermission;
+    private Switch swRolePermission;
+    private Switch swProjectPermission;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +60,25 @@ public class CreateEditRoles extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener()
+        {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+            {
+                /*FirebaseUser*/ user = firebaseAuth.getCurrentUser();
+                if(user != null)
+                {
+                    Log.d(CreateAccount.class.getSimpleName(), "onAuthStateChanged:signed_in" + user.getUid());
+                }
+                else
+                {
+                    Log.d(CreateAccount.class.getSimpleName(), "onAuthStateChanged:signed_out");
+                }
+            }
+
+        };
+
+        user = mAuth.getCurrentUser();
 
         nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
         nav_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -81,11 +119,52 @@ public class CreateEditRoles extends AppCompatActivity {
             }
         });
 
+        // ToDo: Store the Task and Job Ids the Role has access to as well
+        etxtName                    = (EditText) findViewById(R.id.etxtRoleName);
+        swAddMembersPermission      = (Switch) findViewById(R.id.swAddMember);
+        swEditMemberPermission      = (Switch) findViewById(R.id.swEditMember);
+        swRemoveMemberPermission    = (Switch) findViewById(R.id.swRemoveMember);
+        swJobPermission             = (Switch) findViewById(R.id.swJobControl);
+        swTaskPermission            = (Switch) findViewById(R.id.swTaskControl);
+        swRolePermission            = (Switch) findViewById(R.id.swRoleControl);
+        swProjectPermission         = (Switch) findViewById(R.id.swProjectControl);
+
+        CreateRole(etxtName.getText().toString(), swAddMembersPermission.isChecked(), swEditMemberPermission.isChecked(), swRemoveMemberPermission.isChecked(),
+                    swJobPermission.isChecked(), swTaskPermission.isChecked(), swRolePermission.isChecked(), swProjectPermission.isChecked());
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         nav_spin.setSelection(0);
+    }
+
+
+    public void CreateRole(String Name, boolean AddMembersPermission, boolean RemoveMemberPermission, boolean EditMemberPermission,
+                           boolean JobPermission, boolean TaskPermission, boolean RolePermission, boolean ProjectPermission)
+    {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
+
+        String newKey = ref.child(((CStoreIDs)this.getApplication()).getProjectID()).child("roles").push().getKey();
+        //ref.child(((CStoreIDs)this.getApplication()).getProjectID()).child("roles").child(newKey).setValue(newKey);
+
+        ref = FirebaseDatabase.getInstance().getReference("roles");
+        ref.child(newKey).child("Name").setValue(Name);
+        ref.child(newKey).child("AddMembersPermission").setValue(AddMembersPermission);
+        ref.child(newKey).child("RemoveMemberPermission").setValue(RemoveMemberPermission);
+        ref.child(newKey).child("EditMemberPermission").setValue(EditMemberPermission);
+        ref.child(newKey).child("JobPermission").setValue(JobPermission);
+        ref.child(newKey).child("TaskPermission").setValue(TaskPermission);
+        ref.child(newKey).child("RolePermission").setValue(RolePermission);
+        ref.child(newKey).child("ProjectPermission").setValue(ProjectPermission);
+        //*/
+
+        Toast.makeText(CreateEditRoles.this,"Role creation successful",Toast.LENGTH_SHORT).show();
+        //*/
+
+
+        Intent intent = new Intent(CreateEditRoles.this, Roles.class);
+        startActivity(intent);
     }
 }

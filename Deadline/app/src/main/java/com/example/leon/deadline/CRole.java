@@ -6,11 +6,13 @@ import java.util.List;
 
 public class CRole implements Serializable {
     private String m_szName = null;
+    private List<String> m_JobIDPermissions = new ArrayList<>();
     private List<String> m_TaskIDPermissions = new ArrayList<>();
 
     private boolean m_bAddMembersPermission;
     private boolean m_bRemoveMemberPermission;
     private boolean m_bEditMemberPermission;
+    private boolean m_bJobPermission;
     private boolean m_bTaskPermission;
     private boolean m_bRolePermission;
     private boolean m_bProjectPermission;
@@ -34,6 +36,10 @@ public class CRole implements Serializable {
     public boolean getEditMemberPermission() { return m_bEditMemberPermission; }
     public void setEditMemberPermission(boolean EditMemberPermission) { m_bEditMemberPermission = EditMemberPermission; }
 
+    // JobPermission  Get + Set
+    public boolean getJobPermission() { return m_bJobPermission; }
+    public void setJobPermission(boolean JobPermission) { m_bJobPermission = JobPermission; }
+
     // TaskPermission  Get + Set
     public boolean getTaskPermission() { return m_bTaskPermission; }
     public void setTaskPermission(boolean TaskPermission) { m_bTaskPermission = TaskPermission; }
@@ -46,6 +52,20 @@ public class CRole implements Serializable {
     public boolean getProjectPermission() { return m_bProjectPermission; }
     public void setProjectPermission(boolean ProjectPermission) { m_bProjectPermission = ProjectPermission;}
 
+
+    public boolean addJobPermission(String jobID){
+        return m_JobIDPermissions.add(jobID);
+    }
+
+    // Remove by object
+    public void removeJobPermission(String jobID){
+        m_JobIDPermissions.remove(jobID);
+    }
+
+    // Remove by index
+    public void removeJobPermission(int  jobIDIndex){
+        m_TaskIDPermissions.remove(jobIDIndex);
+    }
 
 
     public boolean addTaskPermission(String taskID){
@@ -67,14 +87,16 @@ public class CRole implements Serializable {
         this.m_TaskPermissions = taskPermissions;
     }*/
 
-    public CRole(String Name, List<String> TaskIDPermissions, boolean AddMembersPermission, boolean RemoveMemberPermission,
-                 boolean EditMemberPermission, boolean TaskPermission, boolean RolePermission, boolean ProjectPermission)
+    public CRole(String Name, List<String> JobIDPermissions, List<String> TaskIDPermissions, boolean AddMembersPermission, boolean RemoveMemberPermission,
+                 boolean EditMemberPermission, boolean JobPermission, boolean TaskPermission, boolean RolePermission, boolean ProjectPermission)
     {
         m_szName = Name;
+        m_JobIDPermissions = JobIDPermissions;
         m_TaskIDPermissions = TaskIDPermissions;
         m_bAddMembersPermission = AddMembersPermission;
         m_bRemoveMemberPermission = RemoveMemberPermission;
         m_bEditMemberPermission = EditMemberPermission;
+        m_bJobPermission = JobPermission;
         m_bTaskPermission = TaskPermission;
         m_bRolePermission = RolePermission;
         m_bProjectPermission = ProjectPermission;
