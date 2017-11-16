@@ -84,7 +84,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-                nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
+        nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
         nav_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -378,7 +378,38 @@ public class HomeScreen extends AppCompatActivity {
       HomeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              Toast.makeText(HomeScreen.this,"TEST",Toast.LENGTH_LONG).show();
+              int typeID = global.deadlines[position+1].getTypeID();
+              switch (typeID){
+                  // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
+
+                  // CJob
+                  case 1:{
+                      // ToDo: For now, hard code the Unique ID of a prexisting Job to test
+                      // ToDO: When possible replace with actual Job ID
+                      // ToDo: Set the Task and Project ID as well
+                      //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
+                      //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
+                      //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
+                      break;
+                  }
+                  // CTask
+                  case 2: {
+                      // ToDo: For now, hard code the Unique ID of a prexisting Task to test
+                      //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
+                      //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
+                      break;
+                  }
+                  // CProject
+                  case 0: {
+                      // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
+                      ((CStoreIDs)getApplication()).setProjectID("-Kz2t03YZZjEUWnGQhJr");
+                      break;
+                  }
+                  default:{break;}
+              }
+              Toast.makeText(HomeScreen.this,"-Kz2t03YZZjEUWnGQhJr",Toast.LENGTH_SHORT).show();
+              //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
+
           }
       });
        //*/

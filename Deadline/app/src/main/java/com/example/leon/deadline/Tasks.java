@@ -28,6 +28,8 @@ public class Tasks extends AppCompatActivity {
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
 
+    private CRole tempRole = new CRole();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,8 @@ public class Tasks extends AppCompatActivity {
 
         CTask tempTask = new CTask();
         tempTask.setName("My Task");
+
+        tempRole.setTaskPermission(true);
 
 
         Butt_Home = (Button) findViewById(R.id.Home_Button);
@@ -97,6 +101,8 @@ public class Tasks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        if(!tempRole.getTaskPermission())
+            Create_Task.setVisibility(View.GONE);
 
 
         Button tempButton = (Button) findViewById(R.id.btnTask);
@@ -122,6 +128,8 @@ public class Tasks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        if(!tempRole.getTaskPermission())
+            tempButton.setVisibility(View.GONE);
 
 
 
@@ -149,6 +157,8 @@ public class Tasks extends AppCompatActivity {
                 llTaskOptionsLayout.removeAllViews();
             }
         });
+        if(!tempRole.getTaskPermission())
+            Butt_TaskOption.setVisibility(View.GONE);
     }
 
     @Override

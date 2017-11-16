@@ -9,9 +9,17 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.Date;
 
 import javax.microedition.khronos.egl.EGLDisplay;
 
@@ -25,12 +33,28 @@ public class EditProject extends AppCompatActivity {
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
 
+    private EditText pName;
+    private DatePicker pDate;
+    private EditText pSummary;
+    private CheckBox pComplete;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_project);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
+        //TODO: Set the text by pulling from FB
+        pName = (EditText) findViewById(R.id.projName);
+        //pName.setText(ref.child(/*Unique Proj ID*/).child("name"));
+        pDate = (DatePicker) findViewById(R.id.datePicker);
+        //pDate.updateDate();
+        pSummary = (EditText) findViewById(R.id.projDescription);
+        //pSummary.setText(ref.child(/*Unique Proj ID*/).child("summary"));
+        pComplete = (CheckBox) findViewById(R.id.projComplete);
+        //pComplete.setChecked(ref.child(/*Proj UID*/).child("complete"));
 
         Butt_Home = (Button) findViewById(R.id.Home_Button);
         Butt_Home.setOnClickListener(new View.OnClickListener() {

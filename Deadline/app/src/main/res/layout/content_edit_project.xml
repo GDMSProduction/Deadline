@@ -41,13 +41,19 @@
             tools:layout_editor_absoluteX="82dp"
             tools:layout_editor_absoluteY="28dp" />
 
-        <Switch
-            android:id="@+id/projPrivate"
+        <EditText
+            android:id="@+id/projDescription"
             android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:text="Private Project?"
-            tools:layout_editor_absoluteX="101dp"
-            tools:layout_editor_absoluteY="144dp" />
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Project Description"
+            android:inputType="textPersonName" />
+
+        <CheckBox
+            android:id="@+id/projComplete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Complete" />
 
         <Button
             android:id="@+id/projEdit"
@@ -57,5 +63,4 @@
             tools:layout_editor_absoluteX="161dp"
             tools:layout_editor_absoluteY="249dp" />
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

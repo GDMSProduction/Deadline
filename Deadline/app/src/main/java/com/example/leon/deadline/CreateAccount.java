@@ -82,8 +82,8 @@ public class CreateAccount extends AppCompatActivity {
                                       @Override
                                       public void onClick(View v)
                                       {
-                                          eEmail = (EditText) findViewById(R.id.email1);
-                                          ePass = (EditText) findViewById(R.id.password1);
+                                          eEmail = (EditText) findViewById(R.id.accEmail);
+                                          ePass = (EditText) findViewById(R.id.accPassword);
                                           eName = (EditText) findViewById(R.id.accName);
                                           eConf = (EditText) findViewById(R.id.passConf);
                                           ePhone = (EditText) findViewById(R.id.phoneNum);
