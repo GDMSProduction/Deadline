@@ -44,6 +44,13 @@ public class CDeadline extends HashMap implements Serializable {
         m_bComplete = Complete;
     }
 
+    public CDeadline(CDeadline deadline) {
+        m_szName = deadline.m_szName;
+        m_Deadline = deadline.m_Deadline;
+        m_szSummary = deadline.m_szSummary;
+        m_bComplete = deadline.m_bComplete;
+    }
+
     public int getTypeID() {return typeID;}
 
     // Name Get + Set
