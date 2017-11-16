@@ -378,6 +378,8 @@ public class HomeScreen extends AppCompatActivity {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
               Toast.makeText(HomeScreen.this,"TEST",Toast.LENGTH_SHORT).show();
+              //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
+              //((CStoreIDs)this.getApplication()).setProjectID();
           }
       });
        //*/
