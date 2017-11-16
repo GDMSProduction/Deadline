@@ -45,6 +45,7 @@ public class CustomAdapter extends SimpleAdapter implements View.OnClickListener
         this.deadlines = (List<Map<String, String>>) data;
     }
 
+    //Pretty sure this doesn't matter but I would leave it anyways
     @Override
     public void onClick(View v)
     {

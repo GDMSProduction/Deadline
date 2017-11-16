@@ -374,6 +374,7 @@ public class HomeScreen extends AppCompatActivity {
               new int[] {R.id.item_name,R.id.deadline_date});
 
       HomeList.setAdapter(testAdapt);
+      //THIS IS WHAT NEEDS TO BE ADDED TO MAKE IT DO STUFF ON CLICK
       HomeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
