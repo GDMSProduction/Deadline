@@ -49,7 +49,7 @@ public class ProjectCreationScreen extends AppCompatActivity {
     private String _projName;
     private String _deadlineDate;
     private String _summary;
-    private Boolean _complete;
+    private Boolean _complete = false;
 
     private Switch test;
     @Override
@@ -87,15 +87,16 @@ public class ProjectCreationScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                eProjName = (EditText) findViewById(R.id.projName);
                 eDate =  (DatePicker) findViewById(R.id.datePicker);
 
                 currentDay = Calendar.getInstance();
                 validDate =  Calendar.getInstance();
                 validDate.set(eDate.getYear(),eDate.getMonth(),eDate.getDayOfMonth());
 
-                _projName = eProjName.getText().toString();
+                _projName = ((EditText) findViewById(R.id.projName)).getText().toString();
                 _deadlineDate = (eDate.getMonth() + 1) + "/" + eDate.getDayOfMonth() + "/"  + eDate.getYear() ;
+
+                _summary = ((EditText) findViewById(R.id.projDescription)).getText().toString();
 
                 if(!_projName.equals("") &&
                         !_deadlineDate.equals(""))

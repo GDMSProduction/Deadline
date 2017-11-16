@@ -11,6 +11,7 @@ public class CProject extends CDeadline implements Serializable {
     
     private static int typeID = 0;
 
+    //TODO: Remove this stuff and any associated code later, except the sort functions which should be commented out
     private List<CTask> m_TaskList = new ArrayList<>();
     private List<CRole> m_Roles = new ArrayList<>();
     private List<CMember> m_Members = new ArrayList<>();

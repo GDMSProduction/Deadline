@@ -150,7 +150,10 @@ public class CreateEditRoles extends AppCompatActivity {
 
         String newKey = ref.child(((CStoreIDs)this.getApplication()).getProjectID()).child("roles").push().getKey();
         //ref.child(((CStoreIDs)this.getApplication()).getProjectID()).child("roles").child(newKey).setValue(newKey);
-        ref.child("-Kzwa1cMnlfqFMZlg-9").child("roles").child(newKey).setValue(newKey);
+        //TODO: Make this key dynamic instead of set
+        //TODO: In order to add this under the correct project the CStoreIDs will have to be updated with the correct ids
+        //TODO: In order to get those ids we need to be able to click on the custom xmls and have it update the id to what was clicked
+        ref.child("-Kz2mYyqftg5VSpXPo7s").child("roles").child(newKey).setValue(newKey);
 
 
         ref = FirebaseDatabase.getInstance().getReference("roles");

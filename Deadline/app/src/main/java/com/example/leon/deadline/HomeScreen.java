@@ -58,8 +58,10 @@ public class HomeScreen extends AppCompatActivity {
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
 
+/*
     private Button projJump;
     private Button taskJump;
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
