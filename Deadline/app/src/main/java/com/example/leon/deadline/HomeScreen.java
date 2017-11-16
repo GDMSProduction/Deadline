@@ -8,7 +8,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -55,6 +58,7 @@ public class HomeScreen extends AppCompatActivity {
 
     int projectSize;
     ListView HomeList;
+    ImageView itemDots;
 
     public static GLOBALS global = new GLOBALS();
 
@@ -308,6 +312,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+
     }
 
     @Override
@@ -387,7 +392,7 @@ public class HomeScreen extends AppCompatActivity {
 //*/
       //_proj[j] =  new CTask("test","test","test",true);
 
-      deadlines.add(_proj[j]);
+      //deadlines.add(_proj[j]);
       //global.setColorID(2);
       //*/
       final ListAdapter testAdapt = new CustomAdapter(this,
@@ -435,7 +440,17 @@ public class HomeScreen extends AppCompatActivity {
 
           }
       });
+
+    HomeList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            Toast.makeText(HomeScreen.this, "BANG BANG", Toast.LENGTH_LONG).show();
+            return false;
+        }
+    });
        //*/
+
+        //*/
     }
 
     public void sDatabase(final String _key, final CDeadline[] _array,final int _j)
@@ -449,7 +464,7 @@ public class HomeScreen extends AppCompatActivity {
                 String deadline = "";
                 Boolean complete = false;
                 String summary = "";
-                for(DataSnapshot mtest :dataSnapshot.getChildren())
+                for(DataSnapshot mtest : dataSnapshot.getChildren())
                 {
                     if(mtest != null && dataSnapshot.getKey().toString().equals(_key))
                     {
@@ -471,10 +486,20 @@ public class HomeScreen extends AppCompatActivity {
                                 complete = (boolean) mtest.getValue();
                                 i++;
                                 break;
+                            case "tasks":
+                                for(DataSnapshot qTest : mtest.getChildren())
+                                {
+                                    String tName = qTest.child("name").getValue().toString();
+                                    String tDeadline = qTest.child("deadline").getValue().toString();
+                                    String tSumm = qTest.child("summary").getValue().toString();
+                                    Boolean tComplete = (Boolean) qTest.child("complete").getValue();
+                                }
+
+                                break;
                             default:
                                 break;
                         }
-                        if(name != "" && deadline !="")
+                        if(name != "" && deadline != "")
                         {
                             CProject temp = new CProject(name, deadline, summary, complete);
                             _array[_j] = temp;
