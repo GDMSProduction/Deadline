@@ -190,7 +190,7 @@ public class HomeScreen extends AppCompatActivity {
         {
             e.printStackTrace();
         }
-        //TODO - fix displaying of name
+        //TODO LW5 -(FIXED) FIX DISPLAYING OF NAME
         String test = "Welcome, " + user.getDisplayName();
         TextView text = (TextView) findViewById(R.id.TempUserInfo);
         text.setText(test);
@@ -294,7 +294,7 @@ public class HomeScreen extends AppCompatActivity {
     }
     public void populateScreen(final CDeadline[] _proj)
     {
-        //TODO: Get List from database onto Home Screen
+        //TODO LW10 - (FIXED) Get List from database onto Home Screen
         final ListView HomeList = (ListView) findViewById(R.id.HomeListView);
         /*String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
                 "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
@@ -317,11 +317,11 @@ public class HomeScreen extends AppCompatActivity {
         HomeList.setAdapter(adapter);
 
         //*/
-        //TODO: CHANGE ARRAY TO CUSTOM
+        //TODO LW12- (FIXED) CHANGE ARRAY TO CUSTOM
         List<Map<String, String>> deadlines = new ArrayList<Map<String, String>>();
         int colorID;
       /*
-      TODO: Figure out why this isn't working
+      TODO LW9 - (FIXED) Figure out why this isn't working
       *The list array created above isn't the same type needed in
       *the parameters of the function.
       *
@@ -339,7 +339,7 @@ public class HomeScreen extends AppCompatActivity {
           }
       }
 
-      /*TODO:FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES*/
+      /*TODO LW11 - FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES
       deadlines.add(new CTask("test","11/11/2050","TESTSUMM"));
       colorID = 2;
       //*/
