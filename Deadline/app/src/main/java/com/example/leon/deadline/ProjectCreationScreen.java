@@ -48,7 +48,8 @@ public class ProjectCreationScreen extends AppCompatActivity {
 
     private String _projName;
     private String _deadlineDate;
-    private Boolean _privateProj;
+    private String _summary;
+    private Boolean _complete;
 
     private Switch test;
     @Override
@@ -95,15 +96,13 @@ public class ProjectCreationScreen extends AppCompatActivity {
 
                 _projName = eProjName.getText().toString();
                 _deadlineDate = (eDate.getMonth() + 1) + "/" + eDate.getDayOfMonth() + "/"  + eDate.getYear() ;
-                test = (Switch) findViewById(R.id.projPrivate);
-                _privateProj = test.isChecked();
 
                 if(!_projName.equals("") &&
                         !_deadlineDate.equals(""))
                 {
                     if(!currentDay.after(validDate))
                     {
-                        CreateProject(_projName,_deadlineDate, _privateProj);
+                        CreateProject(_projName,_deadlineDate, _summary, _complete);
                     }
                     else
                     {
@@ -187,7 +186,7 @@ public class ProjectCreationScreen extends AppCompatActivity {
         }
     }
 
-    public void CreateProject(String _name, String _date, Boolean _private)
+    public void CreateProject(String _name, String _date, String _summary, Boolean _complete)
     {
         /*
         CProject temp = new CProject(_name,_date, _private);
@@ -216,9 +215,10 @@ public class ProjectCreationScreen extends AppCompatActivity {
          */
         //*/
         ref = FirebaseDatabase.getInstance().getReference("projects");
-        ref.child(newKey).child("bPrivate").setValue(_private);
-        ref.child(newKey).child("deadline").setValue(_date);
         ref.child(newKey).child("name").setValue(_name);
+        ref.child(newKey).child("deadline").setValue(_date);
+        ref.child(newKey).child("summary").setValue(_summary);
+        ref.child(newKey).child("complete").setValue(_complete);
         //*/
 
         Toast.makeText(ProjectCreationScreen.this,"Project creation successful",Toast.LENGTH_SHORT).show();
