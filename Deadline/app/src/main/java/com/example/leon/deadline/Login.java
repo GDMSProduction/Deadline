@@ -109,7 +109,7 @@ public class Login extends AppCompatActivity{
                                               pass = ePass.getText().toString();
 
                                               if (rememberCheckBox.isChecked()){
-                                                  logPrefEditor.putBoolean("savelogin", true);
+                                                  logPrefEditor.putBoolean("saveLogin", true);
                                                   logPrefEditor.putString("email", email);
                                                   logPrefEditor.putString("password", pass);
                                                   logPrefEditor.apply();
