@@ -1,6 +1,7 @@
 package com.example.leon.deadline;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,8 @@ public class Projects extends AppCompatActivity {
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
 
+    private CRole tempRole = new CRole();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,7 @@ public class Projects extends AppCompatActivity {
 
         CProject tempProject = new CProject();
         tempProject.setName("My Project");
+        tempRole.setProjectPermission(true);
 
         Create_Project = (FloatingActionButton) findViewById(R.id.CreateProject);
         Create_Project.setOnClickListener(new View.OnClickListener()
@@ -47,6 +51,10 @@ public class Projects extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        if(!tempRole.getProjectPermission())
+            Create_Project.setVisibility(View.GONE);
+
 
         Butt_Home = (Button) findViewById(R.id.Home_Button);
         Butt_Home.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +141,9 @@ public class Projects extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //tempRole.setProjectPermission(true);
+        if(!tempRole.getProjectPermission())
+            Butt_ProjOptions.setVisibility(View.GONE);
 
 
         // btnViewEditRoles OnCLickListener
@@ -155,6 +166,8 @@ public class Projects extends AppCompatActivity {
                 llProjOptions.removeAllViews();
             }
         });
+        if(!tempRole.getProjectPermission())
+            Butt_ProjOptions.setVisibility(View.GONE);
 
     }
 

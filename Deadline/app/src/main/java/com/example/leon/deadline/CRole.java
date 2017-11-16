@@ -101,4 +101,16 @@ public class CRole implements Serializable {
         m_bRolePermission = RolePermission;
         m_bProjectPermission = ProjectPermission;
     }
+
+    public CRole()
+    {
+        m_szName = "Name";
+        m_bAddMembersPermission = false;
+        m_bRemoveMemberPermission = false;
+        m_bEditMemberPermission = false;
+        m_bJobPermission = false;
+        m_bTaskPermission = false;
+        m_bRolePermission = false;
+        m_bProjectPermission = false;
+    }
 }

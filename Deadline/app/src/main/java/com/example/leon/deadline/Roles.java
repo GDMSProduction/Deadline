@@ -28,6 +28,12 @@ public class Roles extends AppCompatActivity {
 
     private LinearLayout llRoleLayout;
     private Button Butt_RoleOptions;
+    private Button Butt_ViewRole;
+    private Button Butt_EditRole;
+    private Button Butt_DeleteRole;
+
+
+    private CRole tempRole = new CRole();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,8 @@ public class Roles extends AppCompatActivity {
         setContentView(R.layout.activity_roles);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        tempRole.setRolePermission(true);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -96,20 +104,23 @@ public class Roles extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        if(!tempRole.getRolePermission())
+            Create_Role.setVisibility(View.GONE);
 
 
-        Button tempButton = (Button) findViewById(R.id.btnEditRole);
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
+       Butt_EditRole = (Button) findViewById(R.id.btnEditRole);
+        Butt_EditRole.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Roles.this, EditRoles.class);
                 startActivity(intent);
             }
         });
+        if(!tempRole.getRolePermission())
+            Butt_EditRole.setVisibility(View.GONE);
 
-        tempButton = (Button) findViewById(R.id.btnRoles);
-        tempButton.setOnClickListener(new View.OnClickListener() {
+        Butt_ViewRole = (Button) findViewById(R.id.btnRoles);
+        Butt_ViewRole.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Roles.this, RolePermissions.class);
@@ -120,9 +131,8 @@ public class Roles extends AppCompatActivity {
 
         // btnViewJobOptions OnCLickListener
         llRoleLayout = (LinearLayout) findViewById(R.id.llRoleOptions);
-        tempButton = (Button) findViewById(R.id.btnViewRoleOptions);
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
+        Butt_RoleOptions = (Button) findViewById(R.id.btnViewRoleOptions);
+        Butt_RoleOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(llRoleLayout.getVisibility() == View.GONE)
@@ -133,8 +143,8 @@ public class Roles extends AppCompatActivity {
         });
 
         // btnDeleteJob OnCLickListener
-        Butt_RoleOptions = (Button) findViewById(R.id.btnDeleteRole);
-        Butt_RoleOptions.setOnClickListener(new View.OnClickListener() {
+        Butt_DeleteRole = (Button) findViewById(R.id.btnDeleteRole);
+        Butt_DeleteRole.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 llRoleLayout.removeAllViews();
@@ -142,6 +152,8 @@ public class Roles extends AppCompatActivity {
                 llRoleLayout.removeAllViews();
             }
         });
+        if(!tempRole.getRolePermission())
+            Butt_DeleteRole.setVisibility(View.GONE);
 
     }
 

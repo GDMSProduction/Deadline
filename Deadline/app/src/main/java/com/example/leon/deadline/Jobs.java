@@ -26,6 +26,8 @@ public class Jobs extends AppCompatActivity {
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
 
+    private CRole tempRole = new CRole();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,8 @@ public class Jobs extends AppCompatActivity {
 
         CJob tempJob = new CJob();
         tempJob.setName("My Job");
+
+        tempRole.setJobPermission(true);
 
         Butt_Home = (Button) findViewById(R.id.Home_Button);
         Butt_Home.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +57,8 @@ public class Jobs extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        if(!tempRole.getJobPermission())
+            Fab_CreateJob.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -115,6 +121,8 @@ public class Jobs extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        if(!tempRole.getJobPermission())
+            tempButton.setVisibility(View.GONE);
 
 
         // btnViewJobOptions OnCLickListener
@@ -141,6 +149,8 @@ public class Jobs extends AppCompatActivity {
                 llJobOption.removeAllViews();
             }
         });
+        if(!tempRole.getJobPermission())
+            Butt_JobOption.setVisibility(View.GONE);
     }
 
     @Override
