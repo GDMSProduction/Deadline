@@ -131,8 +131,19 @@ public class CreateEditRoles extends AppCompatActivity {
 
         //TODO: Add a button to the content xml for creating the role, make an onclicklistener for that button inside of oncreate and put this inside the
         //TODO: onclicklistener with some error checking in front of it
-        CreateRole(etxtName.getText().toString(), swAddMembersPermission.isChecked(), swEditMemberPermission.isChecked(), swRemoveMemberPermission.isChecked(),
-                    swJobPermission.isChecked(), swTaskPermission.isChecked(), swRolePermission.isChecked(), swProjectPermission.isChecked());
+
+        Button tempBtn = (Button) findViewById(R.id.btnCreateRole);
+        tempBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!etxtName.getText().toString().isEmpty()) {
+                    CreateRole(etxtName.getText().toString(), swAddMembersPermission.isChecked(), swEditMemberPermission.isChecked(), swRemoveMemberPermission.isChecked(),
+                            swJobPermission.isChecked(), swTaskPermission.isChecked(), swRolePermission.isChecked(), swProjectPermission.isChecked());
+                }
+            }
+        });
+        /*CreateRole(etxtName.getText().toString(), swAddMembersPermission.isChecked(), swEditMemberPermission.isChecked(), swRemoveMemberPermission.isChecked(),
+                    swJobPermission.isChecked(), swTaskPermission.isChecked(), swRolePermission.isChecked(), swProjectPermission.isChecked());*/
 
     }
 
@@ -148,15 +159,15 @@ public class CreateEditRoles extends AppCompatActivity {
     {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
 
-        String newKey = ref.child(((CStoreIDs)this.getApplication()).getProjectID()).child("roles").push().getKey();
-        //ref.child(((CStoreIDs)this.getApplication()).getProjectID()).child("roles").child(newKey).setValue(newKey);
+
         //TODO: Make this key dynamic instead of set
         //TODO: In order to add this under the correct project the CStoreIDs will have to be updated with the correct ids
         //TODO: In order to get those ids we need to be able to click on the custom xmls and have it update the id to what was clicked
-        ref.child("-Kz2mYyqftg5VSpXPo7s").child("roles").child(newKey).setValue(newKey);
 
 
-        ref = FirebaseDatabase.getInstance().getReference("roles");
+        String newKey = ref.child(user.getUid()).child("roles").push().getKey();
+        ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child("roles");
+
         ref.child(newKey).child("Name").setValue(Name);
         ref.child(newKey).child("AddMembersPermission").setValue(AddMembersPermission);
         ref.child(newKey).child("RemoveMemberPermission").setValue(RemoveMemberPermission);

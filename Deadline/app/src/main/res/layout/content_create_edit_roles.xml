@@ -453,6 +453,17 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btnCreateRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingTop="0dp"
+                android:text="Create Role"
+                android:textAlignment="center" />
+
         </LinearLayout>
 
     </ScrollView>
