@@ -413,7 +413,7 @@ public class HomeScreen extends AppCompatActivity {
                   // CProject
                   case 0: {
                       // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-                      ((CStoreIDs)getApplication()).setProjectID("-Kz2t03YZZjEUWnGQhJr");
+                      ((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
                       break;
                   }
                   // CJob
@@ -424,6 +424,7 @@ public class HomeScreen extends AppCompatActivity {
                       //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
                       //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
                       //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
+                      ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());
                       break;
                   }
                   // CTask
@@ -431,11 +432,12 @@ public class HomeScreen extends AppCompatActivity {
                       // ToDo: For now, hard code the Unique ID of a prexisting Task to test
                       //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
                       //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
+                      ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());
                       break;
                   }
                   default:{break;}
               }
-              Toast.makeText(HomeScreen.this,"-Kz2t03YZZjEUWnGQhJr",Toast.LENGTH_SHORT).show();
+              Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
               //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
 
           }
@@ -502,6 +504,7 @@ public class HomeScreen extends AppCompatActivity {
                         if(name != "" && deadline != "")
                         {
                             CProject temp = new CProject(name, deadline, summary, complete);
+                            temp.setUniqueID(_key);
                             _array[_j] = temp;
                             //i++;
                         }

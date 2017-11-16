@@ -12,6 +12,16 @@ public class CDeadline extends HashMap implements Serializable {
     private String m_szSummary;
     private Boolean m_bComplete;
 
+    public String getUniqueID() {
+        return m_uniqueID;
+    }
+
+    public void setUniqueID(String m_uniqueID) {
+        this.m_uniqueID = m_uniqueID;
+    }
+
+    private String m_uniqueID;
+
     private static int typeID = 9;
 
     //TODO LW3 - (FIXED) HASHMAP STUFF
