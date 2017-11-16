@@ -9,10 +9,7 @@ import java.util.List;
 
 public class CProject extends CDeadline implements Serializable {
 
-    private boolean m_bPrivate;
     private static int typeID = 2;
-    private String mSummary;
-
 
     private List<CTask> m_TaskList = new ArrayList<>();
     private List<CRole> m_Roles = new ArrayList<>();
@@ -29,30 +26,19 @@ public class CProject extends CDeadline implements Serializable {
 
     }
 
-    //TODO: Add summary to constructor
-    public CProject(String Name, String Deadline, boolean Private) {
-        setName(Name);
+    public CProject(String Name, String Deadline, String Summary, Boolean Complete) {
+        super(Name,Deadline,Summary,Complete);
+        //setName(Name);
         /*try {
             setDeadline(new SimpleDateFormat("MM/dd/yyyy").parse(Deadline));
         } catch (java.text.ParseException e){}
         */
-        setDeadline(Deadline);
-
-        this.m_bPrivate = Private;
-
+        //setDeadline(Deadline);
         //mSummary = Summary;
     }
 
     @Override
     public int getTypeID() {return typeID;}
-
-    // Privacy  Get + Set
-    public boolean isbPrivate() {
-        return m_bPrivate;
-    }
-    public void setbPrivate(boolean m_bPrivate) {
-        this.m_bPrivate = m_bPrivate;
-    }
 
     // Task List  Get + Set
     public List<CTask> getTaskList() {
@@ -88,8 +74,8 @@ public class CProject extends CDeadline implements Serializable {
 
 // Task Functions
 
-    public boolean addTask(String szName, String date, String summary){
-        return m_TaskList.add(new CTask(szName, date, summary));
+    public boolean addTask(String szName, String date, String summary, Boolean complete){
+        return m_TaskList.add(new CTask(szName, date, summary, complete));
     }
 
     public boolean addTask(CTask task){

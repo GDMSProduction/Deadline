@@ -8,24 +8,18 @@ import java.util.List;
 
 public class CTask extends CDeadline implements Serializable {
 
-    //private String m_szName;
-    //private Date m_Deadline;
     private List<CJob> m_JobList = new ArrayList<>();
 
     private static int typeID = 0;
 
-
-
-
     public CTask() {
     }
+    public CTask(String Name, String Deadline, String Summary, Boolean Complete) {
 
-    public CTask(String Name, String Deadline, String Summary) {
-
-        super(Name, Deadline, Summary);
+        super(Name, Deadline, Summary, Complete);
     }
     public CTask(CTask task) {
-        super(task.getName(), task.getDeadline(), task.getSummary());
+        super(task.getName(), task.getDeadline(), task.getSummary(), task.getComplete());
     }
 
     @Override
@@ -39,11 +33,11 @@ public class CTask extends CDeadline implements Serializable {
 // Job Functions
 
     public boolean addJob(CJob job){
-        return m_JobList.add(new CJob(job.getName(), job.getDeadline(), job.getSummary()));
+        return m_JobList.add(new CJob(job.getName(), job.getDeadline(), job.getSummary(), job.getComplete()));
     }
 
-    public boolean addJob(String Name, String Deadline, String Summary){
-        return m_JobList.add(new CJob(Name, Deadline, Summary));
+    public boolean addJob(String Name, String Deadline, String Summary, Boolean Complete){
+        return m_JobList.add(new CJob(Name, Deadline, Summary, Complete));
     }
 
     // Remove by Object
