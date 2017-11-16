@@ -406,7 +406,7 @@ public class HomeScreen extends AppCompatActivity {
       HomeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              int typeID = global.deadlines[position+1].getTypeID();
+              int typeID = global.deadlines[position].getTypeID();
               switch (typeID){
                   // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
 
