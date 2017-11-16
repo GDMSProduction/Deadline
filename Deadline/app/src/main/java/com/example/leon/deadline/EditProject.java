@@ -1,14 +1,17 @@
 package com.example.leon.deadline;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,6 +22,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.microedition.khronos.egl.EGLDisplay;
@@ -28,10 +32,15 @@ public class EditProject extends AppCompatActivity {
     private Button Butt_Home;
     private Button Butt_Save;
 
-    private FirebaseAuth mAuth;
-
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseUser user;
+
+    private Calendar currentDay;
+    private Calendar validDate;
 
     private EditText pName;
     private DatePicker pDate;
@@ -45,16 +54,38 @@ public class EditProject extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener()
+        {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+            {
+                /*FirebaseUser*/ user = firebaseAuth.getCurrentUser();
+                if(user != null)
+                {
+                    Log.d(CreateAccount.class.getSimpleName(), "onAuthStateChanged:signed_in" + user.getUid());
+                }
+                else
+                {
+                    Log.d(CreateAccount.class.getSimpleName(), "onAuthStateChanged:signed_out");
+                }
+            }
+
+        };
+
+        user = mAuth.getCurrentUser();
+
+
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
+        ref = ref.child(((CStoreIDs)getApplication()).getProjectID());
         //TODO: Set the text by pulling from FB
         pName = (EditText) findViewById(R.id.projName);
-        //pName.setText(ref.child(/*Unique Proj ID*/).child("name"));
+        pName.setText(ref.child("name").toString());
         pDate = (DatePicker) findViewById(R.id.datePicker);
-        //pDate.updateDate();
         pSummary = (EditText) findViewById(R.id.projDescription);
-        //pSummary.setText(ref.child(/*Unique Proj ID*/).child("summary"));
+        pSummary.setText(ref.child("summary").toString());
         pComplete = (CheckBox) findViewById(R.id.projComplete);
-        //pComplete.setChecked(ref.child(/*Proj UID*/).child("complete"));
+        pComplete.setChecked(false);
 
         Butt_Home = (Button) findViewById(R.id.Home_Button);
         Butt_Home.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +100,33 @@ public class EditProject extends AppCompatActivity {
         Butt_Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                currentDay = Calendar.getInstance();
+                validDate =  Calendar.getInstance();
+                validDate.set(pDate.getYear(),pDate.getMonth(),pDate.getDayOfMonth());
+
+                if(!pName.equals("") &&
+                        !pDate.equals(""))
+                {
+                    if(!currentDay.after(validDate))
+                    {
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
+                        ref = ref.child(((CStoreIDs)getApplication()).getProjectID());
+                        ref.child("name").setValue(pName.getText().toString());
+                        ref.child("deadline").setValue(((DatePicker) findViewById(R.id.datePicker)).getMonth() + 1 + "/" + ((DatePicker) findViewById(R.id.datePicker)).getDayOfMonth() + "/" + ((DatePicker) findViewById(R.id.datePicker)).getYear());
+                        ref.child("summary").setValue(pSummary.getText().toString());
+                        ref.child("complete").setValue(pComplete.isChecked());
+                    }
+                    else
+                    {
+                        Toast.makeText(EditProject.this, "Please enter a valid date", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(EditProject.this, "Please fill out the form completely", Toast.LENGTH_SHORT).show();
+                }
+
                 Intent intent = new Intent(EditProject.this, Projects.class);
                 startActivity(intent);
             }

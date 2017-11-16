@@ -9,6 +9,7 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,14 +20,22 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class EditJob extends AppCompatActivity {
 
     private Button Butt_Home;
-
-    private FirebaseAuth mAuth;
+    private Button Butt_Save;
 
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseUser user;
+
+    private Calendar currentDay;
+    private Calendar validDate;
 
     private EditText jName;
     private DatePicker jDate;
@@ -41,22 +50,58 @@ public class EditJob extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
-        //TODO: Set the text by pulling from FB
-        jName = (EditText) findViewById(R.id.jobName);
-        //pName.setText(ref.child(Proj UID).child(Task UID).child(Job UID).child("name"));
-        jDate = (DatePicker) findViewById(R.id.datePicker);
-        //pDate.updateDate();
-        jSummary = (EditText) findViewById(R.id.jobDescription);
-        //pSummary.setText(ref.child(Proj UID).child(task UID).child(Job UID).child("summary"));
-        jComplete = (CheckBox) findViewById(R.id.jobComplete);
-        //pComplete.setChecked(ref.child(Proj UID).child(task UID).child(Job UID).child("complete"));
-
         Butt_Home = (Button) findViewById(R.id.Home_Button);
         Butt_Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditJob.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
+        ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child(((CStoreIDs)getApplication()).getTaskID()).child(((CStoreIDs)getApplication()).getJobID());
+        //TODO: Set the text by pulling from FB
+        jName = (EditText) findViewById(R.id.jobName);
+        jName.setText(ref.child("name").toString());
+        jDate = (DatePicker) findViewById(R.id.datePicker);
+        jSummary = (EditText) findViewById(R.id.jobDescription);
+        jSummary.setText(ref.child("summary").toString());
+        jComplete = (CheckBox) findViewById(R.id.jobComplete);
+        jComplete.setChecked(false);
+
+        Butt_Save = (Button) findViewById(R.id.jobEdit);
+        Butt_Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                currentDay = Calendar.getInstance();
+                validDate =  Calendar.getInstance();
+                validDate.set(jDate.getYear(),jDate.getMonth(),jDate.getDayOfMonth());
+
+                if(!jName.equals("") &&
+                        !jDate.equals(""))
+                {
+                    if(!currentDay.after(validDate))
+                    {
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
+                        ref = ref.child(((CStoreIDs)getApplication()).getProjectID());
+                        ref.child("name").setValue(jName.getText().toString());
+                        ref.child("deadline").setValue(((DatePicker) findViewById(R.id.datePicker)).getMonth() + 1 + "/" + ((DatePicker) findViewById(R.id.datePicker)).getDayOfMonth() + "/" + ((DatePicker) findViewById(R.id.datePicker)).getYear());
+                        ref.child("summary").setValue(jSummary.getText().toString());
+                        ref.child("complete").setValue(jComplete.isChecked());
+                    }
+                    else
+                    {
+                        Toast.makeText(EditJob.this, "Please enter a valid date", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(EditJob.this, "Please fill out the form completely", Toast.LENGTH_SHORT).show();
+                }
+
+                Intent intent = new Intent(EditJob.this, Projects.class);
                 startActivity(intent);
             }
         });
