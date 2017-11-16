@@ -49,6 +49,12 @@
             android:hint="Project Description"
             android:inputType="textPersonName" />
 
+        <CheckBox
+            android:id="@+id/projComplete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Complete" />
+
         <Button
             android:id="@+id/projEdit"
             android:layout_width="match_parent"

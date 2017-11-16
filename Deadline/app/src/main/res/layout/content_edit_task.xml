@@ -49,6 +49,12 @@
             android:hint="Task Description"
             android:inputType="textMultiLine" />
 
+        <CheckBox
+            android:id="@+id/taskComplete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Complete" />
+
         <Button
             android:id="@+id/taskEdit"
             android:layout_width="match_parent"
