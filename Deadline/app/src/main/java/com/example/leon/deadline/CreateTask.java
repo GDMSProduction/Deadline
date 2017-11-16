@@ -174,7 +174,7 @@ public class CreateTask extends AppCompatActivity {
         String newKey = ref.child(user.getUid()).child("tasks").push().getKey();
 
         //TODO: Need to replace hardcoded key with active project key as determined by CStoreIDs
-        ref = ref.child("-Kz2wMarYnsgDtEiXaWa").child("tasks");
+        ref = ref.child("-Kz2t03YZZjEUWnGQhJr").child("tasks");
 
         ref.child(newKey).child("name").setValue(_name);
         ref.child(newKey).child("deadline").setValue(_date);
