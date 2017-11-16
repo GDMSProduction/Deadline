@@ -129,6 +129,8 @@ public class CreateEditRoles extends AppCompatActivity {
         swRolePermission            = (Switch) findViewById(R.id.swRoleControl);
         swProjectPermission         = (Switch) findViewById(R.id.swProjectControl);
 
+        //TODO: Add a button to the content xml for creating the role, make an onclicklistener for that button inside of oncreate and put this inside the
+        //TODO: onclicklistener with some error checking in front of it
         CreateRole(etxtName.getText().toString(), swAddMembersPermission.isChecked(), swEditMemberPermission.isChecked(), swRemoveMemberPermission.isChecked(),
                     swJobPermission.isChecked(), swTaskPermission.isChecked(), swRolePermission.isChecked(), swProjectPermission.isChecked());
 
@@ -148,6 +150,8 @@ public class CreateEditRoles extends AppCompatActivity {
 
         String newKey = ref.child(((CStoreIDs)this.getApplication()).getProjectID()).child("roles").push().getKey();
         //ref.child(((CStoreIDs)this.getApplication()).getProjectID()).child("roles").child(newKey).setValue(newKey);
+        ref.child("-Kzwa1cMnlfqFMZlg-9").child("roles").child(newKey).setValue(newKey);
+
 
         ref = FirebaseDatabase.getInstance().getReference("roles");
         ref.child(newKey).child("Name").setValue(Name);
