@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/llEditRoles"
+            android:id="@+id/llCreateRoles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -40,7 +40,6 @@
                 android:contentDescription="Role Name"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="My Role"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -167,6 +166,36 @@
 
                 <Switch
                     android:id="@+id/swRoleControl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:layout_weight="0"
+                    android:textAlignment="textEnd" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llJobPermission"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:paddingBottom="0dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/txtJobControl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:text="Job Control"
+                    android:textSize="20sp" />
+
+                <Switch
+                    android:id="@+id/swJobControl"
                     android:layout_width="wrap_content"
                     android:layout_height="37dp"
                     android:layout_weight="0"
@@ -423,6 +452,17 @@
                     android:textAlignment="textEnd" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCreateRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingTop="0dp"
+                android:text="Create Role"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
