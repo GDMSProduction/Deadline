@@ -1,8 +1,5 @@
 package com.example.leon.deadline;
 
-/**
- * Created by sml91_000 on 9/7/2017.
- */
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,6 +11,7 @@ public class CProject extends CDeadline implements Serializable {
 
     private boolean m_bPrivate;
     private static int typeID = 2;
+    private String mSummary;
 
 
     private List<CTask> m_TaskList = new ArrayList<>();
@@ -31,6 +29,7 @@ public class CProject extends CDeadline implements Serializable {
 
     }
 
+    //TODO: Add summary to constructor
     public CProject(String Name, String Deadline, boolean Private) {
         setName(Name);
         /*try {
@@ -40,6 +39,8 @@ public class CProject extends CDeadline implements Serializable {
         setDeadline(Deadline);
 
         this.m_bPrivate = Private;
+
+        //mSummary = Summary;
     }
 
     @Override
@@ -87,8 +88,8 @@ public class CProject extends CDeadline implements Serializable {
 
 // Task Functions
 
-    public boolean addTask(String szName, String date, String summary, eUrgency urgency){
-        return m_TaskList.add(new CTask(szName, date, summary, urgency));
+    public boolean addTask(String szName, String date, String summary){
+        return m_TaskList.add(new CTask(szName, date, summary));
     }
 
     public boolean addTask(CTask task){
@@ -137,30 +138,6 @@ public class CProject extends CDeadline implements Serializable {
             }
             sortTasks.add(new CTask(m_TaskList.get(taskIndex)));
             m_TaskList.remove(taskIndex);
-        }
-        m_TaskList = new ArrayList<>(sortTasks);
-    }
-
-    public void sortTasksPriority(){
-        eUrgency urgency = eUrgency.LOW;
-        List<CTask> sortTasks = new ArrayList<>();
-        int taskIndex;
-
-        while(m_TaskList.size() > 0) {
-            taskIndex = -1;
-            for (int i = 0; i < m_TaskList.size(); i++) {
-                if (m_TaskList.get(i).getUrgency() == urgency) {
-                    taskIndex = i;
-                    break;
-                }
-            }
-
-            if (-1 == taskIndex)
-                urgency = eUrgency.values()[urgency.ordinal() + 1];
-            else {
-                sortTasks.add(new CTask(m_TaskList.get(taskIndex)));
-                m_TaskList.remove(taskIndex);
-            }
         }
         m_TaskList = new ArrayList<>(sortTasks);
     }

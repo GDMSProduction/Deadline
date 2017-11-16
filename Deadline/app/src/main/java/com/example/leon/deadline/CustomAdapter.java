@@ -8,10 +8,6 @@ import android.widget.SimpleAdapter;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Leon on 11/9/17.
- */
-
 public class CustomAdapter extends SimpleAdapter {
     /**TODO: GET CUSTOM ADAPTER WORKING
      * Constructor

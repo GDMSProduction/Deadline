@@ -215,8 +215,6 @@ public class ProjectCreationScreen extends AppCompatActivity {
 
         Toast.makeText(ProjectCreationScreen.this,"Project creation successful",Toast.LENGTH_SHORT).show();
 
-
-
         Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
         //intent.putExtra("TempProj", tempProject);
         startActivity(intent);

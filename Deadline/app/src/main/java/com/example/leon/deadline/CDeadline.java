@@ -6,10 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by Sean on 10/26/2017.
- */
-
 public class CDeadline extends HashMap implements Serializable {
     private String m_szName;
     private String m_Deadline;
