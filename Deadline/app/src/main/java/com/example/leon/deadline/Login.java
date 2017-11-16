@@ -112,11 +112,11 @@ public class Login extends AppCompatActivity{
                                                   logPrefEditor.putBoolean("savelogin", true);
                                                   logPrefEditor.putString("email", email);
                                                   logPrefEditor.putString("password", pass);
-                                                  logPrefEditor.commit();
+                                                  logPrefEditor.apply();
                                               }
                                               else {
                                                   logPrefEditor.clear();
-                                                  logPrefEditor.commit();
+                                                  logPrefEditor.apply();
                                               }
 
                                               signIn(email,pass);

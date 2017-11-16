@@ -9,7 +9,13 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,6 +28,11 @@ public class EditJob extends AppCompatActivity {
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
 
+    private EditText jName;
+    private DatePicker jDate;
+    private EditText jSummary;
+    private CheckBox jComplete;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +40,17 @@ public class EditJob extends AppCompatActivity {
         setContentView(R.layout.activity_edit_job);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
+        //TODO: Set the text by pulling from FB
+        jName = (EditText) findViewById(R.id.jobName);
+        //pName.setText(ref.child(Proj UID).child(Task UID).child(Job UID).child("name"));
+        jDate = (DatePicker) findViewById(R.id.datePicker);
+        //pDate.updateDate();
+        jSummary = (EditText) findViewById(R.id.jobDescription);
+        //pSummary.setText(ref.child(Proj UID).child(task UID).child(Job UID).child("summary"));
+        jComplete = (CheckBox) findViewById(R.id.jobComplete);
+        //pComplete.setChecked(ref.child(Proj UID).child(task UID).child(Job UID).child("complete"));
 
         Butt_Home = (Button) findViewById(R.id.Home_Button);
         Butt_Home.setOnClickListener(new View.OnClickListener() {
