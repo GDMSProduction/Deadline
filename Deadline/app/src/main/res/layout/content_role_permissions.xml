@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.leon.deadline.RolePermissions"
+    tools:context="com.project.us.deadline.RolePermissions"
     tools:showIn="@layout/activity_role_permissions">
 
     <ScrollView
@@ -32,14 +32,6 @@
                 android:text="Role Name"
                 android:textAlignment="center"
                 android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/txtRoleName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="My Role"
-                android:textAlignment="center"
-                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/txtPermissions"
