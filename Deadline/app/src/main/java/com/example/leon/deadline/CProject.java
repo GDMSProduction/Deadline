@@ -10,7 +10,7 @@ import java.util.List;
 public class CProject extends CDeadline implements Serializable {
 
     private boolean m_bPrivate;
-    private static int typeID = 2;
+    private static int typeID = 0;
     private String mSummary;
 
 

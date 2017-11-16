@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class CJob extends CDeadline implements Serializable {
 
-   private static int typeID = 0;
+   private static int typeID = 1;
 
    public CJob(){};
 

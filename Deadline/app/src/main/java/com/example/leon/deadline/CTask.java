@@ -12,7 +12,7 @@ public class CTask extends CDeadline implements Serializable {
     //private Date m_Deadline;
     private List<CJob> m_JobList = new ArrayList<>();
 
-    private static int typeID = 0;
+    private static int typeID = 2;
 
 
 

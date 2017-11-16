@@ -50,6 +50,8 @@ public class HomeScreen extends AppCompatActivity {
 
     int projectSize;
 
+    public static GLOBALS global = new GLOBALS();
+
     private CUser tempUser;
     private String tempHoldName;
 
@@ -330,18 +332,20 @@ public class HomeScreen extends AppCompatActivity {
       *
 
       */
+      global.setDeadlines(_proj);
       for(int i = 0; i < _proj.length; ++i)
       {
           if(_proj[i] != null )
           {
               deadlines.add(_proj[i]);
-              colorID = _proj[i].getTypeID();
+              global.setColorID(_proj[i].getTypeID());
           }
       }
 
       /*TODO LW11 - FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES
+
       deadlines.add(new CTask("test","11/11/2050","TESTSUMM"));
-      colorID = 2;
+      global.setColorID(2)
       //*/
       final ListAdapter testAdapt = new CustomAdapter(this,
               deadlines,

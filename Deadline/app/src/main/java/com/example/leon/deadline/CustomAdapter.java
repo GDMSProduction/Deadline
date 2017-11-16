@@ -32,6 +32,7 @@ public class CustomAdapter extends SimpleAdapter {
             /*JOB COLOR*/0x994aaa6b
             };
     public int colorID = -1;
+    private int i = 0;
     @SuppressWarnings("unchecked")
     public CustomAdapter(Context context,
                          /*TODO LW13 - FIGURE OUT EXACTLY WHAT THIS PART IS DOING*/
@@ -46,14 +47,25 @@ public class CustomAdapter extends SimpleAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
+        //int i = 0;
 
-
+        /*
         int colorPos = position % colors.length;
         view.setBackgroundColor(colors[colorPos]);
 
-        /*TODO LW14 -(FIXED) FIGURE OUT IF THIS IS ACTUALLY HAPPENING*
-        if(colorID > 0 && colorID < colors.length)
+        /*TODO LW14 -(FIXED) FIGURE OUT IF THIS IS ACTUALLY HAPPENING*/
+        if(i < HomeScreen.global.getDeadlines().length)
         {
+            if(HomeScreen.global.getDeadlines()[i] != null)
+            {
+                colorID = HomeScreen.global.getDeadlines()[i].getTypeID();
+                i++;
+            }
+        }
+
+        if(colorID >= 0 && colorID < colors.length)
+        {
+
             view.setBackgroundColor(colors[colorID]);
         }
         //*/
