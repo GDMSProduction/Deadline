@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 public class CProject extends CDeadline implements Serializable {
-    
+
     private static int typeID = 0;
 
     //TODO: Remove this stuff and any associated code later, except the sort functions which should be commented out

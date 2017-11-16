@@ -51,6 +51,7 @@ public class HomeScreen extends AppCompatActivity {
 
 
     int projectSize;
+    ListView HomeList;
 
     public static GLOBALS global = new GLOBALS();
 
@@ -311,8 +312,9 @@ public class HomeScreen extends AppCompatActivity {
     }
     public void populateScreen(final CDeadline[] _proj)
     {
+        int j = 0;
         //TODO LW10 - (FIXED) Get List from database onto Home Screen
-        final ListView HomeList = (ListView) findViewById(R.id.HomeListView);
+        HomeList = (ListView) findViewById(R.id.HomeListView);
         /*String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
                 "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
                 "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
@@ -354,13 +356,16 @@ public class HomeScreen extends AppCompatActivity {
           {
               deadlines.add(_proj[i]);
               global.setColorID(_proj[i].getTypeID());
+          j = i + 1;
           }
       }
 
       /*TODO LW11 - FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES
+//*/
+      _proj[j] =  new CTask("test","test","test",true);
 
-      deadlines.add(new CTask("test","11/11/2050","TESTSUMM"));
-      global.setColorID(2)
+      deadlines.add(_proj[j]);
+      //global.setColorID(2);
       //*/
       final ListAdapter testAdapt = new CustomAdapter(this,
               deadlines,
@@ -369,6 +374,12 @@ public class HomeScreen extends AppCompatActivity {
               new int[] {R.id.item_name,R.id.deadline_date});
 
       HomeList.setAdapter(testAdapt);
+      HomeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+          @Override
+          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+              Toast.makeText(HomeScreen.this,"TEST",Toast.LENGTH_LONG).show();
+          }
+      });
        //*/
     }
 

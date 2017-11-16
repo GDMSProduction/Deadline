@@ -4,11 +4,12 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Map;
 
-public class CustomAdapter extends SimpleAdapter {
+public class CustomAdapter extends SimpleAdapter implements View.OnClickListener {
     /**TODO LW7 - (FIXED) GET CUSTOM ADAPTER WORKING
      * Constructor
      *
@@ -45,6 +46,15 @@ public class CustomAdapter extends SimpleAdapter {
     }
 
     @Override
+    public void onClick(View v)
+    {
+        int z = 0;
+
+        v.setBackgroundColor(0x992ec1a3);
+    }
+
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
         //int i = 0;
@@ -53,14 +63,18 @@ public class CustomAdapter extends SimpleAdapter {
         int colorPos = position % colors.length;
         view.setBackgroundColor(colors[colorPos]);
 
-        /*TODO LW14 -(FIXED) FIGURE OUT IF THIS IS ACTUALLY HAPPENING*/
+        /*TODO LW14 - FIGURE OUT IF THIS IS ACTUALLY HAPPENING
+        color of every Element is being set to the final color in the list instead of the color of
+        individual item. colorID is changing but not correctly?
+        */
+
         if(i < HomeScreen.global.getDeadlines().length)
         {
             if(HomeScreen.global.getDeadlines()[i] != null)
             {
                 colorID = HomeScreen.global.getDeadlines()[i].getTypeID();
-                i++;
             }
+                i++;
         }
 
         if(colorID >= 0 && colorID < colors.length)
