@@ -84,7 +84,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-                nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
+        nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
         nav_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -377,7 +377,7 @@ public class HomeScreen extends AppCompatActivity {
       HomeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              Toast.makeText(HomeScreen.this,"TEST",Toast.LENGTH_LONG).show();
+              Toast.makeText(HomeScreen.this,"TEST",Toast.LENGTH_SHORT).show();
           }
       });
        //*/

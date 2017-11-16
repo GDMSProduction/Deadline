@@ -1,6 +1,7 @@
 package com.example.leon.deadline;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -32,12 +34,30 @@ public class Login extends AppCompatActivity{
     private Button create;
     private Button signIn;
 
+    private CheckBox rememberCheckBox;
+    private SharedPreferences loginPrefs;
+    private SharedPreferences.Editor logPrefEditor;
+    private Boolean saveLogin;
+
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        eEmail = (EditText) findViewById(R.id.email);
+        ePass = (EditText) findViewById(R.id.password);
+        rememberCheckBox = (CheckBox) findViewById(R.id.remember_checkBox);
+        loginPrefs = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        logPrefEditor = loginPrefs.edit();
+
+        saveLogin = loginPrefs.getBoolean("saveLogin", false);
+        if (saveLogin){
+            eEmail.setText(loginPrefs.getString("email",""));
+            ePass.setText(loginPrefs.getString("password", ""));
+            rememberCheckBox.setChecked(true);
+        }
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener()
@@ -87,6 +107,17 @@ public class Login extends AppCompatActivity{
                                           {
                                               email = eEmail.getText().toString();
                                               pass = ePass.getText().toString();
+
+                                              if (rememberCheckBox.isChecked()){
+                                                  logPrefEditor.putBoolean("savelogin", true);
+                                                  logPrefEditor.putString("email", email);
+                                                  logPrefEditor.putString("password", pass);
+                                                  logPrefEditor.commit();
+                                              }
+                                              else {
+                                                  logPrefEditor.clear();
+                                                  logPrefEditor.commit();
+                                              }
 
                                               signIn(email,pass);
                                           }
