@@ -61,7 +61,6 @@ public class EditJob extends AppCompatActivity {
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
         ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child(((CStoreIDs)getApplication()).getTaskID()).child(((CStoreIDs)getApplication()).getJobID());
-        //TODO: Set the text by pulling from FB
         jName = (EditText) findViewById(R.id.jobName);
         jName.setText(ref.child("name").toString());
         jDate = (DatePicker) findViewById(R.id.datePicker);
