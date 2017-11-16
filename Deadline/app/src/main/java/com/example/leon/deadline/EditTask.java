@@ -50,7 +50,6 @@ public class EditTask extends AppCompatActivity {
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
         ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child(((CStoreIDs)getApplication()).getTaskID());
-        //TODO: Set the text by pulling from FB
         tName = (EditText) findViewById(R.id.taskName);
         tName.setText(ref.child("name").toString());
         tDate = (DatePicker) findViewById(R.id.datePicker);
