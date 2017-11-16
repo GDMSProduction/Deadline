@@ -387,6 +387,12 @@ public class HomeScreen extends AppCompatActivity {
               switch (typeID){
                   // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
 
+                  // CProject
+                  case 0: {
+                      // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
+                      ((CStoreIDs)getApplication()).setProjectID("-Kz2t03YZZjEUWnGQhJr");
+                      break;
+                  }
                   // CJob
                   case 1:{
                       // ToDo: For now, hard code the Unique ID of a prexisting Job to test
@@ -402,12 +408,6 @@ public class HomeScreen extends AppCompatActivity {
                       // ToDo: For now, hard code the Unique ID of a prexisting Task to test
                       //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
                       //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-                      break;
-                  }
-                  // CProject
-                  case 0: {
-                      // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-                      ((CStoreIDs)getApplication()).setProjectID("-Kz2t03YZZjEUWnGQhJr");
                       break;
                   }
                   default:{break;}
