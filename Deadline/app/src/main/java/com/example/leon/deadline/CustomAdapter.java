@@ -13,7 +13,7 @@ import java.util.Map;
  */
 
 public class CustomAdapter extends SimpleAdapter {
-    /**TODO: GET CUSTOM ADAPTER WORKING
+    /**TODO LW7 - (FIXED) GET CUSTOM ADAPTER WORKING
      * Constructor
      *
      * @param context  The context where the View associated with this SimpleAdapter is running
@@ -38,7 +38,7 @@ public class CustomAdapter extends SimpleAdapter {
     public int colorID = -1;
     @SuppressWarnings("unchecked")
     public CustomAdapter(Context context,
-                         /*TODO: FIGURE OUT EXACTLY WHAT THIS PART IS DOING*/
+                         /*TODO LW13 - FIGURE OUT EXACTLY WHAT THIS PART IS DOING*/
                          List<? extends Map<String, String>> data,
                          int resource,
                          String[] from,
@@ -55,7 +55,7 @@ public class CustomAdapter extends SimpleAdapter {
         int colorPos = position % colors.length;
         view.setBackgroundColor(colors[colorPos]);
 
-        /*TODO: FIGURE OUT IF THIS IS ACTUALLY HAPPENING*
+        /*TODO LW14 -(FIXED) FIGURE OUT IF THIS IS ACTUALLY HAPPENING*
         if(colorID > 0 && colorID < colors.length)
         {
             view.setBackgroundColor(colors[colorID]);

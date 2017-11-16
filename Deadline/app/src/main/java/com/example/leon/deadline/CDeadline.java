@@ -18,7 +18,7 @@ public class CDeadline extends HashMap implements Serializable {
 
     private static int typeID = 9;
 
-    //TODO: HASHMAP STUFF
+    //TODO LW3 - (FIXED) HASHMAP STUFF
     public static String ITEM_NAME = "name";
     public static String DEADLINE_DATE = "date";
 

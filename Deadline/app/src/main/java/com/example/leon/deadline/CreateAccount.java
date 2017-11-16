@@ -74,7 +74,7 @@ public class CreateAccount extends AppCompatActivity {
 
         };
 
-        /*TODO*/user = mAuth.getCurrentUser();
+        user = mAuth.getCurrentUser();
 
         create1 = (Button) findViewById(R.id.finalizeCreate);
         create1.setOnClickListener(new View.OnClickListener()
@@ -107,7 +107,7 @@ public class CreateAccount extends AppCompatActivity {
                                                   username = eUserName.getText().toString();
                                                   bio = eBio.getText().toString();
 
-                                                  /*TODO 1 - FIXED
+                                                  /*TODO LW1 - (FIXED) CHECK FIELDS
                                                   * check if any fields are blank
                                                   * check if password and confirmation password are the same
                                                   * */
@@ -154,7 +154,7 @@ public class CreateAccount extends AppCompatActivity {
         }
     }
 
-    /*TODO 2 - BUG 1:
+    /*TODO LW2 - (FIXED) BUG 1:
     Button must be clicked a second time after a successful result. For some
     reason the onCompleteListener gets called after the if check instead of before.
     FIXED: moved the user creation code and the intent switching into the else statement.

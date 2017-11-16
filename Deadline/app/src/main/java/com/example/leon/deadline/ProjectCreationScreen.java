@@ -196,25 +196,33 @@ public class ProjectCreationScreen extends AppCompatActivity {
         String newKey = ref.child(user.getUid()).child("projectList").push().getKey();
         ref.child(user.getUid()).child("projectList").child(newKey).setValue(temp);
 
-        //TODO: Make ProjectList Database
+        //TODO LW6 - Make ProjectList Database
         ref = FirebaseDatabase.getInstance().getReference("projects");
         ref.child(newKey).setValue(temp);
 
         Toast.makeText(ProjectCreationScreen.this,"Project creation successful",Toast.LENGTH_SHORT).show();
         */
 
-        CProject temp = new CProject(_name,_date, _private);
+        //CProject temp = new CProject(_name,_date, _private);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
 
         String newKey = ref.child(user.getUid()).child("projectKeys").push().getKey();
         ref.child(user.getUid()).child("projectKeys").child(newKey).setValue(newKey);
 
         //PROJECT DATABASE
+        /*TODO LW4 - FIGURE OUT WHY IT ISN'T WORKING ANYMORE
+        for some reason it won't store the new object into the database anymore but it will store
+        strings
+         */
+        //*/
         ref = FirebaseDatabase.getInstance().getReference("projects");
-        ref.child(newKey).setValue(temp);
-
+        ref.child(newKey).child("bPrivate").setValue(_private);
+        ref.child(newKey).child("deadline").setValue(_date);
+        ref.child(newKey).child("name").setValue(_name);
+        //*/
+        
         Toast.makeText(ProjectCreationScreen.this,"Project creation successful",Toast.LENGTH_SHORT).show();
-
+        //*/
 
 
         Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
