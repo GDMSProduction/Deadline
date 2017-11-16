@@ -66,7 +66,7 @@ public class HomeScreen extends AppCompatActivity {
 
     private ImageButton homeProjCreate;
     private ImageButton Butt_Sort;
-    private boolean sort_Switch = false;
+    private boolean bSort_Switch = false;
 
 /*
     private Button projJump;
@@ -84,8 +84,15 @@ public class HomeScreen extends AppCompatActivity {
         Butt_Sort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            sortDeadlinesDescending();
-            populateScreen(aTest);
+                if(!bSort_Switch) {
+                    sortDeadlinesDescending();
+                    bSort_Switch = true;
+                }
+                else{
+                    sortDeadlinesAscending();
+                    bSort_Switch = false;
+                }
+                populateScreen(aTest);
             }
         });
 
@@ -256,7 +263,6 @@ public class HomeScreen extends AppCompatActivity {
         mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
        // final CDeadline[] aTest = new CDeadline[10];
-        //aTest = new CDeadline[10];
         mDataBase = fBase.getReference("users").child(user.getUid());//.child("projectList");
         mDataBase.addChildEventListener(new ChildEventListener() {
             //IT GETS IN HERE
@@ -379,7 +385,7 @@ public class HomeScreen extends AppCompatActivity {
 
       /*TODO LW11 - FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES
 //*/
-      _proj[j] =  new CTask("test","test","test",true);
+      //_proj[j] =  new CTask("test","test","test",true);
 
       deadlines.add(_proj[j]);
       //global.setColorID(2);
@@ -504,18 +510,60 @@ public class HomeScreen extends AppCompatActivity {
         });
     }
 
-    public void sortDeadlinesDescending() {
-        List<CDeadline> deadlines = new ArrayList<>();
-        for (int i = 0; i < aTest.length; i++) {
-            deadlines.add(aTest[i]);
+    public void sortDeadlinesDescending(){
+        List<CDeadline> sortTasks = new ArrayList<>();
+        List<CDeadline> oldTasks = new ArrayList<>();
+        aTest[1].getName();
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldTasks.add(aTest[i]);
+        }
+        int taskIndex;
+        while(oldTasks.size() > 0) {
+            taskIndex = 0;
+            for (int i = 0; i < oldTasks.size(); i++) {
+                if(oldTasks.get(taskIndex).getDeadline().compareTo(oldTasks.get(i).getDeadline()) > 0)
+                    taskIndex = i;
+            }
+            sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            oldTasks.remove(taskIndex);
         }
 
-        Collections.sort(deadlines, new CDeadlineComparator());
-
-        for (int i = 0; i < aTest.length; i++) {
-            aTest[i] = deadlines.get(i);
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortTasks.get(0);
+                sortTasks.remove(0);
+            }
         }
+
     }
 
+    public void sortDeadlinesAscending(){
+        List<CDeadline> sortTasks = new ArrayList<>();
+        List<CDeadline> oldTasks = new ArrayList<>();
+        aTest[1].getName();
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldTasks.add(aTest[i]);
+        }
+        int taskIndex;
+        while(oldTasks.size() > 0) {
+            taskIndex = 0;
+            for (int i = 0; i < oldTasks.size(); i++) {
+                if(oldTasks.get(taskIndex).getDeadline().compareTo(oldTasks.get(i).getDeadline()) < 0)
+                    taskIndex = i;
+            }
+            sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            oldTasks.remove(taskIndex);
+        }
+
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortTasks.get(0);
+                sortTasks.remove(0);
+            }
+        }
+
+    }
 
 }
