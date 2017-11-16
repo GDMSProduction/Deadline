@@ -4,10 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by sml91_000 on 9/19/2017.
- */
-
 public class CMember implements Serializable {
     private List<CRole> m_Roles = new ArrayList<>();
 
