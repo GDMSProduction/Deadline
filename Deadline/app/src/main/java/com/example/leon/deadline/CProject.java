@@ -1,8 +1,5 @@
 package com.example.leon.deadline;
 
-/**
- * Created by sml91_000 on 9/7/2017.
- */
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,9 +9,7 @@ import java.util.List;
 
 public class CProject extends CDeadline implements Serializable {
 
-    private boolean m_bPrivate;
     private static int typeID = 2;
-
 
     private List<CTask> m_TaskList = new ArrayList<>();
     private List<CRole> m_Roles = new ArrayList<>();
@@ -31,27 +26,19 @@ public class CProject extends CDeadline implements Serializable {
 
     }
 
-    public CProject(String Name, String Deadline, boolean Private) {
-        setName(Name);
+    public CProject(String Name, String Deadline, String Summary, Boolean Complete) {
+        super(Name,Deadline,Summary,Complete);
+        //setName(Name);
         /*try {
             setDeadline(new SimpleDateFormat("MM/dd/yyyy").parse(Deadline));
         } catch (java.text.ParseException e){}
         */
-        setDeadline(Deadline);
-
-        this.m_bPrivate = Private;
+        //setDeadline(Deadline);
+        //mSummary = Summary;
     }
 
     @Override
     public int getTypeID() {return typeID;}
-
-    // Privacy  Get + Set
-    public boolean isbPrivate() {
-        return m_bPrivate;
-    }
-    public void setbPrivate(boolean m_bPrivate) {
-        this.m_bPrivate = m_bPrivate;
-    }
 
     // Task List  Get + Set
     public List<CTask> getTaskList() {
@@ -87,8 +74,8 @@ public class CProject extends CDeadline implements Serializable {
 
 // Task Functions
 
-    public boolean addTask(String szName, String date, String summary, eUrgency urgency){
-        return m_TaskList.add(new CTask(szName, date, summary, urgency));
+    public boolean addTask(String szName, String date, String summary, Boolean complete){
+        return m_TaskList.add(new CTask(szName, date, summary, complete));
     }
 
     public boolean addTask(CTask task){
@@ -137,30 +124,6 @@ public class CProject extends CDeadline implements Serializable {
             }
             sortTasks.add(new CTask(m_TaskList.get(taskIndex)));
             m_TaskList.remove(taskIndex);
-        }
-        m_TaskList = new ArrayList<>(sortTasks);
-    }
-
-    public void sortTasksPriority(){
-        eUrgency urgency = eUrgency.LOW;
-        List<CTask> sortTasks = new ArrayList<>();
-        int taskIndex;
-
-        while(m_TaskList.size() > 0) {
-            taskIndex = -1;
-            for (int i = 0; i < m_TaskList.size(); i++) {
-                if (m_TaskList.get(i).getUrgency() == urgency) {
-                    taskIndex = i;
-                    break;
-                }
-            }
-
-            if (-1 == taskIndex)
-                urgency = eUrgency.values()[urgency.ordinal() + 1];
-            else {
-                sortTasks.add(new CTask(m_TaskList.get(taskIndex)));
-                m_TaskList.remove(taskIndex);
-            }
         }
         m_TaskList = new ArrayList<>(sortTasks);
     }

@@ -4,10 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Sean on 10/24/2017.
- */
-
 public class CRole implements Serializable {
     private String m_szName = null;
     private List<String> m_JobIDPermissions = new ArrayList<>();

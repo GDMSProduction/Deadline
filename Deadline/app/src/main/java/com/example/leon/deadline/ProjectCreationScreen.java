@@ -220,7 +220,7 @@ public class ProjectCreationScreen extends AppCompatActivity {
         ref.child(newKey).child("deadline").setValue(_date);
         ref.child(newKey).child("name").setValue(_name);
         //*/
-        
+
         Toast.makeText(ProjectCreationScreen.this,"Project creation successful",Toast.LENGTH_SHORT).show();
         //*/
 

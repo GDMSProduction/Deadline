@@ -6,25 +6,20 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by Sean on 10/26/2017.
- */
-
 public class CDeadline extends HashMap implements Serializable {
     private String m_szName;
     private String m_Deadline;
     private String m_szSummary;
-    private String m_szUniqueID;
+    private Boolean m_bComplete;
 
     private static int typeID = 9;
 
     //TODO LW3 - (FIXED) HASHMAP STUFF
     public static String ITEM_NAME = "name";
-    public static String DEADLINE_DATE = "date";
 
+    public static String DEADLINE_DATE = "date";
     @Override
-    public String get(Object k)
-    {
+    public String get(Object k) {
         String key = (String) k;
         if(ITEM_NAME.equals(key))
         {
@@ -42,10 +37,11 @@ public class CDeadline extends HashMap implements Serializable {
     public CDeadline() {
     }
 
-    public CDeadline(String Name, String Deadline, String Summary) {
+    public CDeadline(String Name, String Deadline, String Summary, Boolean Complete) {
         m_szName = Name;
         m_Deadline = Deadline;
         m_szSummary = Summary;
+        m_bComplete = Complete;
     }
 
     public int getTypeID() {return typeID;}
@@ -74,6 +70,14 @@ public class CDeadline extends HashMap implements Serializable {
         m_szSummary = Summary;
     }
 
+    // Complete Get + Set
+    public Boolean getComplete() {
+        return m_bComplete;
+    }
+    public void setComplete(Boolean m_bComplete) {
+        this.m_bComplete = m_bComplete;
+    }
+
     // Member List  Get + Set
     public List<CMember> getMemberList() {
         return m_MemberList;
@@ -81,12 +85,6 @@ public class CDeadline extends HashMap implements Serializable {
     public void setMemberList(List<CMember> MemberList) {
         m_MemberList = MemberList;
     }
-
-    // Unique ID Get + Set
-    public String getUniqueID() { return m_szUniqueID; }
-    public void setUniqueID(String UniqueID) { m_szUniqueID = UniqueID; }
-
-
 
     // Member Functions
     public boolean addMember(CMember member){

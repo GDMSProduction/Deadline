@@ -1,11 +1,5 @@
 package com.example.leon.deadline;
 
-/**
- * Created by sml91_000 on 9/7/2017.
- *
- * User is the class for someones account
- */
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

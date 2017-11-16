@@ -340,7 +340,7 @@ public class HomeScreen extends AppCompatActivity {
       }
 
       /*TODO LW11 - FIGURE OUT HOW TO GET MULTIPLE COLORS WORKING FOR SPECIFIC TYPES
-      deadlines.add(new CTask("test","11/11/2050","TESTSUMM",eUrgency.HIGH));
+      deadlines.add(new CTask("test","11/11/2050","TESTSUMM"));
       colorID = 2;
       //*/
       final ListAdapter testAdapt = new CustomAdapter(this,

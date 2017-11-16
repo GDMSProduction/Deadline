@@ -1,9 +1,5 @@
 package com.example.leon.deadline;
 
-/**
- * Created by sml91_000 on 9/7/2017.
- */
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,45 +7,23 @@ import java.util.List;
 
 
 public class CTask extends CDeadline implements Serializable {
-    /*public enum eUrgency{
-        LOW,
-        NORMAL,
-        HIGH,
-    }*/
 
-    //private String m_szName;
-    //private Date m_Deadline;
-    private eUrgency m_eUrgency;
     private List<CJob> m_JobList = new ArrayList<>();
 
     private static int typeID = 0;
 
-
-
-
     public CTask() {
     }
+    public CTask(String Name, String Deadline, String Summary, Boolean Complete) {
 
-    public CTask(String Name, String Deadline, String Summary, eUrgency Urgency) {
-
-        super(Name, Deadline, Summary);
-        this.m_eUrgency = Urgency;
+        super(Name, Deadline, Summary, Complete);
     }
     public CTask(CTask task) {
-        super(task.getName(), task.getDeadline(), task.getSummary());
-        this.m_eUrgency = task.m_eUrgency;
+        super(task.getName(), task.getDeadline(), task.getSummary(), task.getComplete());
     }
 
     @Override
     public int getTypeID() {return typeID;}
-
-    // Urgency  Get + Set
-    public eUrgency getUrgency() {
-        return m_eUrgency;
-    }
-    public void setUrgency(eUrgency m_eUrgency) {
-        this.m_eUrgency = m_eUrgency;
-    }
 
     // JobList Get + Set
     public List<CJob> getJobList() { return m_JobList; }
@@ -59,11 +33,11 @@ public class CTask extends CDeadline implements Serializable {
 // Job Functions
 
     public boolean addJob(CJob job){
-        return m_JobList.add(new CJob(job.getName(), job.getDeadline(), job.getSummary(), job.getUrgency()));
+        return m_JobList.add(new CJob(job.getName(), job.getDeadline(), job.getSummary(), job.getComplete()));
     }
 
-    public boolean addJob(String Name, String Deadline, String Summary, eUrgency Urgency){
-        return m_JobList.add(new CJob(Name, Deadline, Summary, Urgency));
+    public boolean addJob(String Name, String Deadline, String Summary, Boolean Complete){
+        return m_JobList.add(new CJob(Name, Deadline, Summary, Complete));
     }
 
     // Remove by Object
@@ -110,30 +84,6 @@ public class CTask extends CDeadline implements Serializable {
             }
             sortJobs.add(new CJob(m_JobList.get(jobIndex)));
             m_JobList.remove(jobIndex);
-        }
-        m_JobList = new ArrayList<>(sortJobs);
-    }
-
-    public void sortJobsPriority(){
-        eUrgency urgency = eUrgency.LOW;
-        List<CJob> sortJobs = new ArrayList<>();
-        int jobIndex;
-
-        while(m_JobList.size() > 0) {
-            jobIndex = -1;
-            for (int i = 0; i < m_JobList.size(); i++) {
-                if (m_JobList.get(i).getUrgency() == urgency) {
-                    jobIndex = i;
-                    break;
-                }
-            }
-
-            if (-1 == jobIndex)
-                urgency = eUrgency.values()[urgency.ordinal() + 1];
-            else {
-                sortJobs.add(new CJob(m_JobList.get(jobIndex)));
-                m_JobList.remove(jobIndex);
-            }
         }
         m_JobList = new ArrayList<>(sortJobs);
     }
