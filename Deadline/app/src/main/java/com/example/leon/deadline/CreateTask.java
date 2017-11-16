@@ -84,7 +84,7 @@ public class CreateTask extends AppCompatActivity {
                 DatePicker tCalendar = (DatePicker) findViewById(R.id.datePicker);
                 Calendar validDate = Calendar.getInstance();
                 validDate.set(tCalendar.getYear(),tCalendar.getMonth(),tCalendar.getDayOfMonth());
-                //TODO: Create a toggle for this in the creation and edit screens and set tComplete to the one from creation screen
+                //TODO: Create a toggle for this in the edit screen or from the view screen under the 3 dots options menu
                 tComplete = false;
 
                 if(!tName.equals("") &&
@@ -173,12 +173,14 @@ public class CreateTask extends AppCompatActivity {
 
         String newKey = ref.child(user.getUid()).child("tasks").push().getKey();
 
-        //TODO: Need to replace hardcoded key with active key as determined by CStoreIDs
-        ref = ref.child("-Kz2mYyqftg5VSpXPo7s").child("tasks");
+        //TODO: Need to replace hardcoded key with active project key as determined by CStoreIDs
+        ref = ref.child("-Kz2wMarYnsgDtEiXaWa").child("tasks");
 
         ref.child(newKey).child("name").setValue(_name);
         ref.child(newKey).child("deadline").setValue(_date);
         ref.child(newKey).child("summary").setValue(_summary);
         ref.child(newKey).child("complete").setValue(_complete);
+
+        Toast.makeText(CreateTask.this,"Task creation successful",Toast.LENGTH_SHORT).show();
     }
 }
