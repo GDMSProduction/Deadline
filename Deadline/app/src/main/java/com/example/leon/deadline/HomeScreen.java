@@ -468,11 +468,13 @@ public class HomeScreen extends AppCompatActivity {
 
                     //((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
 
-                    Intent intent = new Intent(HomeScreen.this, Projects.class);
+                    Intent intent = new Intent(HomeScreen.this, Tasks.class);
                     startActivity(intent);
                     break;
                 }
                 // CJob
+
+
                 case 1:{
                     // ToDo: For now, hard code the Unique ID of a prexisting Job to test
                     // ToDO: When possible replace with actual Job ID
@@ -485,8 +487,6 @@ public class HomeScreen extends AppCompatActivity {
                     /*getJobsParentsIDs(global.deadlines[position].getUniqueID());
                     ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());*/
 
-                    Intent intent = new Intent(HomeScreen.this, Jobs.class);
-                    startActivity(intent);
                     break;
                 }
                 // CTask
