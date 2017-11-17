@@ -383,7 +383,7 @@ public class HomeScreen extends AppCompatActivity {
       HomeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              int typeID = global.deadlines[position+1].getTypeID();
+              int typeID = global.deadlines[position].getTypeID();
               switch (typeID){
                   // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
 
@@ -437,6 +437,7 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 int i = 0;
+                int j = _j;
                 String name = "";
                 String deadline = "";
                 Boolean complete = false;
@@ -450,18 +451,22 @@ public class HomeScreen extends AppCompatActivity {
                             case "name":
                                 name = mtest.getValue().toString();
                                 i++;
+                                j++;
                                 break;
                             case "deadline":
                                 deadline = mtest.getValue().toString();
                                 i++;
+                                j++;
                                 break;
                             case "summary":
                                 summary = mtest.getValue().toString();
                                 i++;
+                                j++;
                                 break;
                             case "complete":
                                 complete = (boolean) mtest.getValue();
                                 i++;
+                                j++;
                                 break;
                             case "tasks":
                                 for(DataSnapshot qTest : mtest.getChildren())
@@ -470,20 +475,25 @@ public class HomeScreen extends AppCompatActivity {
                                     String tDeadline = qTest.child("deadline").getValue().toString();
                                     String tSumm = qTest.child("summary").getValue().toString();
                                     Boolean tComplete = (Boolean) qTest.child("complete").getValue();
-                                }
 
+                                    CTask tempTask = new CTask(tName,tDeadline,tSumm,tComplete);
+                                    _array[i] = tempTask;
+                                    i++;
+                                }
+                                j++;
                                 break;
                             default:
                                 break;
                         }
                         if(name != "" && deadline != "")
                         {
+
                             CProject temp = new CProject(name, deadline, summary, complete);
                             _array[_j] = temp;
                             //i++;
                         }
                     }
-                    if(dataSnapshot.getChildrenCount() < i+1 && dataSnapshot.getChildrenCount() != 0)
+                    if(dataSnapshot.getChildrenCount() < j+1 && dataSnapshot.getChildrenCount() != 0)
                     {
                         populateScreen(_array);
                     }
