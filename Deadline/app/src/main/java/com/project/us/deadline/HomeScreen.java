@@ -458,11 +458,13 @@ public class HomeScreen extends AppCompatActivity {
 
                     //((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
 
-                    Intent intent = new Intent(HomeScreen.this, Projects.class);
+                    Intent intent = new Intent(HomeScreen.this, Tasks.class);
                     startActivity(intent);
                     break;
                 }
                 // CJob
+
+
                 case 1:{
                     // ToDo: For now, hard code the Unique ID of a prexisting Job to test
                     // ToDO: When possible replace with actual Job ID
@@ -475,8 +477,6 @@ public class HomeScreen extends AppCompatActivity {
                     /*getJobsParentsIDs(global.deadlines[position].getUniqueID());
                     ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());*/
 
-                    Intent intent = new Intent(HomeScreen.this, Jobs.class);
-                    startActivity(intent);
                     break;
                 }
                 // CTask
@@ -512,6 +512,7 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 int i = 0;
+                int j = _j;
                 String name = "";
                 String deadline = "";
                 Boolean complete = false;
@@ -525,18 +526,22 @@ public class HomeScreen extends AppCompatActivity {
                             case "name":
                                 name = mtest.getValue().toString();
                                 i++;
+                                j++;
                                 break;
                             case "deadline":
                                 deadline = mtest.getValue().toString();
                                 i++;
+                                j++;
                                 break;
                             case "summary":
                                 summary = mtest.getValue().toString();
                                 i++;
+                                j++;
                                 break;
                             case "complete":
                                 complete = (boolean) mtest.getValue();
                                 i++;
+                                j++;
                                 break;
                             case "tasks":
                                 for(DataSnapshot qTest : mtest.getChildren())
@@ -545,21 +550,26 @@ public class HomeScreen extends AppCompatActivity {
                                     String tDeadline = qTest.child("deadline").getValue().toString();
                                     String tSumm = qTest.child("summary").getValue().toString();
                                     Boolean tComplete = (Boolean) qTest.child("complete").getValue();
-                                }
 
+                                    CTask tempTask = new CTask(tName,tDeadline,tSumm,tComplete);
+                                    _array[i] = tempTask;
+                                    i++;
+                                }
+                                j++;
                                 break;
                             default:
                                 break;
                         }
                         if(name != "" && deadline != "")
                         {
+
                             CProject temp = new CProject(name, deadline, summary, complete);
                             temp.setUniqueID(_key);
                             _array[_j] = temp;
                             //i++;
                         }
                     }
-                    if(dataSnapshot.getChildrenCount() < i+1 && dataSnapshot.getChildrenCount() != 0)
+                    if(dataSnapshot.getChildrenCount() < j+1 && dataSnapshot.getChildrenCount() != 0)
                     {
                         populateScreen(_array);
                     }
