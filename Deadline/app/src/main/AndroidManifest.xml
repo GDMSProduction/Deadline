@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.leon.deadline">
+    package="com.project.us.deadline">
 
     <application
-        android:name=".CStoreIDs"
+        android:name="com.project.us.deadline.CStoreIDs"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,26 +11,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Login"
+            android:name="com.project.us.deadline.Login"
             android:label="@string/app_name"
             android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".HomeScreen"
+            android:name="com.project.us.deadline.HomeScreen"
             android:label="@string/title_activity_home_screen"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CreateAccount"
+            android:name="com.project.us.deadline.CreateAccount"
             android:label="@string/title_activity_create_account"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ProjectCreationScreen"
+            android:name="com.project.us.deadline.ProjectCreationScreen"
             android:label="@string/title_activity_project_creation_screen"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.project.us.deadline.SplashScreen"
             android:label="DEADLINE"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -41,73 +41,73 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MemberActivity"
+            android:name="com.project.us.deadline.MemberActivity"
             android:label="@string/title_activity_member"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Projects"
+            android:name="com.project.us.deadline.Projects"
             android:label="@string/title_activity_projects"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Tasks"
+            android:name="com.project.us.deadline.Tasks"
             android:label="@string/title_activity_tasks"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CreateTask"
+            android:name="com.project.us.deadline.CreateTask"
             android:label="@string/title_activity_create_task"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditProject"
+            android:name="com.project.us.deadline.EditProject"
             android:label="@string/title_activity_edit_project"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CreateEditRoles"
+            android:name="com.project.us.deadline.CreateEditRoles"
             android:label="@string/title_activity_create_edit_roles"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditTask"
+            android:name="com.project.us.deadline.EditTask"
             android:label="@string/title_activity_edit_task"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CreateJob"
+            android:name="com.project.us.deadline.CreateJob"
             android:label="@string/title_activity_create_job"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditJob"
+            android:name="com.project.us.deadline.EditJob"
             android:label="@string/title_activity_edit_job"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AccountInfo"
+            android:name="com.project.us.deadline.AccountInfo"
             android:label="@string/title_activity_account_info"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Jobs"
+            android:name="com.project.us.deadline.Jobs"
             android:label="@string/title_activity_jobs"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Settings"
+            android:name="com.project.us.deadline.Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Roles"
+            android:name="com.project.us.deadline.Roles"
             android:label="@string/title_activity_roles"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditRoles"
+            android:name="com.project.us.deadline.EditRoles"
             android:label="@string/title_activity_edit_roles"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RolePermissions"
+            android:name="com.project.us.deadline.RolePermissions"
             android:label="@string/title_activity_role_permissions"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".FileManager"
+            android:name="com.project.us.deadline.FileManager"
             android:label="@string/title_activity_file_manager"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
