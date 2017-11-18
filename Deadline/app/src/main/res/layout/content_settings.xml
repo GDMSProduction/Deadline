@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.project.us.deadline.Settings"
+    tools:context="com.DeadLine.leon.deadline.Settings"
     tools:layout_editor_absoluteY="89dp"
     tools:showIn="@layout/activity_settings">
 
@@ -43,10 +43,10 @@
                 android:text="Prevent Screen Sleep" />
 
             <Button
-                android:id="@+id/TutorialToggle_Button"
+                android:id="@+id/saveSettingsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reset Tutorial" />
+                android:text="Save Settings" />
 
         </LinearLayout>
     </ScrollView>
