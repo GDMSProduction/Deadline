@@ -39,7 +39,7 @@ public class HomeScreen extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseDatabase fBase;
     private DatabaseReference mDataBase;
-    final CDeadline[] aTest = new CDeadline[10];
+    final CDeadline[] aTest = new CDeadline[25];
 
     //private final ListView HomeList;
     //private ArrayList<String> projecterino = new ArrayList<String>();
@@ -509,9 +509,10 @@ public class HomeScreen extends AppCompatActivity {
     {
         DatabaseReference pDataBase = fBase.getReference().child("projects");
         pDataBase.addChildEventListener(new ChildEventListener() {
+                int i = 0;
+                int k = 0;
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                int i = 0;
                 int j = _j;
                 String name = "";
                 String deadline = "";
@@ -525,22 +526,22 @@ public class HomeScreen extends AppCompatActivity {
                         {
                             case "name":
                                 name = mtest.getValue().toString();
-                                i++;
+                                //i++;
                                 j++;
                                 break;
                             case "deadline":
                                 deadline = mtest.getValue().toString();
-                                i++;
+                                //i++;
                                 j++;
                                 break;
                             case "summary":
                                 summary = mtest.getValue().toString();
-                                i++;
+                                //i++;
                                 j++;
                                 break;
                             case "complete":
                                 complete = (boolean) mtest.getValue();
-                                i++;
+                                //i++;
                                 j++;
                                 break;
                             case "tasks":
@@ -550,6 +551,28 @@ public class HomeScreen extends AppCompatActivity {
                                     String tDeadline = qTest.child("deadline").getValue().toString();
                                     String tSumm = qTest.child("summary").getValue().toString();
                                     Boolean tComplete = (Boolean) qTest.child("complete").getValue();
+                                    if(qTest.child("jobs").exists())
+                                    {
+                                        for(DataSnapshot zTest : qTest.getChildren())
+                                        {
+                                            if(zTest.getKey().equals("jobs"))
+                                            {
+                                                for(DataSnapshot fTest : zTest.getChildren())
+                                                {
+                                                    k = i;
+                                                    Boolean zComplete = (Boolean) fTest.child("complete").getValue();
+                                                    String zDeadline = fTest.child("deadline").getValue().toString();
+                                                    String zName = fTest.child("name").getValue().toString();
+                                                    String zSumm = fTest.child("summary").getValue().toString();
+
+                                                    CJob tempJob = new CJob(zName,zDeadline,zSumm,zComplete);
+                                                    _array[k] = tempJob;
+                                                    k++;
+                                                    i = k;
+                                                }
+                                            }
+                                        }
+                                    }
 
                                     CTask tempTask = new CTask(tName,tDeadline,tSumm,tComplete);
                                     _array[i] = tempTask;
