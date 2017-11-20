@@ -81,7 +81,6 @@ public class CreateJob extends AppCompatActivity {
                 DatePicker tCalendar = (DatePicker) findViewById(R.id.datePicker);
                 Calendar validDate = Calendar.getInstance();
                 validDate.set(tCalendar.getYear(),tCalendar.getMonth(),tCalendar.getDayOfMonth());
-                //TODO: Create a toggle for this in the edit screen or from the view screen under the 3 dots options menu
                 jComplete = false;
 
                 if(!jName.equals("") &&
@@ -89,7 +88,6 @@ public class CreateJob extends AppCompatActivity {
                 {
                     if(!Calendar.getInstance().after(validDate))
                     {
-                        //TODO: Add a create task method in this java file
                         CreateJob(jName,jDate,jSummary,jComplete);
                     }
                     else
@@ -139,6 +137,11 @@ public class CreateJob extends AppCompatActivity {
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(CreateJob.this, Invitations.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
                 else if (selection.equals("About") && spin_Clicked){
                     Toast.makeText(CreateJob.this, R.string.version_number, Toast.LENGTH_SHORT).show();
                     nav_spin.setSelection(0);
@@ -168,6 +171,7 @@ public class CreateJob extends AppCompatActivity {
 
     public void CreateJob(String _name, String _date, String _summary, Boolean _complete)
     {
+        //TODO: Replace hardcoded project key with active project key as determined by CStoreIDSs
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects").child("-Kz2t03YZZjEUWnGQhJr").child("tasks");
 
         String newKey = ref.child(user.getUid()).child("jobs").push().getKey();

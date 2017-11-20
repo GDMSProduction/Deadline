@@ -49,12 +49,17 @@ public class Settings extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if (selection.equals("Settings") && spin_Clicked){
-                    Intent intent = new Intent(Settings.this, Settings.class);
+                    //Intent intent = new Intent(Settings.this, Settings.class);
                     nav_spin.setSelection(0);
-                    startActivity(intent);
+                    //startActivity(intent);
                 }
                 else if (selection.equals("Account") && spin_Clicked){
                     Intent intent = new Intent(Settings.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(Settings.this, Invitations.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }

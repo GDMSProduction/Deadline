@@ -13,11 +13,12 @@
         <item>Projects</item>
         <item>Settings</item>
         <item>Account</item>
+        <item>Invitations</item>
         <item>About</item>
         <item>Logout</item>
     </string-array>
 
-    <string name="version_number">Version: 171116_P3</string>
+    <string name="version_number">Version: 171121_P1</string>
 
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
@@ -105,4 +106,5 @@
     <string name="title_activity_edit_roles">EditRoles</string>
     <string name="title_activity_role_permissions">RolePermissions</string>
     <string name="title_activity_file_manager">FileManager</string>
+    <string name="title_activity_invitations">Invitations</string>
 </resources>

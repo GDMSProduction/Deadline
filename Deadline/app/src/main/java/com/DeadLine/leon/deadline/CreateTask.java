@@ -81,7 +81,6 @@ public class CreateTask extends AppCompatActivity {
                 DatePicker tCalendar = (DatePicker) findViewById(R.id.datePicker);
                 Calendar validDate = Calendar.getInstance();
                 validDate.set(tCalendar.getYear(),tCalendar.getMonth(),tCalendar.getDayOfMonth());
-                //TODO: Create a toggle for this in the edit screen or from the view screen under the 3 dots options menu
                 tComplete = false;
 
                 if(!tName.equals("") &&
@@ -89,7 +88,6 @@ public class CreateTask extends AppCompatActivity {
                 {
                     if(!Calendar.getInstance().after(validDate))
                     {
-                        //TODO: Add a create task method in this java file
                         CreateTask(tName,tDate,tSummary,tComplete);
                     }
                     else
@@ -135,6 +133,11 @@ public class CreateTask extends AppCompatActivity {
                 }
                 else if (selection.equals("Account") && spin_Clicked){
                     Intent intent = new Intent(CreateTask.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(CreateTask.this, Invitations.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }

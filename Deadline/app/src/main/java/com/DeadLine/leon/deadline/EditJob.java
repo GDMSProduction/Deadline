@@ -22,8 +22,7 @@ import java.util.Calendar;
 
 public class EditJob extends AppCompatActivity {
 
-    private Button Butt_Home;
-    private Button Butt_Save;
+    private Button Butt_Home, Butt_Save, Butt_Cancel;
 
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
@@ -53,6 +52,15 @@ public class EditJob extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditJob.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Cancel = (Button) findViewById(R.id.projEditCancel);
+        Butt_Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditJob.this, Jobs.class);
                 startActivity(intent);
             }
         });
@@ -122,6 +130,11 @@ public class EditJob extends AppCompatActivity {
                 }
                 else if (selection.equals("Account") && spin_Clicked){
                     Intent intent = new Intent(EditJob.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(EditJob.this, Invitations.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
