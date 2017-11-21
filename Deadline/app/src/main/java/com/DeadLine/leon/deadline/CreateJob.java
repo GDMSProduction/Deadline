@@ -180,12 +180,13 @@ public class CreateJob extends AppCompatActivity {
     public void CreateJob(String _name, String _date, String _summary, Boolean _complete)
     {
         //TODO: Replace hardcoded project key with active project key as determined by CStoreIDSs
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects").child("-Kz2t03YZZjEUWnGQhJr").child("tasks");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects").child(((CStoreIDs)getApplication()).getProjectID()).child("tasks");
 
         String newKey = ref.child(user.getUid()).child("jobs").push().getKey();
+        ((CStoreIDs)getApplication()).setJobID(newKey);
 
         //TODO: Need to replace hardcoded key with active task key as determined by CStoreIDs
-        ref = ref.child("-Kz4xDLxMl_ugG8YUaAa").child("jobs");
+        ref = ref.child(((CStoreIDs)getApplication()).getTaskID()).child("jobs");
 
         ref.child(newKey).child("name").setValue(_name);
         ref.child(newKey).child("deadline").setValue(_date);

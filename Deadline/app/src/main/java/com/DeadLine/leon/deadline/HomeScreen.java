@@ -407,7 +407,6 @@ public class HomeScreen extends AppCompatActivity {
 
                   // CProject
                   case 0: {
-                      // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
                       ((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
 
                       /*Intent intent = new Intent(HomeScreen.this, Projects.class);

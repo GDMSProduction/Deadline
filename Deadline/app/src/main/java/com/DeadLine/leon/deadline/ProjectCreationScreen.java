@@ -217,6 +217,9 @@ public class ProjectCreationScreen extends AppCompatActivity {
         String newKey = ref.child(user.getUid()).child("projectKeys").push().getKey();
         ref.child(user.getUid()).child("projectKeys").child(newKey).setValue(newKey);
 
+        //TODO: Determine if this works
+        ((CStoreIDs)getApplication()).setProjectID(newKey);
+
         //PROJECT DATABASE
         /*TODO LW4 - FIGURE OUT WHY IT ISN'T WORKING ANYMORE
         for some reason it won't store the new object into the database anymore but it will store

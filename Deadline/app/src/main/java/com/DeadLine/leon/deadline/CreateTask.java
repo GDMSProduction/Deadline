@@ -180,9 +180,10 @@ public class CreateTask extends AppCompatActivity {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
 
         String newKey = ref.child(user.getUid()).child("tasks").push().getKey();
+        ((CStoreIDs)getApplication()).setTaskID(newKey);
 
         //TODO: Need to replace hardcoded key with active project key as determined by CStoreIDs
-        ref = ref.child("-Kz2t03YZZjEUWnGQhJr").child("tasks");
+        ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child("tasks");
 
         ref.child(newKey).child("name").setValue(_name);
         ref.child(newKey).child("deadline").setValue(_date);
