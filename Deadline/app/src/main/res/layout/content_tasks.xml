@@ -9,100 +9,113 @@
     tools:layout_editor_absoluteY="89dp"
     tools:showIn="@layout/activity_tasks">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/CreateTask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="17dp"
-        android:clickable="true"
-        android:foreground="@android:drawable/ic_input_add"
-        android:foregroundTint="@color/common_google_signin_btn_text_dark_focused"
-        android:tint="@color/TaskColor"
-        app:backgroundTint="@color/TaskColor"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toTopOf="@+id/llTaskLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/colorAccent" />
-
     <LinearLayout
-        android:id="@+id/llTaskLayout"
-        android:layout_width="0dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CreateTask">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/Tasks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CreateProject">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnTask"
-                style="@style/Widget.AppCompat.Button"
+            <TextView
+                android:id="@+id/encasedWithin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What you're encased in goes here"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/encasedDeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The due date of the encasing object goes here"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/encasedDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description of encasing object goes here" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="20dp">
+
+            <ImageButton
+                android:id="@+id/sort_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/sort" />
+
+            <TextView
+                android:id="@+id/sort_label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
                 android:layout_weight="1"
-                android:backgroundTint="@color/TaskColor"
-                android:paddingLeft="20dp"
-                android:text="My Task"
-                android:textAlignment="viewStart"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="56dp" />
+                android:gravity="center_vertical"
+                android:text="Sort" />
 
-            <Button
-                android:id="@+id/btnViewTaskOptions"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="0dp"
+            <ImageButton
+                android:id="@+id/filter_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".25"
-                android:background="@drawable/ic_dehaze_black_24dp" />
+                android:layout_alignParentTop="true"
+                android:layout_weight="0"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/filter" />
+
+            <TextView
+                android:id="@+id/filter_label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Filter" />
+
+            <ImageButton
+                android:id="@+id/createTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_weight="0"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/add" />
+
+            <TextView
+                android:id="@+id/create_label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:text="Create Task" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/llTaskOptions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/btnEditTask"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="50dp"
-                android:text="Edit Task"
-                android:textAlignment="viewStart"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/btnDeleteTask"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="50dp"
-                android:text="Delete Task"
-                android:textAlignment="viewStart"
-                android:textSize="12sp" />
-        </LinearLayout>
         <ListView
             android:id="@+id/TaskListView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="128dp" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
