@@ -102,15 +102,15 @@ public class HomeScreen extends AppCompatActivity {
 
                // Project
                if(0 == nFilterSwitch){
-                   //filterByProj
+                   filterByProj();
                }
                // Jobs
                else if(1 == nFilterSwitch){
-                   //filterByJobs
+                   filterByJob();
                }
                //Tasks
                 else{
-                   //filterTasks
+                   filterByTask();
                }
 
             }
@@ -801,7 +801,6 @@ public class HomeScreen extends AppCompatActivity {
             if(aTest[i] != null)
                 oldDeadlines.add(aTest[i]);
         }
-        int deadlineIndex;
         while(oldDeadlines.size() > 0) {
             for (int i = 0; i < oldDeadlines.size();) {
                 if(oldDeadlines.get(i).getTypeID() == nTypeToGet){
@@ -834,9 +833,9 @@ public class HomeScreen extends AppCompatActivity {
             if(aTest[i] != null)
                 oldDeadlines.add(aTest[i]);
         }
-        int deadlineIndex;
         while(oldDeadlines.size() > 0) {
             for (int i = 0; i < oldDeadlines.size();) {
+                int temp = oldDeadlines.get(i).getTypeID();
                 if(oldDeadlines.get(i).getTypeID() == nTypeToGet){
                     sortDeadlines.add(new CDeadline(oldDeadlines.get(i)));
                     oldDeadlines.remove(i);
@@ -867,7 +866,6 @@ public class HomeScreen extends AppCompatActivity {
             if(aTest[i] != null)
                 oldDeadlines.add(aTest[i]);
         }
-        int deadlineIndex;
         while(oldDeadlines.size() > 0) {
             for (int i = 0; i < oldDeadlines.size();) {
                 if(oldDeadlines.get(i).getTypeID() == nTypeToGet){

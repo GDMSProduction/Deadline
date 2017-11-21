@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CProject extends CDeadline implements Serializable {
 
-    private static int typeID = 0;
+   // private static int typeID = 0;
 
     //TODO: Remove this stuff and any associated code later, except the sort functions which should be commented out
     private List<CTask> m_TaskList = new ArrayList<>();
@@ -21,11 +21,13 @@ public class CProject extends CDeadline implements Serializable {
     public CTask            GetTask(int nTask)  {return m_TaskList.get(nTask);}*/
 
     public CProject() {
+       setTypeID(0);
 
     }
 
     public CProject(String Name, String Deadline, String Summary, Boolean Complete) {
         super(Name,Deadline,Summary,Complete);
+        setTypeID(0);
         //setName(Name);
         /*try {
             setDeadline(new SimpleDateFormat("MM/dd/yyyy").parse(Deadline));
@@ -35,8 +37,8 @@ public class CProject extends CDeadline implements Serializable {
         //mSummary = Summary;
     }
 
-    @Override
-    public int getTypeID() {return typeID;}
+    /*@Override
+    public int getTypeID() {return typeID;}*/
 
     // Task List  Get + Set
     public List<CTask> getTaskList() {
