@@ -477,48 +477,34 @@ public class HomeScreen extends AppCompatActivity {
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
             int typeID = global.IDArray[position];
             switch (typeID){
-                // I am not using breaks- in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
 
                 // CProject
                 case 0: {
                     // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
 
-                    //((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
+                    ((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
 
-                    //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                    //startActivity(intent);
-                    int i = 0;
-                    int j = i;
+                    Intent intent = new Intent(HomeScreen.this, Tasks.class);
+                    startActivity(intent);
                     break;
                 }
                 // CTask
                 case 1:{
-                    // ToDo: For now, hard code the Unique ID of a prexisting Job to test
-                    // ToDO: When possible replace with actual Job ID
-                    // ToDo: Set the Task and Project ID as well
-                    //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
-                    //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
-                    //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
 
-                    int i = 1;
-                    int j = i;
+                    getTasksParentProjectID(global.deadlines[position].getUniqueID());
+                    ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());
 
                     Intent intent = new Intent(HomeScreen.this, Jobs.class);
                     startActivity(intent);
                     break;
 
-                    /*getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());*/
+
 
                 }
                 // CJob
                 case 2: {
-                    // ToDo: For now, hard code the Unique ID of a prexisting Task to test
-                    //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
-                    //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-                    /*getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());*/
+                    getJobsParentsIDs(global.deadlines[position].getUniqueID());
+                    ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());
                     int i = 2;
                     int j = i;
 
@@ -526,8 +512,6 @@ public class HomeScreen extends AppCompatActivity {
                 }
                 default:{break;}
             }
-            //Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
-            //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
 
             return false;
         }

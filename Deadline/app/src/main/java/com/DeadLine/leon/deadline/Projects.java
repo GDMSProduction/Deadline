@@ -187,7 +187,15 @@ public class Projects extends AppCompatActivity {
         Butt_Filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(!bSort_Switch) {
+                    sortDeadlinesDescending();
+                    bSort_Switch = true;
+                }
+                else{
+                    sortDeadlinesAscending();
+                    bSort_Switch = false;
+                }
+                populateScreen(aTest);
 
             }
         });
@@ -482,6 +490,8 @@ public class Projects extends AppCompatActivity {
             }
         });
     }
+
+
     public void sortDeadlinesNamesDescending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
@@ -589,4 +599,9 @@ public class Projects extends AppCompatActivity {
         }
 
     }
+
+
+
+
+
 }
