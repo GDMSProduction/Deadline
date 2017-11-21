@@ -61,6 +61,8 @@ public class HomeScreen extends AppCompatActivity {
     private ImageButton homeProjCreate;
     private ImageButton Butt_Sort;
     private boolean bSort_Switch = false;
+    private ImageButton Butt_Filter;
+    private int nFilterSwitch = 1;
 
 /*
     private Button projJump;
@@ -87,6 +89,30 @@ public class HomeScreen extends AppCompatActivity {
                     bSort_Switch = false;
                 }
                 populateScreen(aTest);
+            }
+        });
+
+        Butt_Filter = (ImageButton) findViewById(R.id.filter_button);
+        Butt_Filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               nFilterSwitch -= 1;
+               if(nFilterSwitch < 0)
+                   nFilterSwitch = 2;
+
+               // Project
+               if(0 == nFilterSwitch){
+                   //filterByProj
+               }
+               // Jobs
+               else if(1 == nFilterSwitch){
+                   //filterByJobs
+               }
+               //Tasks
+                else{
+                   //filterTasks
+               }
+
             }
         });
 
@@ -444,7 +470,7 @@ public class HomeScreen extends AppCompatActivity {
                   }
                   default:{break;}
               }
-              Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
+              //Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
               //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
 
           }
@@ -714,7 +740,6 @@ public class HomeScreen extends AppCompatActivity {
     public void sortDeadlinesDescending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
-        aTest[1].getName();
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null)
                 oldTasks.add(aTest[i]);
@@ -742,7 +767,6 @@ public class HomeScreen extends AppCompatActivity {
     public void sortDeadlinesAscending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
-        aTest[1].getName();
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null)
                 oldTasks.add(aTest[i]);
@@ -765,6 +789,106 @@ public class HomeScreen extends AppCompatActivity {
             }
         }
 
+    }
+
+
+    public void filterByProj(){
+        List<CDeadline> sortDeadlines = new ArrayList<>();
+        List<CDeadline> oldDeadlines = new ArrayList<>();
+        // Project
+        int nTypeToGet = 0;
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldDeadlines.add(aTest[i]);
+        }
+        int deadlineIndex;
+        while(oldDeadlines.size() > 0) {
+            for (int i = 0; i < oldDeadlines.size();) {
+                if(oldDeadlines.get(i).getTypeID() == nTypeToGet){
+                    sortDeadlines.add(new CDeadline(oldDeadlines.get(i)));
+                    oldDeadlines.remove(i);
+                }
+                else
+                    i++;
+            }
+            if(0 == nTypeToGet)
+                nTypeToGet = 2;
+            else
+                nTypeToGet -= 1;
+        }
+
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortDeadlines.get(0);
+                sortDeadlines.remove(0);
+            }
+        }
+    }
+
+    public void filterByTask(){
+        List<CDeadline> sortDeadlines = new ArrayList<>();
+        List<CDeadline> oldDeadlines = new ArrayList<>();
+        // Task
+        int nTypeToGet = 2;
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldDeadlines.add(aTest[i]);
+        }
+        int deadlineIndex;
+        while(oldDeadlines.size() > 0) {
+            for (int i = 0; i < oldDeadlines.size();) {
+                if(oldDeadlines.get(i).getTypeID() == nTypeToGet){
+                    sortDeadlines.add(new CDeadline(oldDeadlines.get(i)));
+                    oldDeadlines.remove(i);
+                }
+                else
+                    i++;
+            }
+            if(0 == nTypeToGet)
+                nTypeToGet = 2;
+            else
+                nTypeToGet -= 1;
+        }
+
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortDeadlines.get(0);
+                sortDeadlines.remove(0);
+            }
+        }
+    }
+
+    public void filterByJob(){
+        List<CDeadline> sortDeadlines = new ArrayList<>();
+        List<CDeadline> oldDeadlines = new ArrayList<>();
+        // Job
+        int nTypeToGet = 1;
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldDeadlines.add(aTest[i]);
+        }
+        int deadlineIndex;
+        while(oldDeadlines.size() > 0) {
+            for (int i = 0; i < oldDeadlines.size();) {
+                if(oldDeadlines.get(i).getTypeID() == nTypeToGet){
+                    sortDeadlines.add(new CDeadline(oldDeadlines.get(i)));
+                    oldDeadlines.remove(i);
+                }
+                else
+                    i++;
+            }
+            if(0 == nTypeToGet)
+                nTypeToGet = 2;
+            else
+                nTypeToGet -= 1;
+        }
+
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortDeadlines.get(0);
+                sortDeadlines.remove(0);
+            }
+        }
     }
 
 }
