@@ -265,7 +265,6 @@ public class HomeScreen extends AppCompatActivity {
         text.setText(test);
 
         mDataBase = FirebaseDatabase.getInstance().getReference("users").child(user.getDisplayName()).child("projectListSize");
-
         mDataBase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

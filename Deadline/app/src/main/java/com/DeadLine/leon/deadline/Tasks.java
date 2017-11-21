@@ -18,11 +18,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -32,8 +34,10 @@ import java.util.Map;
 public class Tasks extends AppCompatActivity {
 
     private Button Butt_Home;
-    private ImageButton Create_Task, Butt_Sort, Butt_Filter;
+    private ImageButton Create_Task, Butt_Name_Sort, Butt_Date_Sort;
     private boolean bSort_Switch = false;
+
+    private TextView txt_Within, txt_Description, txt_Deadline;
 
     private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -127,8 +131,46 @@ public class Tasks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Butt_Name_Sort = (ImageButton) findViewById(R.id.sort_name_button);
+        Butt_Name_Sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: Put name sort stuff here
+            }
+        });
+
+        Butt_Date_Sort = (ImageButton) findViewById(R.id.sort_date_button);
+        Butt_Date_Sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: Put date sort stuff here
+            }
+        });
+
+        txt_Within = (TextView) findViewById(R.id.encasedWithin);
+        txt_Deadline = (TextView) findViewById(R.id.encasedDeadline);
+        txt_Description = (TextView) findViewById(R.id.encasedDescription);
+        mDataBase = FirebaseDatabase.getInstance().getReference("projects").child(((CStoreIDs)getApplication()).getProjectID());
+        mDataBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                txt_Within.setText(dataSnapshot.child("name").getValue().toString());
+                txt_Deadline.setText(dataSnapshot.child("deadline").getValue().toString());
+                txt_Description.setText(dataSnapshot.child("summary").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        //txt_Within.setText(((CStoreIDs)getApplication()).getProjectID().toString());
+        //ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child("");
+/*
         if(!tempRole.getTaskPermission())
             Create_Task.setVisibility(View.GONE);
+*/
 
         /*tempButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,7 +242,7 @@ public class Tasks extends AppCompatActivity {
                 //int i = 0;
                 for(DataSnapshot mtest :dataSnapshot.getChildren())
                 {
-                    if(mtest != null)
+                    if(mtest != null && mtest.getKey().toString().equals(((CStoreIDs)getApplication()).getProjectID()))
                     {
                         String projectKey = mtest.getValue().toString();
                         sDatabase(projectKey, aTest, arrayInc);
@@ -466,8 +508,9 @@ public class Tasks extends AppCompatActivity {
         TaskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
-                //Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
+                //TODO: make this work lol
+                ((CStoreIDs)getApplication()).setTaskID(HomeScreen.global.deadlines[position].getUniqueID());
+                Toast.makeText(Tasks.this,((CStoreIDs)getApplication()).getTaskID().toString(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -480,8 +523,5 @@ public class Tasks extends AppCompatActivity {
                 return false;
             }
         });
-        //*/
-
-        //*/
     }
 }
