@@ -68,11 +68,13 @@ public class CustomAdapter extends SimpleAdapter implements View.OnClickListener
         individual item. colorID is changing but not correctly?
         */
 
+
+
         if(i < HomeScreen.global.getDeadlines().length)
         {
             if(HomeScreen.global.getDeadlines()[i] != null)
             {
-                colorID = HomeScreen.global.getDeadlines()[i].getTypeID();
+                colorID = HomeScreen.global.getIDArray()[i];
             }
                 i++;
         }
@@ -80,7 +82,7 @@ public class CustomAdapter extends SimpleAdapter implements View.OnClickListener
         if(colorID >= 0 && colorID < colors.length)
         {
 
-            view.setBackgroundColor(colors[colorID]);
+            view.setBackgroundColor(colors[HomeScreen.global.IDArray[position]]);
         }
         //*/
         return view;
