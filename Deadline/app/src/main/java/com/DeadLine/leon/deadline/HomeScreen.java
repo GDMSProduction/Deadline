@@ -81,11 +81,11 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!bSort_Switch) {
-                    sortDeadlinesDescending();
+                    sortDeadlinesNamesDescending();
                     bSort_Switch = true;
                 }
                 else{
-                    sortDeadlinesAscending();
+                    sortDeadlinesNamesAscending();
                     bSort_Switch = false;
                 }
                 populateScreen(aTest);
@@ -625,6 +625,7 @@ public class HomeScreen extends AppCompatActivity {
                     }
                     if(dataSnapshot.getChildrenCount() < j+1 && dataSnapshot.getChildrenCount() != 0)
                     {
+                        sortDeadlinesDescending();
                         populateScreen(_array);
                     }
                 }
@@ -735,6 +736,60 @@ public class HomeScreen extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void sortDeadlinesNamesDescending(){
+        List<CDeadline> sortTasks = new ArrayList<>();
+        List<CDeadline> oldTasks = new ArrayList<>();
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldTasks.add(aTest[i]);
+        }
+        int taskIndex;
+        while(oldTasks.size() > 0) {
+            taskIndex = 0;
+            for (int i = 0; i < oldTasks.size(); i++) {
+                if(oldTasks.get(taskIndex).getName().toLowerCase().compareTo(oldTasks.get(i).getName().toLowerCase()) > 0)
+                    taskIndex = i;
+            }
+            sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            oldTasks.remove(taskIndex);
+        }
+
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortTasks.get(0);
+                sortTasks.remove(0);
+            }
+        }
+
+    }
+
+    public void sortDeadlinesNamesAscending(){
+        List<CDeadline> sortTasks = new ArrayList<>();
+        List<CDeadline> oldTasks = new ArrayList<>();
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldTasks.add(aTest[i]);
+        }
+        int taskIndex;
+        while(oldTasks.size() > 0) {
+            taskIndex = 0;
+            for (int i = 0; i < oldTasks.size(); i++) {
+                if(oldTasks.get(taskIndex).getName().toLowerCase().compareTo(oldTasks.get(i).getName().toLowerCase()) < 0)
+                    taskIndex = i;
+            }
+            sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            oldTasks.remove(taskIndex);
+        }
+
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortTasks.get(0);
+                sortTasks.remove(0);
+            }
+        }
+
     }
 
     public void sortDeadlinesDescending(){
