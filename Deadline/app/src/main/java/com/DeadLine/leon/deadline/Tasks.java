@@ -382,6 +382,7 @@ public class Tasks extends AppCompatActivity {
 
                                     CTask tempTask = new CTask(tName,tDeadline,tSumm,tComplete);
                                     _array[arrayInc] = tempTask;
+                                    tempTask.setUniqueID(qTest.getKey().toString());
                                     arrayInc++;
                                     //*/
                                 }

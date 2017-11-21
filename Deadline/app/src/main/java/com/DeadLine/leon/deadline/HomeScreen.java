@@ -518,8 +518,8 @@ public class HomeScreen extends AppCompatActivity {
                     int i = 2;
                     int j = i;
 
-                    //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(HomeScreen.this, Jobs.class);
+                    startActivity(intent);
                     break;
                 }
                 default:{break;}
