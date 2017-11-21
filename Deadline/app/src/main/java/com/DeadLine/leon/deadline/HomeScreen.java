@@ -423,7 +423,6 @@ public class HomeScreen extends AppCompatActivity {
               new int[] {R.id.item_name,R.id.deadline_date});
 
       HomeList.setAdapter(testAdapt);
-      //THIS IS WHAT NEEDS TO BE ADDED TO MAKE IT DO STUFF ON CLICK
       HomeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -524,7 +523,7 @@ public class HomeScreen extends AppCompatActivity {
                 }
                 default:{break;}
             }
-            Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
             //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
 
             return false;
