@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:956439741642:android:441043f530006f3b",
         "android_client_info": {
-          "package_name": "com.DeadLine.leon.deadline"
+          "package_name": "com.Deadline.leon.deadline"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "956439741642-b0nj7p56e4jdd803ddcecbgpk59vfidg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.DeadLine.leon.deadline",
+            "package_name": "com.Deadline.leon.deadline",
             "certificate_hash": "b5b27bf723e181d18b0fc0018ff162275fbb1185"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "956439741642-2pign3tiluf3g5bm25003hd2r1r9fdhl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.DeadLine.leon.deadline",
+            "package_name": "com.Deadline.leon.deadline",
             "certificate_hash": "def59fe87f5d84b8405a4e773c2b56df1a61e5a2"
           }
         },
