@@ -25,9 +25,7 @@ import android.widget.Spinner;
 
 public class ProjectCreationScreen extends AppCompatActivity {
 
-    private Button Butt_Home;
-
-    private Button projCreateButton;
+    private Button Butt_Home, Butt_Create, Butt_Cancel;
 
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
@@ -76,8 +74,8 @@ public class ProjectCreationScreen extends AppCompatActivity {
 
         user = mAuth.getCurrentUser();
 
-        projCreateButton = (Button) findViewById(R.id.projCreate);
-        projCreateButton.setOnClickListener(new View.OnClickListener()
+        Butt_Create = (Button) findViewById(R.id.projCreate);
+        Butt_Create.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
@@ -119,6 +117,15 @@ public class ProjectCreationScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProjectCreationScreen.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Cancel = (Button) findViewById(R.id.projCreateCancel);
+        Butt_Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
                 startActivity(intent);
             }
         });

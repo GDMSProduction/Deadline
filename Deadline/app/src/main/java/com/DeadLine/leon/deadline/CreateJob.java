@@ -24,8 +24,7 @@ import java.util.Calendar;
 public class CreateJob extends AppCompatActivity {
 
     //Buttons
-    private Button jobCreateButton;
-    private Button Butt_Home;
+    private Button Butt_Home, Butt_Create, Butt_Cancel;
 
     //Firebase
     private FirebaseAuth mAuth;
@@ -69,8 +68,8 @@ public class CreateJob extends AppCompatActivity {
 
         user = mAuth.getCurrentUser();
 
-        jobCreateButton = (Button) findViewById(R.id.jobCreate);
-        jobCreateButton.setOnClickListener(new View.OnClickListener()
+        Butt_Create = (Button) findViewById(R.id.jobCreate);
+        Butt_Create.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
@@ -111,6 +110,15 @@ public class CreateJob extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CreateJob.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Cancel = (Button) findViewById(R.id.jobCreateCancel);
+        Butt_Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateJob.this, Jobs.class);
                 startActivity(intent);
             }
         });
