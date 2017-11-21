@@ -103,6 +103,7 @@
                 android:textAlignment="viewStart"
                 android:textSize="12sp" />
         </LinearLayout>
+
         <ListView
             android:id="@+id/JobListView"
             android:layout_width="match_parent"

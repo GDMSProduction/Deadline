@@ -280,14 +280,6 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        //Do we even need this?
-        if(projectSize == 0)
-        {
-            String empty = "You do not have any open projects! Please click the button to create a new project";
-            TextView emptyText = (TextView) findViewById(R.id.empty_Prompt);
-            emptyText.setText(empty);
-        }
-
         mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
        // final CDeadline[] aTest = new CDeadline[10];
@@ -483,7 +475,7 @@ public class HomeScreen extends AppCompatActivity {
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
             int typeID = global.deadlines[position].getTypeID();
             switch (typeID){
-                // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
+                // I am not using breaks- in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
 
                 // CProject
                 case 0: {

@@ -8,111 +8,83 @@
     tools:context="com.DeadLine.leon.deadline.Projects"
     tools:showIn="@layout/activity_projects">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/CreateProject"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:foreground="@android:drawable/ic_input_add"
-        android:foregroundTint="@color/common_google_signin_btn_text_dark_focused"
-        android:tint="@color/ProjectColor"
-        app:backgroundTint="@color/ProjectColor"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017"
-        app:srcCompat="@color/colorAccent" />
-
     <LinearLayout
-        android:id="@+id/llProjectLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/llProjects"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:orientation="horizontal"
-            android:paddingRight="20dp"
-            android:paddingTop="75dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CreateProject">
+            tools:layout_editor_absoluteX="20dp">
 
-            <Button
-                android:id="@+id/btnProject"
-                style="@style/Widget.AppCompat.Button"
+            <ImageButton
+                android:id="@+id/sort_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/sort" />
+
+            <TextView
+                android:id="@+id/sort_label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
                 android:layout_weight="1"
-                android:backgroundTint="@color/ProjectColor"
-                android:paddingLeft="20dp"
-                android:text="My Project"
-                android:textAlignment="viewStart"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="56dp" />
+                android:gravity="center_vertical"
+                android:text="Sort" />
 
-            <Button
-                android:id="@+id/btnViewProjectOptions"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="0dp"
+            <ImageButton
+                android:id="@+id/filter_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".25"
-                android:background="@drawable/ic_dehaze_black_24dp" />
+                android:layout_alignParentTop="true"
+                android:layout_weight="0"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/filter" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/filter_label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Filter" />
 
-        <LinearLayout
-            android:id="@+id/llProjectOptions"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/btnEditProject"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/createProj"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="50dp"
-                android:text="Edit Project"
-                android:textAlignment="viewStart"
-                android:textSize="12sp" />
+                android:layout_centerVertical="true"
+                android:layout_weight="0"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/add" />
 
-            <Button
-                android:id="@+id/btnViewRoles"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="50dp"
-                android:text="View Roles"
-                android:textAlignment="viewStart"
-                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/create_label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:text="Create Project" />
 
-            <Button
-                android:id="@+id/btnDeleteProject"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="50dp"
-                android:text="Delete Project"
-                android:textAlignment="viewStart"
-                android:textSize="12sp" />
         </LinearLayout>
 
         <ListView
             android:id="@+id/ProjectListView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="128dp" />
 
