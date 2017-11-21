@@ -9,107 +9,115 @@
     tools:layout_editor_absoluteY="89dp"
     tools:showIn="@layout/activity_jobs">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/createJob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="17dp"
-        android:clickable="true"
-        android:foreground="@android:drawable/ic_input_add"
-        android:foregroundTint="@color/common_google_signin_btn_text_dark_focused"
-        android:tint="@color/JobColor"
-        app:backgroundTint="@color/JobColor"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toTopOf="@+id/llRolesLayout"
-        app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017"
-        app:srcCompat="@color/colorAccent" />
-
     <LinearLayout
-        android:id="@+id/llRolesLayout"
-        android:layout_width="0dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createJob">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/llJobs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/JobColor"
-            android:foregroundTint="@color/JobColor"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/createJob">
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <Button
-                android:id="@+id/btnJobs"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/encasedWithin"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="@color/JobColor"
-                android:paddingLeft="20dp"
-                android:text="My Job"
-                android:textAlignment="viewStart"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="56dp" />
+                android:text="What you're encased in goes here"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/btnViewJobOptions"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/encasedDeadline"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight=".25"
-                android:background="@drawable/ic_dehaze_black_24dp" />
+                android:text="The due date of the encasing object goes here"
+                android:textAlignment="center" />
 
+            <TextView
+                android:id="@+id/encasedDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description of encasing object goes here"
+                android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llJobOptions"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="20dp">
 
-            <Button
-                android:id="@+id/btnEditJob"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/sort_name_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="50dp"
-                android:text="Edit Job"
-                android:textAlignment="viewStart"
-                android:textSize="12sp" />
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/sort" />
 
-            <Button
-                android:id="@+id/btnDeleteJob"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/sort_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:text="Sort by Name" />
+
+            <ImageButton
+                android:id="@+id/sort_date_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="50dp"
-                android:text="Delete Job"
-                android:textAlignment="viewStart"
-                android:textSize="12sp" />
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/sort" />
+
+            <TextView
+                android:id="@+id/sort_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:text="Sort by Date" />
+
+            <ImageButton
+                android:id="@+id/createJob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/add" />
+
+            <TextView
+                android:id="@+id/create_label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:text="Create Job" />
+
         </LinearLayout>
 
         <ListView
             android:id="@+id/JobListView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="128dp" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

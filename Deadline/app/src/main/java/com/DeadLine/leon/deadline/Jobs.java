@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -17,11 +18,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,10 +34,10 @@ import java.util.Map;
 public class Jobs extends AppCompatActivity {
 
     private Button Butt_Home;
-    private FloatingActionButton Fab_CreateJob;
-    private LinearLayout llJobOption;
-    private Button Butt_JobOption;
+    private ImageButton Create_Job, Butt_Name_Sort, Butt_Date_Sort;
+    private boolean bSort_Switch = false;
 
+    private TextView txt_Within, txt_Description, txt_Deadline;
 
     private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -45,13 +48,12 @@ public class Jobs extends AppCompatActivity {
     private int arrayInc = 0;
     private FirebaseDatabase fBase;
     private DatabaseReference mDataBase;
+    ListView JobList;
 
     private Spinner nav_spin;
+
     private Boolean spin_Clicked = false;
-
     private CRole tempRole = new CRole();
-
-    ListView JobList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,17 +75,6 @@ public class Jobs extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        Fab_CreateJob = (FloatingActionButton) findViewById(R.id.createJob);
-        Fab_CreateJob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Jobs.this, CreateJob.class);
-                startActivity(intent);
-            }
-        });
-        if(!tempRole.getJobPermission())
-            Fab_CreateJob.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -131,56 +122,48 @@ public class Jobs extends AppCompatActivity {
             }
         });
 
-        Button tempButton = (Button) findViewById(R.id.btnJobs);
-        tempButton.setText(tempJob.getName());
-
-        /*tempButton.setOnClickListener(new View.OnClickListener() {
+        Create_Job = (ImageButton) findViewById(R.id.createJob);
+        Create_Job.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Jobs.this, Jobs.class);
-                startActivity(intent);
-            }
-        });*/
-
-        tempButton = (Button) findViewById(R.id.btnEditJob);
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Jobs.this, EditJob.class);
+                Intent intent = new Intent(Jobs.this, CreateJob.class);
                 startActivity(intent);
             }
         });
-        if(!tempRole.getJobPermission())
-            tempButton.setVisibility(View.GONE);
 
-
-        // btnViewJobOptions OnCLickListener
-        llJobOption = (LinearLayout) findViewById(R.id.llJobOptions);
-        tempButton = (Button) findViewById(R.id.btnViewJobOptions);
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
+        Butt_Name_Sort = (ImageButton) findViewById(R.id.sort_name_button);
+        Butt_Name_Sort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(llJobOption.getVisibility() == View.GONE)
-                    llJobOption.setVisibility(View.VISIBLE);
-                else
-                    llJobOption.setVisibility(View.GONE);
+                //TODO: Put name sort stuff here
             }
         });
 
-        // btnDeleteJob OnCLickListener
-        Butt_JobOption = (Button) findViewById(R.id.btnDeleteJob);
-        Butt_JobOption.setOnClickListener(new View.OnClickListener() {
+        Butt_Date_Sort = (ImageButton) findViewById(R.id.sort_date_button);
+        Butt_Date_Sort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                llJobOption.removeAllViews();
-                llJobOption = (LinearLayout)findViewById(R.id.llJobs);
-                llJobOption.removeAllViews();
+                //TODO: Put date sort stuff here
             }
         });
-        if(!tempRole.getJobPermission())
-            Butt_JobOption.setVisibility(View.GONE);
+
+        txt_Within = (TextView) findViewById(R.id.encasedWithin);
+        txt_Deadline = (TextView) findViewById(R.id.encasedDeadline);
+        txt_Description = (TextView) findViewById(R.id.encasedDescription);
+        mDataBase = FirebaseDatabase.getInstance().getReference("projects").child(((CStoreIDs)getApplication()).getProjectID()).child("tasks").child(((CStoreIDs)getApplication()).getTaskID());;
+        mDataBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                txt_Within.setText(dataSnapshot.child("name").getValue().toString());
+                txt_Deadline.setText(dataSnapshot.child("deadline").getValue().toString());
+                txt_Description.setText(dataSnapshot.child("summary").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         fBase = FirebaseDatabase.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -213,7 +196,7 @@ public class Jobs extends AppCompatActivity {
                 //int i = 0;
                 for(DataSnapshot mtest :dataSnapshot.getChildren())
                 {
-                    if(mtest != null)
+                    if(mtest != null && mtest.getKey().toString().equals(((CStoreIDs)getApplication()).getProjectID()))
                     {
                         String projectKey = mtest.getValue().toString();
                         sDatabase(projectKey, aTest, arrayInc);
@@ -260,6 +243,13 @@ public class Jobs extends AppCompatActivity {
     {
         super.onStop();
         mAuth.removeAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(Jobs.this, Tasks.class);
+        startActivity(intent);
     }
 
     public void sDatabase(final String _key, final CDeadline[] _array,final int _j)
@@ -320,7 +310,7 @@ public class Jobs extends AppCompatActivity {
                                     String tDeadline = qTest.child("deadline").getValue().toString();
                                     String tSumm = qTest.child("summary").getValue().toString();
                                     Boolean tComplete = (Boolean) qTest.child("complete").getValue();
-                                    if(qTest.child("jobs").exists())
+                                    if(qTest.child("jobs").exists() && qTest.getKey().toString().equals(((CStoreIDs)getApplication()).getTaskID()))
                                     {
                                         for(DataSnapshot zTest : qTest.getChildren())
                                         {
@@ -336,6 +326,7 @@ public class Jobs extends AppCompatActivity {
 
                                                     CJob tempJob = new CJob(zName,zDeadline,zSumm,zComplete);
                                                     _array[arrayInc] = tempJob;
+                                                    tempJob.setUniqueID(fTest.getKey().toString());
                                                     arrayInc++;
                                                     //*/
                                                     //i = k;
@@ -472,112 +463,19 @@ public class Jobs extends AppCompatActivity {
         JobList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int typeID = HomeScreen.global.deadlines[position].getTypeID();
-                switch (typeID){
-                    // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
-
-                    // CProject
-                    case 0: {
-                        // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-                        ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Projects.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    // CJob
-                    case 1:{
-                        // ToDo: For now, hard code the Unique ID of a prexisting Job to test
-                        // ToDO: When possible replace with actual Job ID
-                        // ToDo: Set the Task and Project ID as well
-                        //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-                        //getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                        //((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Jobs.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    // CTask
-                    case 2: {
-                        // ToDo: For now, hard code the Unique ID of a prexisting Task to test
-                        //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-                        //getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                        //((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    default:{break;}
-                }
-                //Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
-                //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
-
+                ((CStoreIDs)getApplication()).setJobID(HomeScreen.global.deadlines[position].getUniqueID());
+                //Toast.makeText(Jobs.this,((CStoreIDs)getApplication()).getJobID().toString(),Toast.LENGTH_SHORT).show();
             }
         });
 
         JobList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                int typeID = HomeScreen.global.deadlines[position].getTypeID();
-                switch (typeID){
-                    // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
-
-                    // CProject
-                    case 0: {
-                        // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-
-                        //((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
-
-                        //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    // CJob
-
-
-                    case 1:{
-                        // ToDo: For now, hard code the Unique ID of a prexisting Job to test
-                        // ToDO: When possible replace with actual Job ID
-                        // ToDo: Set the Task and Project ID as well
-                        //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-
-                    /*getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());*/
-
-                        break;
-                    }
-                    // CTask
-                    case 2: {
-                        // ToDo: For now, hard code the Unique ID of a prexisting Task to test
-                        //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-                    /*getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());*/
-
-                        //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    default:{break;}
-                }
-                Toast.makeText(Jobs.this,HomeScreen.global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
-                //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
-
+                ((CStoreIDs)getApplication()).setJobID(HomeScreen.global.deadlines[position].getUniqueID());
+                Intent intent = new Intent(Jobs.this, FileManager.class);
+                startActivity(intent);
                 return false;
             }
         });
-        //*/
-
-        //*/
     }
 }
