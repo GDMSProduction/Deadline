@@ -24,8 +24,7 @@ import java.util.Calendar;
 public class CreateTask extends AppCompatActivity {
 
     //Buttons
-    private Button taskCreateButton;
-    private Button Butt_Home;
+    private Button Butt_Home, Butt_Create, Butt_Cancel;
 
     //Firebase
     private FirebaseAuth mAuth;
@@ -69,8 +68,8 @@ public class CreateTask extends AppCompatActivity {
 
         user = mAuth.getCurrentUser();
 
-        taskCreateButton = (Button) findViewById(R.id.taskCreate);
-        taskCreateButton.setOnClickListener(new View.OnClickListener()
+        Butt_Create = (Button) findViewById(R.id.taskCreate);
+        Butt_Create.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
@@ -110,6 +109,15 @@ public class CreateTask extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CreateTask.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        Butt_Cancel = (Button) findViewById(R.id.taskCreateCancel);
+        Butt_Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateTask.this, Tasks.class);
                 startActivity(intent);
             }
         });
