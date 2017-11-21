@@ -67,7 +67,6 @@ public class Tasks extends AppCompatActivity {
 
         tempRole.setTaskPermission(true);
 
-
         Butt_Home = (Button) findViewById(R.id.Home_Button);
         Butt_Home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,51 +164,6 @@ public class Tasks extends AppCompatActivity {
 
             }
         });
-        //txt_Within.setText(((CStoreIDs)getApplication()).getProjectID().toString());
-        //ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child("");
-/*
-        if(!tempRole.getTaskPermission())
-            Create_Task.setVisibility(View.GONE);
-*/
-
-        /*tempButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(llTaskOptionsLayout.getVisibility() == View.VISIBLE)
-                    llTaskOptionsLayout.setVisibility(View.GONE);
-                Intent intent = new Intent(Tasks.this, Jobs.class);
-                startActivity(intent);
-            }
-        });*/
-
-        // btnViewTaskOptions OnCLickListener
-/*
-        llTaskOptionsLayout = (LinearLayout) findViewById(R.id.llTaskOptions);
-        tempButton = (Button) findViewById(R.id.btnViewTaskOptions);
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(llTaskOptionsLayout.getVisibility() == View.GONE)
-                    llTaskOptionsLayout.setVisibility(View.VISIBLE);
-                else
-                    llTaskOptionsLayout.setVisibility(View.GONE);
-            }
-        });
-
-        // btnDeleteTask OnCLickListener
-        Butt_TaskOption = (Button) findViewById(R.id.btnDeleteTask);
-        Butt_TaskOption.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                llTaskOptionsLayout.removeAllViews();
-                llTaskOptionsLayout = (LinearLayout)findViewById(R.id.Tasks);
-                llTaskOptionsLayout.removeAllViews();
-            }
-        });
-        if(!tempRole.getTaskPermission())
-            Butt_TaskOption.setVisibility(View.GONE);
-*/
 
         fBase = FirebaseDatabase.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -509,16 +463,15 @@ public class Tasks extends AppCompatActivity {
         TaskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //TODO: make this work lol
                 ((CStoreIDs)getApplication()).setTaskID(HomeScreen.global.deadlines[position].getUniqueID());
-                Toast.makeText(Tasks.this,((CStoreIDs)getApplication()).getTaskID().toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Tasks.this,((CStoreIDs)getApplication()).getTaskID().toString(),Toast.LENGTH_SHORT).show();
             }
         });
 
         TaskList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
+                ((CStoreIDs)getApplication()).setTaskID(HomeScreen.global.deadlines[position].getUniqueID());
                 Intent intent = new Intent(Tasks.this, Jobs.class);
                 startActivity(intent);
                 return false;
