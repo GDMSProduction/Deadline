@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,9 +32,8 @@ import java.util.Map;
 public class Tasks extends AppCompatActivity {
 
     private Button Butt_Home;
-    private FloatingActionButton Create_Task;
-    private LinearLayout llTaskOptionsLayout;
-    private Button Butt_TaskOption;
+    private ImageButton Create_Task, Butt_Sort, Butt_Filter;
+    private boolean bSort_Switch = false;
 
     private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -119,7 +119,7 @@ public class Tasks extends AppCompatActivity {
             }
         });
 
-        Create_Task = (FloatingActionButton) findViewById(R.id.CreateTask);
+        Create_Task = (ImageButton) findViewById(R.id.createTask);
         Create_Task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,11 +130,7 @@ public class Tasks extends AppCompatActivity {
         if(!tempRole.getTaskPermission())
             Create_Task.setVisibility(View.GONE);
 
-
-        Button tempButton = (Button) findViewById(R.id.btnTask);
-        tempButton.setText(tempTask.getName());
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
+        /*tempButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(llTaskOptionsLayout.getVisibility() == View.VISIBLE)
@@ -142,24 +138,10 @@ public class Tasks extends AppCompatActivity {
                 Intent intent = new Intent(Tasks.this, Jobs.class);
                 startActivity(intent);
             }
-        });
-
-
-        tempButton = (Button) findViewById(R.id.btnEditTask);
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Tasks.this, EditTask.class);
-                startActivity(intent);
-            }
-        });
-        if(!tempRole.getTaskPermission())
-            tempButton.setVisibility(View.GONE);
-
-
+        });*/
 
         // btnViewTaskOptions OnCLickListener
+/*
         llTaskOptionsLayout = (LinearLayout) findViewById(R.id.llTaskOptions);
         tempButton = (Button) findViewById(R.id.btnViewTaskOptions);
 
@@ -185,6 +167,7 @@ public class Tasks extends AppCompatActivity {
         });
         if(!tempRole.getTaskPermission())
             Butt_TaskOption.setVisibility(View.GONE);
+*/
 
         fBase = FirebaseDatabase.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -483,107 +466,17 @@ public class Tasks extends AppCompatActivity {
         TaskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int typeID = HomeScreen.global.deadlines[position].getTypeID();
-                switch (typeID){
-                    // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
-
-                    // CProject
-                    case 0: {
-                        // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-                        ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Projects.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    // CJob
-                    case 1:{
-                        // ToDo: For now, hard code the Unique ID of a prexisting Job to test
-                        // ToDO: When possible replace with actual Job ID
-                        // ToDo: Set the Task and Project ID as well
-                        //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-                        //getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                        //((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Jobs.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    // CTask
-                    case 2: {
-                        // ToDo: For now, hard code the Unique ID of a prexisting Task to test
-                        //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-                        //getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                        //((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    default:{break;}
-                }
+                ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
                 //Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
-                //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
-
             }
         });
 
         TaskList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                int typeID = HomeScreen.global.deadlines[position].getTypeID();
-                switch (typeID){
-                    // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
-
-                    // CProject
-                    case 0: {
-                        // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-
-                        //((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
-
-                        //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    // CJob
-
-
-                    case 1:{
-                        // ToDo: For now, hard code the Unique ID of a prexisting Job to test
-                        // ToDO: When possible replace with actual Job ID
-                        // ToDo: Set the Task and Project ID as well
-                        //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-
-                    /*getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());*/
-
-                        break;
-                    }
-                    // CTask
-                    case 2: {
-                        // ToDo: For now, hard code the Unique ID of a prexisting Task to test
-                        //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-                    /*getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());*/
-
-                        //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    default:{break;}
-                }
-                Toast.makeText(Tasks.this,HomeScreen.global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
-                //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
-
+                ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
+                Intent intent = new Intent(Tasks.this, Jobs.class);
+                startActivity(intent);
                 return false;
             }
         });
