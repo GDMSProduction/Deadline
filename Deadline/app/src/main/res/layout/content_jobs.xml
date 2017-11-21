@@ -103,6 +103,12 @@
                 android:textAlignment="viewStart"
                 android:textSize="12sp" />
         </LinearLayout>
+        <ListView
+            android:id="@+id/JobListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="128dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
