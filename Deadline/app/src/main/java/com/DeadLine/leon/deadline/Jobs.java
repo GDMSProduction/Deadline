@@ -43,6 +43,7 @@ public class Jobs extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     final CDeadline[] aTest = new CDeadline[25];
+    int[] idTest = new int[25];
 
     private FirebaseAuth mAuth;
     private int arrayInc = 0;
@@ -327,6 +328,7 @@ public class Jobs extends AppCompatActivity {
                                                     CJob tempJob = new CJob(zName,zDeadline,zSumm,zComplete);
                                                     _array[arrayInc] = tempJob;
                                                     tempJob.setUniqueID(fTest.getKey().toString());
+                                                    idTest[arrayInc] = tempJob.getTypeID();
                                                     arrayInc++;
                                                     //*/
                                                     //i = k;
@@ -434,6 +436,7 @@ public class Jobs extends AppCompatActivity {
       *
 
       */
+        HomeScreen.global.setIDArray(idTest);
         HomeScreen.global.setDeadlines(_proj);
         for(int i = 0; i < arrayInc; ++i)
         {

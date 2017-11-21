@@ -52,6 +52,7 @@ public class Tasks extends AppCompatActivity {
 
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
+    int[] idTest = new int[25];
 
     private CRole tempRole = new CRole();
 
@@ -350,6 +351,7 @@ public class Tasks extends AppCompatActivity {
                                     CTask tempTask = new CTask(tName,tDeadline,tSumm,tComplete);
                                     _array[arrayInc] = tempTask;
                                     tempTask.setUniqueID(qTest.getKey().toString());
+                                    idTest[arrayInc] = tempTask.getTypeID();
                                     arrayInc++;
                                     //*/
                                 }
@@ -447,6 +449,7 @@ public class Tasks extends AppCompatActivity {
       *
 
       */
+        HomeScreen.global.setIDArray(idTest);
         HomeScreen.global.setDeadlines(_proj);
         for(int i = 0; i < arrayInc; ++i)
         {
