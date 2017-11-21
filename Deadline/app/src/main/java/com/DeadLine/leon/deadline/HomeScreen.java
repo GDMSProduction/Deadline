@@ -490,7 +490,7 @@ public class HomeScreen extends AppCompatActivity {
                     int j = i;
                     break;
                 }
-                // CJob
+                // CTask
                 case 1:{
                     // ToDo: For now, hard code the Unique ID of a prexisting Job to test
                     // ToDO: When possible replace with actual Job ID
@@ -507,7 +507,7 @@ public class HomeScreen extends AppCompatActivity {
 
                     break;
                 }
-                // CTask
+                // CJob
                 case 2: {
                     // ToDo: For now, hard code the Unique ID of a prexisting Task to test
                     //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
