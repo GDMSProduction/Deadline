@@ -103,7 +103,7 @@ public class HomeScreen extends AppCompatActivity {
                nFilterSwitch -= 1;
                if(nFilterSwitch < 0)
                    nFilterSwitch = 2;
-
+/*
                // Project
                if(0 == nFilterSwitch){
                    filterByProj();
@@ -116,7 +116,7 @@ public class HomeScreen extends AppCompatActivity {
                 else{
                    filterByTask();
                }
-
+//*/
             }
         });
 

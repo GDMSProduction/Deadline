@@ -44,6 +44,7 @@ public class Projects extends AppCompatActivity {
     private FirebaseDatabase fBase;
     private DatabaseReference mDataBase;
     ListView ProjectList;
+    int[] idTest = new int[25];
 
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
@@ -304,6 +305,7 @@ public class Projects extends AppCompatActivity {
                                     CProject temp = new CProject(name, deadline, summary, complete);
                                     temp.setUniqueID(_key);
                                     _array[arrayInc] = temp;
+                                    idTest[arrayInc] = temp.getTypeID();
                                     arrayInc++;
                                 }
                                 j++;
@@ -355,6 +357,7 @@ public class Projects extends AppCompatActivity {
                                 CProject temp = new CProject(name, deadline, summary, complete);
                                 temp.setUniqueID(_key);
                                 _array[arrayInc] = temp;
+                                idTest[arrayInc] = temp.getTypeID();
                                 arrayInc++;
                                 //*/
                                 j++;
@@ -444,6 +447,7 @@ public class Projects extends AppCompatActivity {
       *
 
       */
+        HomeScreen.global.setIDArray(idTest);
         HomeScreen.global.setDeadlines(_proj);
         for(int i = 0; i < arrayInc; ++i)
         {
@@ -490,12 +494,20 @@ public class Projects extends AppCompatActivity {
     }
 
 
+
+
     public void sortDeadlinesNamesDescending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
+
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null) {
                 oldTasks.add(aTest[i]);
+                oldIds.add(HomeScreen.global.IDArray[i]);
+            }
         }
         int taskIndex;
         while(oldTasks.size() > 0) {
@@ -505,13 +517,17 @@ public class Projects extends AppCompatActivity {
                     taskIndex = i;
             }
             sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            sortIds.add(oldIds.get(taskIndex));
             oldTasks.remove(taskIndex);
+            oldIds.remove(taskIndex);
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortTasks.get(0);
                 sortTasks.remove(0);
+                HomeScreen.global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
 
@@ -520,9 +536,15 @@ public class Projects extends AppCompatActivity {
     public void sortDeadlinesNamesAscending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
+
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null) {
                 oldTasks.add(aTest[i]);
+                oldIds.add(HomeScreen.global.IDArray[i]);
+            }
         }
         int taskIndex;
         while(oldTasks.size() > 0) {
@@ -532,13 +554,17 @@ public class Projects extends AppCompatActivity {
                     taskIndex = i;
             }
             sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            sortIds.add(oldIds.get(taskIndex));
             oldTasks.remove(taskIndex);
+            oldIds.remove(taskIndex);
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortTasks.get(0);
                 sortTasks.remove(0);
+                HomeScreen.global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
 
@@ -547,9 +573,15 @@ public class Projects extends AppCompatActivity {
     public void sortDeadlinesDescending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
+
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null) {
                 oldTasks.add(aTest[i]);
+                oldIds.add(HomeScreen.global.IDArray[i]);
+            }
         }
         int taskIndex;
         while(oldTasks.size() > 0) {
@@ -560,12 +592,16 @@ public class Projects extends AppCompatActivity {
             }
             sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
             oldTasks.remove(taskIndex);
+            sortIds.add(oldIds.get(taskIndex));
+            oldIds.remove(taskIndex);
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortTasks.get(0);
                 sortTasks.remove(0);
+                HomeScreen.global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
 
@@ -574,9 +610,15 @@ public class Projects extends AppCompatActivity {
     public void sortDeadlinesAscending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
+
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null) {
                 oldTasks.add(aTest[i]);
+                oldIds.add(HomeScreen.global.IDArray[i]);
+            }
         }
         int taskIndex;
         while(oldTasks.size() > 0) {
@@ -587,12 +629,16 @@ public class Projects extends AppCompatActivity {
             }
             sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
             oldTasks.remove(taskIndex);
+            sortIds.add(oldIds.get(taskIndex));
+            oldIds.remove(taskIndex);
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortTasks.get(0);
                 sortTasks.remove(0);
+                HomeScreen.global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
 
