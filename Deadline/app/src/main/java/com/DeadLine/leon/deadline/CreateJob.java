@@ -24,8 +24,7 @@ import java.util.Calendar;
 public class CreateJob extends AppCompatActivity {
 
     //Buttons
-    private Button jobCreateButton;
-    private Button Butt_Home;
+    private Button Butt_Home, Butt_Create, Butt_Cancel;
 
     //Firebase
     private FirebaseAuth mAuth;
@@ -69,8 +68,8 @@ public class CreateJob extends AppCompatActivity {
 
         user = mAuth.getCurrentUser();
 
-        jobCreateButton = (Button) findViewById(R.id.jobCreate);
-        jobCreateButton.setOnClickListener(new View.OnClickListener()
+        Butt_Create = (Button) findViewById(R.id.jobCreate);
+        Butt_Create.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
@@ -81,7 +80,6 @@ public class CreateJob extends AppCompatActivity {
                 DatePicker tCalendar = (DatePicker) findViewById(R.id.datePicker);
                 Calendar validDate = Calendar.getInstance();
                 validDate.set(tCalendar.getYear(),tCalendar.getMonth(),tCalendar.getDayOfMonth());
-                //TODO: Create a toggle for this in the edit screen or from the view screen under the 3 dots options menu
                 jComplete = false;
 
                 if(!jName.equals("") &&
@@ -89,7 +87,6 @@ public class CreateJob extends AppCompatActivity {
                 {
                     if(!Calendar.getInstance().after(validDate))
                     {
-                        //TODO: Add a create task method in this java file
                         CreateJob(jName,jDate,jSummary,jComplete);
                     }
                     else
@@ -117,6 +114,15 @@ public class CreateJob extends AppCompatActivity {
             }
         });
 
+        Butt_Cancel = (Button) findViewById(R.id.jobCreateCancel);
+        Butt_Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateJob.this, Jobs.class);
+                startActivity(intent);
+            }
+        });
+
         mAuth = FirebaseAuth.getInstance();
 
         nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
@@ -136,6 +142,11 @@ public class CreateJob extends AppCompatActivity {
                 }
                 else if (selection.equals("Account") && spin_Clicked){
                     Intent intent = new Intent(CreateJob.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(CreateJob.this, Invitations.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
@@ -168,12 +179,14 @@ public class CreateJob extends AppCompatActivity {
 
     public void CreateJob(String _name, String _date, String _summary, Boolean _complete)
     {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects").child("-Kz2t03YZZjEUWnGQhJr").child("tasks");
+        //TODO: Replace hardcoded project key with active project key as determined by CStoreIDSs
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects").child(((CStoreIDs)getApplication()).getProjectID()).child("tasks");
 
         String newKey = ref.child(user.getUid()).child("jobs").push().getKey();
+        ((CStoreIDs)getApplication()).setJobID(newKey);
 
         //TODO: Need to replace hardcoded key with active task key as determined by CStoreIDs
-        ref = ref.child("-Kz4xDLxMl_ugG8YUaAa").child("jobs");
+        ref = ref.child(((CStoreIDs)getApplication()).getTaskID()).child("jobs");
 
         ref.child(newKey).child("name").setValue(_name);
         ref.child(newKey).child("deadline").setValue(_date);

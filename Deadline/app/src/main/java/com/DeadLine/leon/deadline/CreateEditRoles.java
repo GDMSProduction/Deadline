@@ -96,6 +96,11 @@ public class CreateEditRoles extends AppCompatActivity {
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(CreateEditRoles.this, Invitations.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
                 else if (selection.equals("About") && spin_Clicked){
                     Toast.makeText(CreateEditRoles.this, R.string.version_number, Toast.LENGTH_SHORT).show();
                     nav_spin.setSelection(0);
@@ -162,8 +167,7 @@ public class CreateEditRoles extends AppCompatActivity {
 
 
         String newKey = ref.child(user.getUid()).child("roles").push().getKey();
-        //ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child("roles");
-        ref = ref.child("-Kz2t03YZZjEUWnGQhJr").child("roles");
+        ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child("roles");
 
         ref.child(newKey).child("Name").setValue(Name);
         ref.child(newKey).child("AddMembersPermission").setValue(AddMembersPermission);

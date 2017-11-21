@@ -61,6 +61,7 @@ public class CDeadline extends HashMap implements Serializable {
     }
 
     public int getTypeID() {return typeID;}
+    public void setTypeID(int id) {typeID = id;}
 
     // Name Get + Set
     public String getName() {

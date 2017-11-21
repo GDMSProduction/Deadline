@@ -1,6 +1,8 @@
 package com.DeadLine.leon.deadline;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MemberActivity extends AppCompatActivity {
+public class Invitations extends AppCompatActivity {
 
     private Button Butt_Home;
 
@@ -23,7 +25,7 @@ public class MemberActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member);
+        setContentView(R.layout.activity_invitations);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -31,7 +33,7 @@ public class MemberActivity extends AppCompatActivity {
         Butt_Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MemberActivity.this, HomeScreen.class);
+                Intent intent = new Intent(Invitations.this, HomeScreen.class);
                 startActivity(intent);
             }
         });
@@ -44,32 +46,32 @@ public class MemberActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = parent.getSelectedItem().toString();
                 if (selection.equals("Projects") && spin_Clicked){
-                    Intent intent = new Intent(MemberActivity.this, Projects.class);
+                    Intent intent = new Intent(Invitations.this, Projects.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 else if (selection.equals("Settings") && spin_Clicked){
-                    Intent intent = new Intent(MemberActivity.this, Settings.class);
+                    Intent intent = new Intent(Invitations.this, Settings.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 else if (selection.equals("Account") && spin_Clicked){
-                    Intent intent = new Intent(MemberActivity.this, AccountInfo.class);
+                    Intent intent = new Intent(Invitations.this, AccountInfo.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
                 else if (selection.equals("Invitations") && spin_Clicked){
-                    Intent intent = new Intent(MemberActivity.this, Invitations.class);
+                    //Intent intent = new Intent(Invitations.this, Invitations.class);
                     nav_spin.setSelection(0);
-                    startActivity(intent);
+                    //startActivity(intent);
                 }
                 else if (selection.equals("About") && spin_Clicked){
-                    Toast.makeText(MemberActivity.this, R.string.version_number, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Invitations.this, R.string.version_number, Toast.LENGTH_SHORT).show();
                     nav_spin.setSelection(0);
                 }
                 else if (selection.equals("Logout") && spin_Clicked){
                     mAuth.signOut();
-                    Intent intent = new Intent(MemberActivity.this, Login.class);
+                    Intent intent = new Intent(Invitations.this, Login.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }

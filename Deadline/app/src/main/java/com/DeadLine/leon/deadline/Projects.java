@@ -117,9 +117,9 @@ public class Projects extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = parent.getSelectedItem().toString();
                 if (selection.equals("Projects") && spin_Clicked){
-                    Intent intent = new Intent(Projects.this, Projects.class);
+                    //Intent intent = new Intent(Projects.this, Projects.class);
                     nav_spin.setSelection(0);
-                    startActivity(intent);
+                    //startActivity(intent);
                 }
                 else if (selection.equals("Settings") && spin_Clicked){
                     Intent intent = new Intent(Projects.this, Settings.class);
@@ -128,6 +128,11 @@ public class Projects extends AppCompatActivity {
                 }
                 else if (selection.equals("Account") && spin_Clicked){
                     Intent intent = new Intent(Projects.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(Projects.this, Invitations.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }

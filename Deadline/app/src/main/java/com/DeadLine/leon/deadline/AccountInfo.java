@@ -94,6 +94,11 @@ public class AccountInfo extends AppCompatActivity {
                 else if (selection.equals("Account") && spin_Clicked){
                     nav_spin.setSelection(0);
                 }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(AccountInfo.this, Invitations.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
                 else if (selection.equals("About") && spin_Clicked){
                     Toast.makeText(AccountInfo.this, R.string.version_number, Toast.LENGTH_SHORT).show();
                     nav_spin.setSelection(0);

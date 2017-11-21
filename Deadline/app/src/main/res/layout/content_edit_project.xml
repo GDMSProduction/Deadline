@@ -62,5 +62,11 @@
             android:text="Edit"
             tools:layout_editor_absoluteX="161dp"
             tools:layout_editor_absoluteY="249dp" />
+
+        <Button
+            android:id="@+id/projEditCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

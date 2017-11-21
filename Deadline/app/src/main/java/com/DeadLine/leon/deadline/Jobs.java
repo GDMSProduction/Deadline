@@ -107,6 +107,11 @@ public class Jobs extends AppCompatActivity {
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(Jobs.this, Invitations.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
                 else if (selection.equals("About") && spin_Clicked){
                     Toast.makeText(Jobs.this, R.string.version_number, Toast.LENGTH_SHORT).show();
                     nav_spin.setSelection(0);

@@ -56,6 +56,12 @@
             android:text="Create"
             tools:layout_editor_absoluteX="161dp"
             tools:layout_editor_absoluteY="249dp" />
+
+        <Button
+            android:id="@+id/taskCreateCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -25,9 +25,7 @@ import android.widget.Spinner;
 
 public class ProjectCreationScreen extends AppCompatActivity {
 
-    private Button Butt_Home;
-
-    private Button projCreateButton;
+    private Button Butt_Home, Butt_Create, Butt_Cancel;
 
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
@@ -76,8 +74,8 @@ public class ProjectCreationScreen extends AppCompatActivity {
 
         user = mAuth.getCurrentUser();
 
-        projCreateButton = (Button) findViewById(R.id.projCreate);
-        projCreateButton.setOnClickListener(new View.OnClickListener()
+        Butt_Create = (Button) findViewById(R.id.projCreate);
+        Butt_Create.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
@@ -123,6 +121,15 @@ public class ProjectCreationScreen extends AppCompatActivity {
             }
         });
 
+        Butt_Cancel = (Button) findViewById(R.id.projCreateCancel);
+        Butt_Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
+                startActivity(intent);
+            }
+        });
+
         mAuth = FirebaseAuth.getInstance();
 
         nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
@@ -142,6 +149,11 @@ public class ProjectCreationScreen extends AppCompatActivity {
                 }
                 else if (selection.equals("Account") && spin_Clicked){
                     Intent intent = new Intent(ProjectCreationScreen.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(ProjectCreationScreen.this, Invitations.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
@@ -204,6 +216,9 @@ public class ProjectCreationScreen extends AppCompatActivity {
 
         String newKey = ref.child(user.getUid()).child("projectKeys").push().getKey();
         ref.child(user.getUid()).child("projectKeys").child(newKey).setValue(newKey);
+
+        //TODO: Determine if this works
+        ((CStoreIDs)getApplication()).setProjectID(newKey);
 
         //PROJECT DATABASE
         /*TODO LW4 - FIGURE OUT WHY IT ISN'T WORKING ANYMORE

@@ -24,8 +24,7 @@ import java.util.Calendar;
 public class CreateTask extends AppCompatActivity {
 
     //Buttons
-    private Button taskCreateButton;
-    private Button Butt_Home;
+    private Button Butt_Home, Butt_Create, Butt_Cancel;
 
     //Firebase
     private FirebaseAuth mAuth;
@@ -69,8 +68,8 @@ public class CreateTask extends AppCompatActivity {
 
         user = mAuth.getCurrentUser();
 
-        taskCreateButton = (Button) findViewById(R.id.taskCreate);
-        taskCreateButton.setOnClickListener(new View.OnClickListener()
+        Butt_Create = (Button) findViewById(R.id.taskCreate);
+        Butt_Create.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
@@ -81,7 +80,6 @@ public class CreateTask extends AppCompatActivity {
                 DatePicker tCalendar = (DatePicker) findViewById(R.id.datePicker);
                 Calendar validDate = Calendar.getInstance();
                 validDate.set(tCalendar.getYear(),tCalendar.getMonth(),tCalendar.getDayOfMonth());
-                //TODO: Create a toggle for this in the edit screen or from the view screen under the 3 dots options menu
                 tComplete = false;
 
                 if(!tName.equals("") &&
@@ -89,7 +87,6 @@ public class CreateTask extends AppCompatActivity {
                 {
                     if(!Calendar.getInstance().after(validDate))
                     {
-                        //TODO: Add a create task method in this java file
                         CreateTask(tName,tDate,tSummary,tComplete);
                     }
                     else
@@ -116,6 +113,15 @@ public class CreateTask extends AppCompatActivity {
             }
         });
 
+        Butt_Cancel = (Button) findViewById(R.id.taskCreateCancel);
+        Butt_Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateTask.this, Tasks.class);
+                startActivity(intent);
+            }
+        });
+
         mAuth = FirebaseAuth.getInstance();
 
         nav_spin = (Spinner) findViewById(R.id.nav_Spinner);
@@ -135,6 +141,11 @@ public class CreateTask extends AppCompatActivity {
                 }
                 else if (selection.equals("Account") && spin_Clicked){
                     Intent intent = new Intent(CreateTask.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(CreateTask.this, Invitations.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
@@ -169,9 +180,10 @@ public class CreateTask extends AppCompatActivity {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
 
         String newKey = ref.child(user.getUid()).child("tasks").push().getKey();
+        ((CStoreIDs)getApplication()).setTaskID(newKey);
 
         //TODO: Need to replace hardcoded key with active project key as determined by CStoreIDs
-        ref = ref.child("-Kz2t03YZZjEUWnGQhJr").child("tasks");
+        ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child("tasks");
 
         ref.child(newKey).child("name").setValue(_name);
         ref.child(newKey).child("deadline").setValue(_date);

@@ -21,8 +21,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 public class EditTask extends AppCompatActivity {
-    private Button Butt_Home;
-    private Button Butt_Save;
+    private Button Butt_Home, Butt_Save, Butt_Cancel;
 
     private Spinner nav_spin;
     private Boolean spin_Clicked = false;
@@ -55,6 +54,15 @@ public class EditTask extends AppCompatActivity {
         tSummary.setText(ref.child("summary").toString());
         tComplete = (CheckBox) findViewById(R.id.taskComplete);
         tComplete.setChecked(false);
+
+        Butt_Cancel = (Button) findViewById(R.id.projEditCancel);
+        Butt_Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditTask.this, Tasks.class);
+                startActivity(intent);
+            }
+        });
 
         Butt_Save = (Button) findViewById(R.id.taskEdit);
         Butt_Save.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +128,11 @@ public class EditTask extends AppCompatActivity {
                 }
                 else if (selection.equals("Account") && spin_Clicked){
                     Intent intent = new Intent(EditTask.this, AccountInfo.class);
+                    nav_spin.setSelection(0);
+                    startActivity(intent);
+                }
+                else if (selection.equals("Invitations") && spin_Clicked){
+                    Intent intent = new Intent(EditTask.this, Invitations.class);
                     nav_spin.setSelection(0);
                     startActivity(intent);
                 }
