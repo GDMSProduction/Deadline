@@ -98,6 +98,8 @@ public class ProjectCreationScreen extends AppCompatActivity {
                     if(!currentDay.after(validDate))
                     {
                         CreateProject(_projName,_deadlineDate, _summary, _complete);
+                        Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
+                        startActivity(intent);
                     }
                     else
                     {
@@ -231,12 +233,9 @@ public class ProjectCreationScreen extends AppCompatActivity {
         ref.child(newKey).child("deadline").setValue(_date);
         ref.child(newKey).child("summary").setValue(_summary);
         ref.child(newKey).child("complete").setValue(_complete);
-        //*/
-        Toast.makeText(ProjectCreationScreen.this,"Project creation successful",Toast.LENGTH_SHORT).show();
-        //*/
+
+        //Toast.makeText(ProjectCreationScreen.this,"Project creation successful",Toast.LENGTH_SHORT).show();
+
         ((CStoreIDs)getApplication()).setProjectID(newKey);
-        Intent intent = new Intent(ProjectCreationScreen.this, Projects.class);
-        //intent.putExtra("TempProj", tempProject);
-        startActivity(intent);
     }
 }

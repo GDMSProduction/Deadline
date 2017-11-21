@@ -45,7 +45,8 @@
                 android:id="@+id/encasedDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Description of encasing object goes here" />
+                android:text="Description of encasing object goes here"
+                android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -56,45 +57,45 @@
             tools:layout_editor_absoluteX="20dp">
 
             <ImageButton
-                android:id="@+id/sort_button"
+                android:id="@+id/sort_name_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:backgroundTint="@android:color/transparent"
                 app:srcCompat="@drawable/sort" />
 
             <TextView
-                android:id="@+id/sort_label"
+                android:id="@+id/sort_name_label"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:layout_weight="1"
+                android:layout_weight="0"
                 android:gravity="center_vertical"
-                android:text="Sort" />
+                android:text="Sort by Name" />
 
             <ImageButton
-                android:id="@+id/filter_button"
+                android:id="@+id/sort_date_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:backgroundTint="@android:color/transparent"
-                app:srcCompat="@drawable/filter" />
+                app:srcCompat="@drawable/sort" />
 
             <TextView
-                android:id="@+id/filter_label"
+                android:id="@+id/sort_date_label"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="0"
                 android:gravity="center_vertical"
-                android:text="Filter" />
+                android:text="Sort by Date" />
 
             <ImageButton
                 android:id="@+id/createTask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:backgroundTint="@android:color/transparent"
                 app:srcCompat="@drawable/add" />
 

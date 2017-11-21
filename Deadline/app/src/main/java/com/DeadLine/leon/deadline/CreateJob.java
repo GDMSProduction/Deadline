@@ -88,6 +88,8 @@ public class CreateJob extends AppCompatActivity {
                     if(!Calendar.getInstance().after(validDate))
                     {
                         CreateJob(jName,jDate,jSummary,jComplete);
+                        Intent intent = new Intent(CreateJob.this, Tasks.class);
+                        startActivity(intent);
                     }
                     else
                     {
@@ -98,9 +100,6 @@ public class CreateJob extends AppCompatActivity {
                 {
                     Toast.makeText(CreateJob.this, "Please fill out the form completely", Toast.LENGTH_SHORT).show();
                 }
-
-                Intent intent = new Intent(CreateJob.this, Tasks.class);
-                startActivity(intent);
             }
         });
 
@@ -193,7 +192,6 @@ public class CreateJob extends AppCompatActivity {
         ref.child(newKey).child("summary").setValue(_summary);
         ref.child(newKey).child("complete").setValue(_complete);
 
-        Toast.makeText(CreateJob.this,"Job creation successful",Toast.LENGTH_SHORT).show();
-
+        //Toast.makeText(CreateJob.this,"Job creation successful",Toast.LENGTH_SHORT).show();
     }
 }
