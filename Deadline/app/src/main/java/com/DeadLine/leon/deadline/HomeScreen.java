@@ -518,13 +518,13 @@ public class HomeScreen extends AppCompatActivity {
                     /*getTasksParentProjectID(global.deadlines[position].getUniqueID());
                     ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());*/
 
-                    Intent intent = new Intent(HomeScreen.this, Tasks.class);
+                    Intent intent = new Intent(HomeScreen.this, Jobs.class);
                     startActivity(intent);
                     break;
                 }
                 default:{break;}
             }
-            Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
             //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
 
             return false;
