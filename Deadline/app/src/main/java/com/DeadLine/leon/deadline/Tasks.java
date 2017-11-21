@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -17,11 +18,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,9 +34,10 @@ import java.util.Map;
 public class Tasks extends AppCompatActivity {
 
     private Button Butt_Home;
-    private FloatingActionButton Create_Task;
-    private LinearLayout llTaskOptionsLayout;
-    private Button Butt_TaskOption;
+    private ImageButton Create_Task, Butt_Name_Sort, Butt_Date_Sort;
+    private boolean bSort_Switch = false;
+
+    private TextView txt_Within, txt_Description, txt_Deadline;
 
     private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -119,7 +123,7 @@ public class Tasks extends AppCompatActivity {
             }
         });
 
-        Create_Task = (FloatingActionButton) findViewById(R.id.CreateTask);
+        Create_Task = (ImageButton) findViewById(R.id.createTask);
         Create_Task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,14 +131,48 @@ public class Tasks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Butt_Name_Sort = (ImageButton) findViewById(R.id.sort_name_button);
+        Butt_Name_Sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: Put name sort stuff here
+            }
+        });
+
+        Butt_Date_Sort = (ImageButton) findViewById(R.id.sort_date_button);
+        Butt_Date_Sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: Put date sort stuff here
+            }
+        });
+
+        txt_Within = (TextView) findViewById(R.id.encasedWithin);
+        txt_Deadline = (TextView) findViewById(R.id.encasedDeadline);
+        txt_Description = (TextView) findViewById(R.id.encasedDescription);
+        mDataBase = FirebaseDatabase.getInstance().getReference("projects").child(((CStoreIDs)getApplication()).getProjectID());
+        mDataBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                txt_Within.setText(dataSnapshot.child("name").getValue().toString());
+                txt_Deadline.setText(dataSnapshot.child("deadline").getValue().toString());
+                txt_Description.setText(dataSnapshot.child("summary").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        //txt_Within.setText(((CStoreIDs)getApplication()).getProjectID().toString());
+        //ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child("");
+/*
         if(!tempRole.getTaskPermission())
             Create_Task.setVisibility(View.GONE);
+*/
 
-
-        Button tempButton = (Button) findViewById(R.id.btnTask);
-        tempButton.setText(tempTask.getName());
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
+        /*tempButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(llTaskOptionsLayout.getVisibility() == View.VISIBLE)
@@ -142,24 +180,10 @@ public class Tasks extends AppCompatActivity {
                 Intent intent = new Intent(Tasks.this, Jobs.class);
                 startActivity(intent);
             }
-        });
-
-
-        tempButton = (Button) findViewById(R.id.btnEditTask);
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Tasks.this, EditTask.class);
-                startActivity(intent);
-            }
-        });
-        if(!tempRole.getTaskPermission())
-            tempButton.setVisibility(View.GONE);
-
-
+        });*/
 
         // btnViewTaskOptions OnCLickListener
+/*
         llTaskOptionsLayout = (LinearLayout) findViewById(R.id.llTaskOptions);
         tempButton = (Button) findViewById(R.id.btnViewTaskOptions);
 
@@ -185,6 +209,7 @@ public class Tasks extends AppCompatActivity {
         });
         if(!tempRole.getTaskPermission())
             Butt_TaskOption.setVisibility(View.GONE);
+*/
 
         fBase = FirebaseDatabase.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -217,7 +242,7 @@ public class Tasks extends AppCompatActivity {
                 //int i = 0;
                 for(DataSnapshot mtest :dataSnapshot.getChildren())
                 {
-                    if(mtest != null)
+                    if(mtest != null && mtest.getKey().toString().equals(((CStoreIDs)getApplication()).getProjectID()))
                     {
                         String projectKey = mtest.getValue().toString();
                         sDatabase(projectKey, aTest, arrayInc);
@@ -483,112 +508,20 @@ public class Tasks extends AppCompatActivity {
         TaskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int typeID = HomeScreen.global.deadlines[position].getTypeID();
-                switch (typeID){
-                    // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
-
-                    // CProject
-                    case 0: {
-                        // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-                        ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Projects.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    // CJob
-                    case 1:{
-                        // ToDo: For now, hard code the Unique ID of a prexisting Job to test
-                        // ToDO: When possible replace with actual Job ID
-                        // ToDo: Set the Task and Project ID as well
-                        //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-                        //getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                        //((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Jobs.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    // CTask
-                    case 2: {
-                        // ToDo: For now, hard code the Unique ID of a prexisting Task to test
-                        //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-                        //getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                        //((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    default:{break;}
-                }
-                //Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
-                //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
-
+                //TODO: make this work lol
+                ((CStoreIDs)getApplication()).setTaskID(HomeScreen.global.deadlines[position].getUniqueID());
+                Toast.makeText(Tasks.this,((CStoreIDs)getApplication()).getTaskID().toString(),Toast.LENGTH_SHORT).show();
             }
         });
 
         TaskList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                int typeID = HomeScreen.global.deadlines[position].getTypeID();
-                switch (typeID){
-                    // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
-
-                    // CProject
-                    case 0: {
-                        // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-
-                        //((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
-
-                        //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    // CJob
-
-
-                    case 1:{
-                        // ToDo: For now, hard code the Unique ID of a prexisting Job to test
-                        // ToDO: When possible replace with actual Job ID
-                        // ToDo: Set the Task and Project ID as well
-                        //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-
-                    /*getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());*/
-
-                        break;
-                    }
-                    // CTask
-                    case 2: {
-                        // ToDo: For now, hard code the Unique ID of a prexisting Task to test
-                        //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-                    /*getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());*/
-
-                        //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    default:{break;}
-                }
-                Toast.makeText(Tasks.this,HomeScreen.global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
-                //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
-
+                ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
+                Intent intent = new Intent(Tasks.this, Jobs.class);
+                startActivity(intent);
                 return false;
             }
         });
-        //*/
-
-        //*/
     }
 }

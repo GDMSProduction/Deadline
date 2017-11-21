@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -30,11 +31,11 @@ import java.util.Map;
 
 public class Projects extends AppCompatActivity {
 
-    public FloatingActionButton Create_Project;
+    private ImageButton Create_Project, Butt_Sort, Butt_Filter;
+    private boolean bSort_Switch = false;
+
     private Button Butt_Home;
-    private Button Butt_ViewProjectOptions;
-    private Button Butt_ProjOptions;
-    private LinearLayout llProjOptions;
+
     private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -64,7 +65,7 @@ public class Projects extends AppCompatActivity {
 
         fBase = FirebaseDatabase.getInstance();
 
-        Create_Project = (FloatingActionButton) findViewById(R.id.CreateProject);
+        Create_Project = (ImageButton) findViewById(R.id.createProj);
         Create_Project.setOnClickListener(new View.OnClickListener()
         {
 
@@ -155,68 +156,30 @@ public class Projects extends AppCompatActivity {
             }
         });
 
-        llProjOptions = (LinearLayout) findViewById(R.id.llProjectOptions);
-
-        Butt_ViewProjectOptions = (Button) findViewById(R.id.btnViewProjectOptions);
-        Butt_ViewProjectOptions.setOnClickListener(new View.OnClickListener() {
+        Butt_Sort = (ImageButton) findViewById(R.id.sort_button);
+        Butt_Sort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(llProjOptions.getVisibility() == View.GONE)
-                    llProjOptions.setVisibility(View.VISIBLE);
-                else
-                    llProjOptions.setVisibility(View.GONE);
+                if(!bSort_Switch) {
+                    sortDeadlinesNamesDescending();
+                    bSort_Switch = true;
+                }
+                else{
+                    sortDeadlinesNamesAscending();
+                    bSort_Switch = false;
+                }
+                populateScreen(aTest);
             }
         });
 
-        Button tempButton = (Button) findViewById(R.id.btnProject);
-        tempButton.setText(tempProject.getName());
-
-        tempButton.setOnClickListener(new View.OnClickListener() {
+        Butt_Filter = (ImageButton) findViewById(R.id.filter_button);
+        Butt_Filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(llProjOptions.getVisibility() == View.VISIBLE)
-                    llProjOptions.setVisibility(View.GONE);
-                Intent intent = new Intent(Projects.this, Tasks.class);
-                startActivity(intent);
-            }
-        });
-
-        // btnEditProject OnCLickListener
-        Butt_ProjOptions = (Button) findViewById(R.id.btnEditProject);
-        Butt_ProjOptions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Projects.this, EditProject.class);
-                startActivity(intent);
-            }
-        });
-        //tempRole.setProjectPermission(true);
-        if(!tempRole.getProjectPermission())
-            Butt_ProjOptions.setVisibility(View.GONE);
 
 
-        // btnViewEditRoles OnCLickListener
-        Butt_ProjOptions = (Button) findViewById(R.id.btnViewRoles);
-        Butt_ProjOptions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Projects.this, Roles.class);
-                startActivity(intent);
             }
         });
-
-        // btnDeleteProject OnCLickListener
-        Butt_ProjOptions = (Button) findViewById(R.id.btnDeleteProject);
-        Butt_ProjOptions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                llProjOptions.removeAllViews();
-                llProjOptions = (LinearLayout) findViewById(R.id.llProjects);
-                llProjOptions.removeAllViews();
-            }
-        });
-        if(!tempRole.getProjectPermission())
-            Butt_ProjOptions.setVisibility(View.GONE);
 
         mDataBase = fBase.getReference("users").child(user.getUid());//.child("projectList");
         mDataBase.addChildEventListener(new ChildEventListener() {
@@ -488,117 +451,131 @@ public class Projects extends AppCompatActivity {
                 new String[] {CDeadline.ITEM_NAME, CDeadline.DEADLINE_DATE},
                 new int[] {R.id.item_name,R.id.deadline_date});
 
-        ProjectList.setAdapter(testAdapt);
         //THIS IS WHAT NEEDS TO BE ADDED TO MAKE IT DO STUFF ON CLICK
+        ProjectList.setAdapter(testAdapt);
         ProjectList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int typeID = HomeScreen.global.deadlines[position].getTypeID();
-                switch (typeID){
-                    // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
-
-                    // CProject
-                    case 0: {
-                        // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-                        ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Projects.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    // CJob
-                    case 1:{
-                        // ToDo: For now, hard code the Unique ID of a prexisting Job to test
-                        // ToDO: When possible replace with actual Job ID
-                        // ToDo: Set the Task and Project ID as well
-                        //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-                        //getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                        //((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Jobs.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    // CTask
-                    case 2: {
-                        // ToDo: For now, hard code the Unique ID of a prexisting Task to test
-                        //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-                        //getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                        //((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());
-
-                      /*Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                      startActivity(intent);*/
-                        break;
-                    }
-                    default:{break;}
-                }
-                //Toast.makeText(HomeScreen.this,global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
-                //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
-
+                ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
+                //Toast.makeText(Projects.this,((CStoreIDs)getApplication()).getProjectID(),Toast.LENGTH_SHORT).show();
             }
         });
 
         ProjectList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                int typeID = HomeScreen.global.deadlines[position].getTypeID();
-                switch (typeID){
-                    // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
-
-                    // CProject
-                    case 0: {
-                        // ToDo: Change this from Hard Coded "Another One" Project ID to the actual Project ID
-
-                        //((CStoreIDs)getApplication()).setProjectID(global.deadlines[position].getUniqueID());
-
-                        //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    // CJob
-
-
-                    case 1:{
-                        // ToDo: For now, hard code the Unique ID of a prexisting Job to test
-                        // ToDO: When possible replace with actual Job ID
-                        // ToDo: Set the Task and Project ID as well
-                        //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-
-                    /*getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());*/
-
-                        break;
-                    }
-                    // CTask
-                    case 2: {
-                        // ToDo: For now, hard code the Unique ID of a prexisting Task to test
-                        //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
-                        //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-
-                    /*getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                    ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());*/
-
-                        //Intent intent = new Intent(HomeScreen.this, Tasks.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    default:{break;}
-                }
-                Toast.makeText(Projects.this,HomeScreen.global.deadlines[position].getUniqueID().toString(),Toast.LENGTH_SHORT).show();
-                //TODO: Somehow retrieve the project ID from the list object that was clicked and store that ID with CStoreIDs
-
+                ((CStoreIDs)getApplication()).setProjectID(HomeScreen.global.deadlines[position].getUniqueID());
+                Intent intent = new Intent(Projects.this, Tasks.class);
+                startActivity(intent);
                 return false;
             }
         });
-        //*/
+    }
+    public void sortDeadlinesNamesDescending(){
+        List<CDeadline> sortTasks = new ArrayList<>();
+        List<CDeadline> oldTasks = new ArrayList<>();
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldTasks.add(aTest[i]);
+        }
+        int taskIndex;
+        while(oldTasks.size() > 0) {
+            taskIndex = 0;
+            for (int i = 0; i < oldTasks.size(); i++) {
+                if(oldTasks.get(taskIndex).getName().toLowerCase().compareTo(oldTasks.get(i).getName().toLowerCase()) > 0)
+                    taskIndex = i;
+            }
+            sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            oldTasks.remove(taskIndex);
+        }
 
-        //*/
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortTasks.get(0);
+                sortTasks.remove(0);
+            }
+        }
+
+    }
+
+    public void sortDeadlinesNamesAscending(){
+        List<CDeadline> sortTasks = new ArrayList<>();
+        List<CDeadline> oldTasks = new ArrayList<>();
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldTasks.add(aTest[i]);
+        }
+        int taskIndex;
+        while(oldTasks.size() > 0) {
+            taskIndex = 0;
+            for (int i = 0; i < oldTasks.size(); i++) {
+                if(oldTasks.get(taskIndex).getName().toLowerCase().compareTo(oldTasks.get(i).getName().toLowerCase()) < 0)
+                    taskIndex = i;
+            }
+            sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            oldTasks.remove(taskIndex);
+        }
+
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortTasks.get(0);
+                sortTasks.remove(0);
+            }
+        }
+
+    }
+
+    public void sortDeadlinesDescending(){
+        List<CDeadline> sortTasks = new ArrayList<>();
+        List<CDeadline> oldTasks = new ArrayList<>();
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldTasks.add(aTest[i]);
+        }
+        int taskIndex;
+        while(oldTasks.size() > 0) {
+            taskIndex = 0;
+            for (int i = 0; i < oldTasks.size(); i++) {
+                if(oldTasks.get(taskIndex).getDeadline().compareTo(oldTasks.get(i).getDeadline()) > 0)
+                    taskIndex = i;
+            }
+            sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            oldTasks.remove(taskIndex);
+        }
+
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortTasks.get(0);
+                sortTasks.remove(0);
+            }
+        }
+
+    }
+
+    public void sortDeadlinesAscending(){
+        List<CDeadline> sortTasks = new ArrayList<>();
+        List<CDeadline> oldTasks = new ArrayList<>();
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null)
+                oldTasks.add(aTest[i]);
+        }
+        int taskIndex;
+        while(oldTasks.size() > 0) {
+            taskIndex = 0;
+            for (int i = 0; i < oldTasks.size(); i++) {
+                if(oldTasks.get(taskIndex).getDeadline().compareTo(oldTasks.get(i).getDeadline()) < 0)
+                    taskIndex = i;
+            }
+            sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            oldTasks.remove(taskIndex);
+        }
+
+        for(int i = 0; i < aTest.length; i++){
+            if(aTest[i] != null) {
+                aTest[i] = sortTasks.get(0);
+                sortTasks.remove(0);
+            }
+        }
+
     }
 }

@@ -88,6 +88,8 @@ public class CreateTask extends AppCompatActivity {
                     if(!Calendar.getInstance().after(validDate))
                     {
                         CreateTask(tName,tDate,tSummary,tComplete);
+                        Intent intent = new Intent(CreateTask.this, Tasks.class);
+                        startActivity(intent);
                     }
                     else
                     {
@@ -98,9 +100,6 @@ public class CreateTask extends AppCompatActivity {
                 {
                     Toast.makeText(CreateTask.this, "Please fill out the form completely", Toast.LENGTH_SHORT).show();
                 }
-
-                Intent intent = new Intent(CreateTask.this, Tasks.class);
-                startActivity(intent);
             }
         });
 
@@ -190,6 +189,6 @@ public class CreateTask extends AppCompatActivity {
         ref.child(newKey).child("summary").setValue(_summary);
         ref.child(newKey).child("complete").setValue(_complete);
 
-        Toast.makeText(CreateTask.this,"Task creation successful",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(CreateTask.this,"Task creation successful",Toast.LENGTH_SHORT).show();
     }
 }

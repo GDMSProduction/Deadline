@@ -266,7 +266,6 @@ public class HomeScreen extends AppCompatActivity {
         text.setText(test);
 
         mDataBase = FirebaseDatabase.getInstance().getReference("users").child(user.getDisplayName()).child("projectListSize");
-
         mDataBase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -280,14 +279,6 @@ public class HomeScreen extends AppCompatActivity {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
-
-        //Do we even need this?
-        if(projectSize == 0)
-        {
-            String empty = "You do not have any open projects! Please click the button to create a new project";
-            TextView emptyText = (TextView) findViewById(R.id.empty_Prompt);
-            emptyText.setText(empty);
-        }
 
         mDataBase = FirebaseDatabase.getInstance().getReference("users");
         fBase = FirebaseDatabase.getInstance();
@@ -429,7 +420,6 @@ public class HomeScreen extends AppCompatActivity {
               new int[] {R.id.item_name,R.id.deadline_date});
 
       HomeList.setAdapter(testAdapt);
-      //THIS IS WHAT NEEDS TO BE ADDED TO MAKE IT DO STUFF ON CLICK
       HomeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -486,7 +476,7 @@ public class HomeScreen extends AppCompatActivity {
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
             int typeID = global.IDArray[position];
             switch (typeID){
-                // I am not using breaks in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
+                // I am not using breaks- in between cases so it sets all the IDS it can starting from lowest Jobs level, up to the Project Level
 
                 // CProject
                 case 0: {
