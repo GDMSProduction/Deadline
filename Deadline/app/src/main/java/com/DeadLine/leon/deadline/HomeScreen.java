@@ -61,6 +61,9 @@ public class HomeScreen extends AppCompatActivity {
     private ImageButton homeProjCreate;
     private ImageButton Butt_Sort;
     private boolean bSort_Switch = false;
+
+    private int arrayInc = 0;
+
     private ImageButton Butt_Filter;
     private int nFilterSwitch = 1;
 
@@ -295,14 +298,14 @@ public class HomeScreen extends AppCompatActivity {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                int i = 0;
+                //int i = 0;
                 for(DataSnapshot mtest :dataSnapshot.getChildren())
                 {
                     if(mtest != null)
                     {
                         String projectKey = mtest.getValue().toString();
-                        sDatabase(projectKey, aTest, i);
-                        i++;
+                        sDatabase(projectKey, aTest, arrayInc);
+                        //i++;
                         /*
                         CProject temp = new CProject(mtest.child("name").getValue().toString(), mtest.child("deadline").getValue().toString(), (Boolean) mtest.child("bPrivate").getValue());
                         aTest[i] = temp;
@@ -359,6 +362,7 @@ public class HomeScreen extends AppCompatActivity {
         setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(setIntent);
     }
+
     public void populateScreen(final CDeadline[] _proj)
     {
         int j = 0;
@@ -370,7 +374,7 @@ public class HomeScreen extends AppCompatActivity {
                 "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
                 "Android", "iPhone", "WindowsMobile" };
                 */
-
+        /*
         final ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i < _proj.length; ++i)
         {
@@ -399,13 +403,13 @@ public class HomeScreen extends AppCompatActivity {
 
       */
       global.setDeadlines(_proj);
-      for(int i = 0; i < _proj.length; ++i)
+      for(int i = 0; i < arrayInc; ++i)
       {
           if(_proj[i] != null )
           {
               deadlines.add(_proj[i]);
               global.setColorID(_proj[i].getTypeID());
-          j = i + 1;
+          //j = i + 1;
           }
       }
 
@@ -547,6 +551,7 @@ public class HomeScreen extends AppCompatActivity {
                 String deadline = "";
                 Boolean complete = false;
                 String summary = "";
+                Boolean addProj = false;
                 for(DataSnapshot mtest : dataSnapshot.getChildren())
                 {
                     if(mtest != null && dataSnapshot.getKey().toString().equals(_key))
@@ -566,12 +571,21 @@ public class HomeScreen extends AppCompatActivity {
                             case "summary":
                                 summary = mtest.getValue().toString();
                                 //i++;
+                                if(!dataSnapshot.child("tasks").exists())
+                                {
+                                    CProject temp = new CProject(name, deadline, summary, complete);
+                                    temp.setUniqueID(_key);
+                                    _array[arrayInc] = temp;
+                                    arrayInc++;
+                                }
                                 j++;
                                 break;
                             case "complete":
                                 complete = (boolean) mtest.getValue();
                                 //i++;
                                 j++;
+                                break;
+                            case "roles":
                                 break;
                             case "tasks":
                                 for(DataSnapshot qTest : mtest.getChildren())
@@ -588,44 +602,54 @@ public class HomeScreen extends AppCompatActivity {
                                             {
                                                 for(DataSnapshot fTest : zTest.getChildren())
                                                 {
-                                                    k = i;
+                                                    //k = i;
                                                     Boolean zComplete = (Boolean) fTest.child("complete").getValue();
                                                     String zDeadline = fTest.child("deadline").getValue().toString();
                                                     String zName = fTest.child("name").getValue().toString();
                                                     String zSumm = fTest.child("summary").getValue().toString();
 
                                                     CJob tempJob = new CJob(zName,zDeadline,zSumm,zComplete);
-                                                    _array[k] = tempJob;
-                                                    k++;
-                                                    i = k;
+                                                    _array[arrayInc] = tempJob;
+                                                    arrayInc++;
+                                                    //i = k;
                                                 }
                                             }
                                         }
                                     }
 
                                     CTask tempTask = new CTask(tName,tDeadline,tSumm,tComplete);
-                                    _array[i] = tempTask;
-                                    i++;
+                                    _array[arrayInc] = tempTask;
+                                    arrayInc++;
                                 }
+                                //TESTING
+                                CProject temp = new CProject(name, deadline, summary, complete);
+                                temp.setUniqueID(_key);
+                                _array[arrayInc] = temp;
+                                arrayInc++;
                                 j++;
                                 break;
                             default:
                                 break;
                         }
-                        if(name != "" && deadline != "")
+                        /*
+                        if(name != "" && deadline != "" && addProj)
                         {
 
                             CProject temp = new CProject(name, deadline, summary, complete);
                             temp.setUniqueID(_key);
-                            _array[_j] = temp;
+                            _array[arrayInc] = temp;
+                            arrayInc++;
                             //i++;
                         }
+                        //*/
                     }
+
                     if(dataSnapshot.getChildrenCount() < j+1 && dataSnapshot.getChildrenCount() != 0)
                     {
                         sortDeadlinesDescending();
                         populateScreen(_array);
                     }
+                    //*/
                 }
             }
 
