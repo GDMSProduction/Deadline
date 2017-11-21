@@ -435,7 +435,7 @@ public class HomeScreen extends AppCompatActivity {
                       startActivity(intent);*/
                       break;
                   }
-                  // CJob
+                  // CTask
                   case 1:{
                       // ToDo: For now, hard code the Unique ID of a prexisting Job to test
                       // ToDO: When possible replace with actual Job ID
@@ -443,21 +443,22 @@ public class HomeScreen extends AppCompatActivity {
                       //((CStoreIDs)getApplication()).setJobID("HardCodedIDHere");
                       //((CStoreIDs)getApplication()).setTaskID("ActualTaskID");
                       //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
-                      getJobsParentsIDs(global.deadlines[position].getUniqueID());
-                      ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());
+
+                      getTasksParentProjectID(global.deadlines[position].getUniqueID());
+                      ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());
 
                       /*Intent intent = new Intent(HomeScreen.this, Jobs.class);
                       startActivity(intent);*/
                       break;
                   }
-                  // CTask
+                  // CJob
                   case 2: {
                       // ToDo: For now, hard code the Unique ID of a prexisting Task to test
                       //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
                       //((CStoreIDs)getApplication()).setProjectID("ActualProjectID");
 
-                      getTasksParentProjectID(global.deadlines[position].getUniqueID());
-                      ((CStoreIDs)getApplication()).setTaskID(global.deadlines[position].getUniqueID());
+                      getJobsParentsIDs(global.deadlines[position].getUniqueID());
+                      ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());
 
                       /*Intent intent = new Intent(HomeScreen.this, Tasks.class);
                       startActivity(intent);*/
@@ -490,7 +491,7 @@ public class HomeScreen extends AppCompatActivity {
                     int j = i;
                     break;
                 }
-                // CJob
+                // CTask
                 case 1:{
                     // ToDo: For now, hard code the Unique ID of a prexisting Job to test
                     // ToDO: When possible replace with actual Job ID
@@ -502,12 +503,15 @@ public class HomeScreen extends AppCompatActivity {
                     int i = 1;
                     int j = i;
 
+                    Intent intent = new Intent(HomeScreen.this, Jobs.class);
+                    startActivity(intent);
+                    break;
+
                     /*getJobsParentsIDs(global.deadlines[position].getUniqueID());
                     ((CStoreIDs)getApplication()).setJobID(global.deadlines[position].getUniqueID());*/
 
-                    break;
                 }
-                // CTask
+                // CJob
                 case 2: {
                     // ToDo: For now, hard code the Unique ID of a prexisting Task to test
                     //((CStoreIDs)getApplication()).setTaskID("HardCodedIDHere");
@@ -518,8 +522,6 @@ public class HomeScreen extends AppCompatActivity {
                     int i = 2;
                     int j = i;
 
-                    Intent intent = new Intent(HomeScreen.this, Jobs.class);
-                    startActivity(intent);
                     break;
                 }
                 default:{break;}
@@ -764,9 +766,15 @@ public class HomeScreen extends AppCompatActivity {
     public void sortDeadlinesNamesDescending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
+
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null) {
                 oldTasks.add(aTest[i]);
+                oldIds.add(global.IDArray[i]);
+            }
         }
         int taskIndex;
         while(oldTasks.size() > 0) {
@@ -776,13 +784,17 @@ public class HomeScreen extends AppCompatActivity {
                     taskIndex = i;
             }
             sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            sortIds.add(oldIds.get(taskIndex));
             oldTasks.remove(taskIndex);
+            oldIds.remove(taskIndex);
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortTasks.get(0);
                 sortTasks.remove(0);
+                global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
 
@@ -791,9 +803,15 @@ public class HomeScreen extends AppCompatActivity {
     public void sortDeadlinesNamesAscending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
+
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null) {
                 oldTasks.add(aTest[i]);
+                oldIds.add(global.IDArray[i]);
+            }
         }
         int taskIndex;
         while(oldTasks.size() > 0) {
@@ -803,13 +821,17 @@ public class HomeScreen extends AppCompatActivity {
                     taskIndex = i;
             }
             sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
+            sortIds.add(oldIds.get(taskIndex));
             oldTasks.remove(taskIndex);
+            oldIds.remove(taskIndex);
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortTasks.get(0);
                 sortTasks.remove(0);
+                global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
 
@@ -818,9 +840,15 @@ public class HomeScreen extends AppCompatActivity {
     public void sortDeadlinesDescending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
+
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null) {
                 oldTasks.add(aTest[i]);
+                oldIds.add(global.IDArray[i]);
+            }
         }
         int taskIndex;
         while(oldTasks.size() > 0) {
@@ -831,12 +859,16 @@ public class HomeScreen extends AppCompatActivity {
             }
             sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
             oldTasks.remove(taskIndex);
+            sortIds.add(oldIds.get(taskIndex));
+            oldIds.remove(taskIndex);
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortTasks.get(0);
                 sortTasks.remove(0);
+                global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
 
@@ -845,9 +877,15 @@ public class HomeScreen extends AppCompatActivity {
     public void sortDeadlinesAscending(){
         List<CDeadline> sortTasks = new ArrayList<>();
         List<CDeadline> oldTasks = new ArrayList<>();
+
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null) {
                 oldTasks.add(aTest[i]);
+                oldIds.add(global.IDArray[i]);
+            }
         }
         int taskIndex;
         while(oldTasks.size() > 0) {
@@ -858,12 +896,16 @@ public class HomeScreen extends AppCompatActivity {
             }
             sortTasks.add(new CDeadline(oldTasks.get(taskIndex)));
             oldTasks.remove(taskIndex);
+            sortIds.add(oldIds.get(taskIndex));
+            oldIds.remove(taskIndex);
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortTasks.get(0);
                 sortTasks.remove(0);
+                global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
 
@@ -873,31 +915,41 @@ public class HomeScreen extends AppCompatActivity {
     public void filterByProj(){
         List<CDeadline> sortDeadlines = new ArrayList<>();
         List<CDeadline> oldDeadlines = new ArrayList<>();
+
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         // Project
         int nTypeToGet = 0;
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null){
                 oldDeadlines.add(aTest[i]);
+                oldIds.add(global.IDArray[i]);
+            }
         }
         while(oldDeadlines.size() > 0) {
             for (int i = 0; i < oldDeadlines.size();) {
                 if(oldDeadlines.get(i).getTypeID() == nTypeToGet){
                     sortDeadlines.add(new CDeadline(oldDeadlines.get(i)));
                     oldDeadlines.remove(i);
+                    sortIds.add(oldIds.get(i));
+                    oldIds.remove(i);
                 }
                 else
                     i++;
             }
-            if(0 == nTypeToGet)
-                nTypeToGet = 2;
+            if(2 == nTypeToGet)
+                nTypeToGet = 0;
             else
-                nTypeToGet -= 1;
+                nTypeToGet += 1;
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortDeadlines.get(0);
                 sortDeadlines.remove(0);
+                global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
     }
@@ -905,32 +957,40 @@ public class HomeScreen extends AppCompatActivity {
     public void filterByTask(){
         List<CDeadline> sortDeadlines = new ArrayList<>();
         List<CDeadline> oldDeadlines = new ArrayList<>();
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         // Task
-        int nTypeToGet = 2;
+        int nTypeToGet = 1;
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null){
                 oldDeadlines.add(aTest[i]);
+                oldIds.add(global.IDArray[i]);
+            }
         }
         while(oldDeadlines.size() > 0) {
             for (int i = 0; i < oldDeadlines.size();) {
-                int temp = oldDeadlines.get(i).getTypeID();
                 if(oldDeadlines.get(i).getTypeID() == nTypeToGet){
                     sortDeadlines.add(new CDeadline(oldDeadlines.get(i)));
                     oldDeadlines.remove(i);
+                    sortIds.add(oldIds.get(i));
+                    oldIds.remove(i);
                 }
                 else
                     i++;
             }
-            if(0 == nTypeToGet)
-                nTypeToGet = 2;
+            if(2 == nTypeToGet)
+                nTypeToGet = 0;
             else
-                nTypeToGet -= 1;
+                nTypeToGet += 1;
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortDeadlines.get(0);
                 sortDeadlines.remove(0);
+                global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
     }
@@ -938,31 +998,40 @@ public class HomeScreen extends AppCompatActivity {
     public void filterByJob(){
         List<CDeadline> sortDeadlines = new ArrayList<>();
         List<CDeadline> oldDeadlines = new ArrayList<>();
+        List<Integer> sortIds = new ArrayList<>();
+        List<Integer> oldIds = new ArrayList<>();
+
         // Job
-        int nTypeToGet = 1;
+        int nTypeToGet = 2;
         for(int i = 0; i < aTest.length; i++){
-            if(aTest[i] != null)
+            if(aTest[i] != null){
                 oldDeadlines.add(aTest[i]);
+                oldIds.add(global.IDArray[i]);
+            }
         }
         while(oldDeadlines.size() > 0) {
             for (int i = 0; i < oldDeadlines.size();) {
                 if(oldDeadlines.get(i).getTypeID() == nTypeToGet){
                     sortDeadlines.add(new CDeadline(oldDeadlines.get(i)));
                     oldDeadlines.remove(i);
+                    sortIds.add(oldIds.get(i));
+                    oldIds.remove(i);
                 }
                 else
                     i++;
             }
-            if(0 == nTypeToGet)
-                nTypeToGet = 2;
+            if(2 == nTypeToGet)
+                nTypeToGet = 0;
             else
-                nTypeToGet -= 1;
+                nTypeToGet += 1;
         }
 
         for(int i = 0; i < aTest.length; i++){
             if(aTest[i] != null) {
                 aTest[i] = sortDeadlines.get(0);
                 sortDeadlines.remove(0);
+                global.IDArray[i] = sortIds.get(0);
+                sortIds.remove(0);
             }
         }
     }
