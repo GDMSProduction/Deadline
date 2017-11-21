@@ -9,23 +9,24 @@ public class CTask extends CDeadline implements Serializable {
 
     private List<CJob> m_JobList = new ArrayList<>();
 
-   // private static int typeID = 2;
+   private static int typeID = 1;
 
     public CTask() {
-        setTypeID(2);
+        //setTypeID(2);
     }
     public CTask(String Name, String Deadline, String Summary, Boolean Complete) {
 
         super(Name, Deadline, Summary, Complete);
-        setTypeID(2);
+        //setTypeID(2);
     }
     public CTask(CTask task) {
         super(task.getName(), task.getDeadline(), task.getSummary(), task.getComplete());
-        setTypeID(2);
+        //setTypeID(2);
     }
 
-    /*@Override
-    public int getTypeID() {return typeID;}*/
+    @Override
+    public int getTypeID() {return typeID;}
+
 
     // JobList Get + Set
     public List<CJob> getJobList() { return m_JobList; }
