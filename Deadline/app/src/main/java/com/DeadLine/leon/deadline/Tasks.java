@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class Tasks extends AppCompatActivity {
 
-    private Button Butt_Home;
+    private Button Butt_Home, Butt_Edit;
     private ImageButton Create_Task, Butt_Name_Sort, Butt_Date_Sort;
     private boolean bSort_Switch = false;
 
@@ -75,6 +75,19 @@ public class Tasks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+/*
+        Butt_Edit = (Button) findViewById(R.id.editTask);
+        Butt_Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CStoreIDs)getApplication()).getProjectID().toString() != null){
+                    Intent intent = new Intent(Tasks.this, EditTask.class);
+                    startActivity(intent);
+                }
+            }
+        });
+*/
 
         mAuth = FirebaseAuth.getInstance();
 

@@ -34,7 +34,7 @@ public class Projects extends AppCompatActivity {
     private ImageButton Create_Project, Butt_Sort, Butt_Filter;
     private boolean bSort_Switch = false;
 
-    private Button Butt_Home;
+    private Button Butt_Home, Butt_Edit;
 
     private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -107,6 +107,17 @@ public class Projects extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Projects.this, HomeScreen.class);
                 startActivity(intent);
+            }
+        });
+
+        Butt_Edit = (Button) findViewById(R.id.editProj);
+        Butt_Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CStoreIDs)getApplication()).getProjectID().toString() != null){
+                    Intent intent = new Intent(Projects.this, EditProject.class);
+                    startActivity(intent);
+                }
             }
         });
 

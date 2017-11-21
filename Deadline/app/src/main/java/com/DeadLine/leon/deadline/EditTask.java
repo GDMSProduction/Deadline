@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.widget.AdapterView;
 import android.widget.CheckBox;
@@ -30,6 +33,8 @@ public class EditTask extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser user;
 
+    private DatabaseReference mDataBase;
+
     private Calendar currentDay;
     private Calendar validDate;
 
@@ -46,14 +51,26 @@ public class EditTask extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("projects");
-        ref = ref.child(((CStoreIDs)getApplication()).getProjectID()).child(((CStoreIDs)getApplication()).getTaskID());
+        ref = ref;
         tName = (EditText) findViewById(R.id.taskName);
-        tName.setText(ref.child("name").toString());
         tDate = (DatePicker) findViewById(R.id.datePicker);
         tSummary = (EditText) findViewById(R.id.taskDescription);
-        tSummary.setText(ref.child("summary").toString());
         tComplete = (CheckBox) findViewById(R.id.taskComplete);
         tComplete.setChecked(false);
+        mDataBase = FirebaseDatabase.getInstance().getReference("projects").child(((CStoreIDs)getApplication()).getProjectID()).child(((CStoreIDs)getApplication()).getTaskID());
+        mDataBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                tName.setText(dataSnapshot.child("name").getValue().toString());
+                tSummary.setText(dataSnapshot.child("summary").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         Butt_Cancel = (Button) findViewById(R.id.projEditCancel);
         Butt_Cancel.setOnClickListener(new View.OnClickListener() {
